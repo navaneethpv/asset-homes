@@ -44,22 +44,23 @@ export default function AssetShowcase() {
         </div>
 
         {/* Feature Signature Asset (Big Banner) */}
-        <div className="relative w-full aspect-21/10 sm:aspect-21/9 overflow-hidden shadow-2xl mb-12 bg-brand-beige group">
+        <div className="relative w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden shadow-xl mb-16 bg-brand-beige group">
           <Image
             src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200"
             alt="The Signature Tower on Abu Dhabi Corniche"
             fill
-            className="object-cover transform group-hover:scale-103 transition-transform duration-2000 ease-out"
+            className="object-cover transform group-hover:scale-102 transition-transform duration-[2000ms] ease-out will-change-transform"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-brand-black/50 via-transparent to-brand-black/10" />
+          {/* Subtle linear overlay to guarantee excellent text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-brand-black/35 to-transparent" />
 
-          {/* Overlapping Info Card */}
-          <div className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 md:max-w-md bg-brand-black/80 backdrop-blur-md border border-brand-gold/25 p-6 sm:p-8 text-brand-cream">
-            <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-2">
+          {/* Integrated Text Overlay (No Box) */}
+          <div className="absolute bottom-8 left-8 right-8 sm:bottom-12 sm:left-12 max-w-xl text-brand-cream">
+            <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-3">
               Signature Asset
             </span>
-            <h3 className="font-serif text-xl sm:text-2xl font-medium mb-3">
+            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-medium mb-4 leading-tight">
               The Corniche Tower
             </h3>
             <p className="text-xs sm:text-sm font-sans font-light text-brand-cream/80 leading-relaxed mb-6">
@@ -67,34 +68,49 @@ export default function AssetShowcase() {
             </p>
             <Link
               href="#contact"
-              className="inline-flex items-center gap-1 text-xs font-sans font-bold tracking-wider text-brand-gold hover:text-brand-gold-dark uppercase transition-colors duration-300"
+              className="inline-flex items-center gap-3 group/link text-[10px] font-sans font-bold tracking-widest text-brand-gold hover:text-brand-gold-dark uppercase transition-colors duration-300"
             >
-              Consult portfolio options
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <span>Consult portfolio options</span>
+              <div className="flex items-center">
+                <div className="w-12 h-px bg-brand-gold/60 group-hover/link:w-16 transition-all duration-300" />
+                <span className="text-[10px] -ml-px transition-transform duration-300 group-hover/link:translate-x-1.5">→</span>
+              </div>
             </Link>
           </div>
         </div>
 
-        {/* Multi-column minor showcases */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {assets.map((asset) => (
-            <div key={asset.name} className="group flex flex-col bg-white border border-brand-gold/10 p-3 transition-all duration-300 hover:border-brand-gold/25">
-              <div className="relative aspect-4/3 w-full overflow-hidden bg-brand-beige mb-4">
+        {/* Multi-column minor showcases (Staggered layout on larger screens) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-24">
+          {assets.map((asset, idx) => (
+            <div
+              key={asset.name}
+              className={`group flex flex-col bg-transparent transition-all duration-300 ${
+                idx === 1 ? "md:translate-y-10" : ""
+              }`}
+            >
+              <div className="relative aspect-[3/2] w-full overflow-hidden bg-brand-beige mb-6 shadow-md">
                 <Image
                   src={asset.image}
                   alt={asset.name}
                   fill
-                  className="object-cover transform group-hover:scale-105 transition-transform duration-1200 ease-out"
+                  className="object-cover transform group-hover:scale-103 transition-transform duration-[1200ms] ease-out will-change-transform"
                   sizes="(max-width: 768px) 100vw, 30vw"
                 />
               </div>
-              <div className="px-1 pb-2">
-                <h4 className="font-serif text-base font-semibold text-brand-black mb-1 group-hover:text-brand-gold transition-colors duration-300">
+              <div className="px-1">
+                <span className="text-[9px] font-sans font-bold text-brand-gold uppercase tracking-[0.2em] mb-2 block">
+                  {asset.location}
+                </span>
+                <h4 className="font-serif text-lg sm:text-xl font-medium text-brand-black mb-3 group-hover:text-brand-gold transition-colors duration-300">
                   {asset.name}
                 </h4>
-                <p className="text-xs font-sans font-medium text-brand-charcoal-light uppercase tracking-wider">
-                  {asset.location}
-                </p>
+                <Link
+                  href="#contact"
+                  className="inline-flex items-center gap-2 group/link text-[9px] font-sans font-bold tracking-widest text-brand-gold hover:text-brand-gold-dark uppercase transition-colors duration-300"
+                >
+                  <span>Explore Asset</span>
+                  <span className="transition-transform duration-300 group-hover/link:translate-x-1">→</span>
+                </Link>
               </div>
             </div>
           ))}

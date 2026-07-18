@@ -169,14 +169,14 @@ export default function WhyChooseUs() {
     <section ref={containerRef} id="why-choose-us" className="bg-brand-beige py-24 sm:py-20">
       <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         {/* Main Section Header */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <span className="text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
             Why Choose Us
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black mb-6 leading-tight">
             Why Property Owners <span className="text-brand-gold italic">Choose</span> Asset Homes
           </h2>
-          <p className="text-brand-charcoal-light text-base font-sans leading-relaxed max-w-2xl">
+          <p className="text-brand-charcoal-light text-base font-sans leading-relaxed max-w-2xl mx-auto">
             We combine local expertise, transparent management, and proactive property care to protect your investment while delivering exceptional experiences for owners and tenants.
           </p>
         </div>
