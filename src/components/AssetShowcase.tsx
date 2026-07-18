@@ -63,12 +63,12 @@ export default function AssetShowcase() {
 
         // Clip-path mask reveal for the big Signature Banner
         gsap.fromTo(".signature-parallax-container",
-          { clipPath: "polygon(0 60%, 100% 60%, 100% 100%, 0 100%)", opacity: 0 },
+          { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)", opacity: 0 },
           {
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
             opacity: 1,
-            duration: 0.8,
-            ease: "power2.out",
+            duration: 1.2,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: ".signature-parallax-container",
               start: "top 95%",
@@ -157,7 +157,7 @@ export default function AssetShowcase() {
         {/* Feature Signature Asset (Big Banner) */}
         <div 
           className="signature-parallax-container relative w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden shadow-xl mb-16 bg-brand-beige group opacity-0 transition-transform duration-[800ms] ease-out-expo hover:scale-[1.01] hover:shadow-2xl"
-          style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
+          style={{ clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" }}
         >
           {/* Inner parallax container to hold the image */}
           <div className="signature-parallax-img absolute inset-0 w-full h-[115%] -top-[7.5%]">
