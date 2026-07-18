@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
@@ -18,15 +19,17 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-brand-gold/10 bg-brand-cream/80 backdrop-blur-md transition-colors duration-300">
-      <div className="w-full flex h-20 items-center justify-between px-6 sm:px-12 lg:px-20 xl:px-32">
+      <div className="w-full flex h-24 items-center justify-between px-6 sm:px-12 lg:px-20 xl:px-32">
         {/* Brand Logo */}
-        <Link href="/" className="group flex flex-col justify-center">
-          <span className="font-serif text-xl font-bold tracking-tight text-brand-black transition-colors duration-300 sm:text-2xl">
-            ASSET HOMES
-          </span>
-          <span className="text-[9px] font-sans font-semibold tracking-[0.25em] text-brand-gold uppercase -mt-1 group-hover:text-brand-gold-dark transition-colors duration-300">
-            Property Management
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="Asset Homes Property Management Logo"
+            width={180}
+            height={100}
+            className="h-18 w-auto object-contain brightness-0"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}

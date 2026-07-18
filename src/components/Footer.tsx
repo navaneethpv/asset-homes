@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
@@ -43,12 +44,14 @@ export default function Footer() {
           
           {/* Column 1: Branding */}
           <div className="flex flex-col">
-            <span className="font-serif text-xl font-bold tracking-tight text-white uppercase">
-              ASSET HOMES
-            </span>
-            <span className="text-[9px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mt-1 mb-6">
-              Property Management LLC
-            </span>
+            <Image
+              src="/logo.png"
+              alt="Asset Homes Property Management Logo"
+              width={160}
+              height={90}
+              className="h-16 w-auto object-contain mb-6"
+              priority
+            />
             <p className="text-xs sm:text-sm font-sans font-light text-brand-cream/60 leading-relaxed">
               Premium, institutional-grade property lifecycle operations for real estate investors and developers across Abu Dhabi.
             </p>
