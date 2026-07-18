@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ShieldCheck, Eye, Compass } from "lucide-react";
+import { ShieldCheck, Eye, Compass, ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -18,6 +18,8 @@ interface Step {
 }
 
 export default function OperationalRoadmap() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const steps: Step[] = [
     {
       num: "01",
@@ -144,8 +146,12 @@ export default function OperationalRoadmap() {
           // Card width transitions timeline distribution
           const cardDuration = 1 / (cards.length - 1);
 
+          // Initial state callback
+          tl.call(() => setActiveIndex(0), undefined, 0);
+
           for (let i = 0; i < cards.length - 1; i++) {
             const startTime = i * cardDuration;
+            const midTime = startTime + cardDuration * 0.5;
 
             // Collapse card i
             tl.to(`.roadmap-card-${i}`, { width: "240px", duration: cardDuration, ease: "power2.inOut" }, startTime)
@@ -156,6 +162,11 @@ export default function OperationalRoadmap() {
             tl.to(`.roadmap-card-${i+1}`, { width: "560px", duration: cardDuration, ease: "power2.inOut" }, startTime)
               .to(`.roadmap-card-desc-${i+1}`, { opacity: 1, duration: cardDuration * 0.4, ease: "power2.inOut" }, startTime + cardDuration * 0.5)
               .to(`.roadmap-card-overlay-${i+1}`, { opacity: 0.35, duration: cardDuration, ease: "power2.inOut" }, startTime);
+
+            // Update active index state for bottom dashes indicator
+            tl.call(() => setActiveIndex(i + 1), undefined, midTime);
+            // Reverse callback for scrolling up
+            tl.call(() => setActiveIndex(i), undefined, startTime);
           }
         });
 
@@ -189,10 +200,10 @@ export default function OperationalRoadmap() {
       id="methodology" 
       className="bg-brand-beige py-20 lg:py-0 lg:h-screen flex flex-col justify-center overflow-hidden"
     >
-      <div className="w-full max-w-none flex flex-col h-full lg:justify-between py-12 lg:py-24">
+      <div className="w-full max-w-none flex flex-col h-full lg:justify-between py-12 lg:py-16">
         
         {/* Section Header */}
-        <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-32 mb-10 shrink-0">
+        <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-32 mb-6 shrink-0">
           <span className="roadmap-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-3 block opacity-0">
             Our Methodology
           </span>
@@ -202,12 +213,12 @@ export default function OperationalRoadmap() {
         </div>
 
         {/* DESKTOP TIMELINE: Pinned track */}
-        <div className="hidden lg:block w-full overflow-hidden select-none mb-12">
+        <div className="hidden lg:block w-full overflow-hidden select-none mb-6">
           <div ref={trackRef} className="flex gap-6 px-6 sm:px-12 lg:px-20 xl:px-32 w-max">
             {steps.map((step, idx) => (
               <div
                 key={step.num}
-                className={`roadmap-card roadmap-card-${idx} relative h-[420px] shrink-0 overflow-hidden bg-brand-cream border border-brand-gold/15`}
+                className={`roadmap-card roadmap-card-${idx} relative h-[400px] shrink-0 overflow-hidden bg-brand-cream border border-brand-gold/15 group/card transition-colors duration-500`}
                 style={{ width: idx === 0 ? "560px" : "240px" }}
               >
                 {/* Background image panel */}
@@ -215,23 +226,28 @@ export default function OperationalRoadmap() {
                   src={step.image}
                   alt={step.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-[4000ms] ease-out group-hover/card:scale-105"
                   sizes="560px"
                 />
                 
                 {/* Visual filter overlay */}
                 <div
-                  className={`roadmap-card-overlay-${idx} absolute inset-0 bg-brand-black z-10 transition-opacity duration-300`}
+                  className={`roadmap-card-overlay-${idx} absolute inset-0 bg-brand-black/90 z-10 transition-opacity duration-500`}
                   style={{ opacity: idx === 0 ? 0.35 : 0.75 }}
                 />
+
+                {/* Massive serif outline watermark */}
+                <span className="absolute right-6 top-2 font-serif text-[110px] font-bold text-white/5 select-none leading-none z-10 tracking-tight">
+                  {step.num}
+                </span>
 
                 {/* Fixed-width content container (doesn't squish during width animation) */}
                 <div className="absolute inset-0 p-8 flex flex-col justify-between text-brand-cream z-20 w-[480px]">
                   <div>
-                    <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-3">
+                    <span className="text-[9px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-3">
                       {step.num} / Stage
                     </span>
-                    <h3 className="font-serif text-2xl font-medium tracking-tight text-white mb-2">
+                    <h3 className="font-serif text-xl font-medium tracking-tight text-white mb-2 group-hover/card:text-brand-gold transition-colors duration-300">
                       {step.title}
                     </h3>
                   </div>
@@ -240,14 +256,40 @@ export default function OperationalRoadmap() {
                     className={`roadmap-card-desc-${idx} transition-opacity duration-300`}
                     style={{ opacity: idx === 0 ? 1 : 0 }}
                   >
-                    <p className="text-xs sm:text-sm font-sans font-light text-brand-cream/80 leading-relaxed pr-8">
+                    <p className="text-xs sm:text-sm font-sans font-light text-brand-cream/85 leading-relaxed pr-8">
                       {step.description}
                     </p>
                   </div>
+                  
+                  {/* Micro Hint for collapsed cards */}
+                  {idx !== activeIndex && (
+                    <div className="flex items-center gap-2 text-brand-gold/60 text-[9px] font-sans tracking-wider uppercase group-hover/card:text-brand-gold transition-colors duration-300">
+                      <span>View details</span>
+                      <ArrowRight className="w-3 h-3 transform group-hover/card:translate-x-1 transition-transform duration-300" />
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Dynamic Progress Dashes (Desktop only) */}
+        <div className="hidden lg:flex justify-center gap-8 mb-8 shrink-0">
+          {steps.map((step, idx) => (
+            <div key={step.num} className="flex flex-col items-center">
+              <div 
+                className={`h-[2px] transition-all duration-500 rounded-full ${
+                  activeIndex === idx ? "w-16 bg-brand-gold" : "w-6 bg-brand-gold/25"
+                }`} 
+              />
+              <span className={`text-[9px] font-sans font-bold tracking-widest mt-2 transition-colors duration-300 ${
+                activeIndex === idx ? "text-brand-gold" : "text-brand-charcoal-light/40"
+              }`}>
+                {step.num}
+              </span>
+            </div>
+          ))}
         </div>
 
         {/* MOBILE TIMELINE: Stacked cards */}
