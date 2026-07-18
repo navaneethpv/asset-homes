@@ -45,7 +45,7 @@ export default function Navbar() {
               trigger: "body",
               start: "top top",
               end: "bottom bottom",
-              scrub: true,
+              scrub: 0.3,
             }
           }
         );

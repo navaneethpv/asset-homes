@@ -59,31 +59,32 @@ export default function AssetShowcase() {
         gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: "top 80%",
+            start: "top 95%",
             toggleActions: "play none none none",
           }
         })
         .fromTo(".portfolio-eyebrow",
           { opacity: 0, y: 15 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+          { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
         )
         .fromTo(".portfolio-heading",
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
-          "-=0.4"
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+          "-=0.3"
         );
 
         // Clip-path mask reveal for the big Signature Banner
         if (signatureWrapper) {
           gsap.fromTo(signatureWrapper,
-            { clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" },
+            { clipPath: "polygon(0 60%, 100% 60%, 100% 100%, 0 100%)", opacity: 0 },
             {
               clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-              duration: 1.4,
-              ease: "power4.inOut",
+              opacity: 1,
+              duration: 0.8,
+              ease: "power2.out",
               scrollTrigger: {
                 trigger: signatureWrapper,
-                start: "top 80%",
+                start: "top 95%",
                 toggleActions: "play none none none",
               }
             }
@@ -92,91 +93,87 @@ export default function AssetShowcase() {
 
         // Entrance for Minor Showcases
         gsap.fromTo(".portfolio-card",
-          { opacity: 0, y: 40 },
+          { opacity: 0, y: 25 },
           {
             opacity: 1,
             y: 0,
-            duration: 1,
-            ease: "power3.out",
-            stagger: 0.15,
+            duration: 0.7,
+            ease: "power2.out",
+            stagger: 0.08,
             scrollTrigger: {
               trigger: ".portfolio-cards-grid",
-              start: "top 80%",
+              start: "top 95%",
               toggleActions: "play none none none",
             }
           }
         );
 
-        // Independent Parallax speeds (Only on desktop)
+        // Independent Parallax speeds on the images (Only on desktop)
         const mm = gsap.matchMedia();
         mm.add("(min-width: 1024px)", () => {
-          // Signature image parallax (0.08 speed -> yPercent: 10)
+          // Signature image parallax (yPercent mapping, no scale mapping so we don't fight hover transitions)
           if (signatureImage) {
             gsap.fromTo(signatureImage,
-              { yPercent: 0, scale: 1.1 },
+              { yPercent: 0 },
               {
-                yPercent: -10,
-                scale: 1.1,
+                yPercent: -8,
                 ease: "none",
                 scrollTrigger: {
                   trigger: signatureWrapper,
                   start: "top bottom",
                   end: "bottom top",
-                  scrub: true,
+                  scrub: 0.5,
                 }
               }
             );
           }
 
-          // Asset 1 Image parallax (0.10 speed -> yPercent: -12)
+          // Asset 1 Image parallax
           if (img1) {
             gsap.fromTo(img1,
-              { yPercent: 5, scale: 1.15 },
+              { yPercent: 0 },
               {
                 yPercent: -10,
-                scale: 1.15,
                 ease: "none",
                 scrollTrigger: {
                   trigger: img1.parentElement,
                   start: "top bottom",
                   end: "bottom top",
-                  scrub: true,
+                  scrub: 0.5,
                 }
               }
             );
           }
 
-          // Asset 2 Image parallax (0.07 speed -> yPercent: -8)
+          // Asset 2 Image parallax
           if (img2) {
             gsap.fromTo(img2,
-              { yPercent: 4, scale: 1.12 },
+              { yPercent: 0 },
               {
                 yPercent: -7,
-                scale: 1.12,
                 ease: "none",
                 scrollTrigger: {
                   trigger: img2.parentElement,
                   start: "top bottom",
                   end: "bottom top",
-                  scrub: true,
+                  scrub: 0.5,
                 }
               }
             );
           }
 
-          // Asset 3 Image parallax (0.05 speed -> yPercent: -5)
+          // Asset 3 Image parallax
           if (img3) {
             gsap.fromTo(img3,
-              { yPercent: 3, scale: 1.1 },
+              { yPercent: 0 },
               {
                 yPercent: -5,
-                scale: 1.1,
                 ease: "none",
                 scrollTrigger: {
                   trigger: img3.parentElement,
                   start: "top bottom",
                   end: "bottom top",
-                  scrub: true,
+                  scrub: 0.5,
                 }
               }
             );
@@ -188,7 +185,6 @@ export default function AssetShowcase() {
     return () => ctx.revert();
   }, []);
 
-  // Map each card image ref based on index
   const getImageRef = (idx: number) => {
     if (idx === 0) return card1ImageRef;
     if (idx === 1) return card2ImageRef;
@@ -212,23 +208,26 @@ export default function AssetShowcase() {
         {/* Feature Signature Asset (Big Banner) */}
         <div 
           ref={signatureWrapperRef}
-          className="relative w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden shadow-xl mb-16 bg-brand-beige group"
+          className="relative w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden shadow-xl mb-16 bg-brand-beige group opacity-0 transition-transform duration-[800ms] ease-out-expo hover:scale-[1.01] hover:shadow-2xl"
           style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
         >
-          <Image
-            ref={signatureImageRef}
-            src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200"
-            alt="The Signature Tower on Abu Dhabi Corniche"
-            fill
-            className="object-cover transform group-hover:scale-102 transition-transform duration-[2000ms] ease-out will-change-transform"
-            sizes="100vw"
-            priority
-          />
+          {/* Inner parallax container to hold the image */}
+          <div className="absolute inset-0 w-full h-[115%] -top-[7.5%]">
+            <Image
+              ref={signatureImageRef}
+              src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200"
+              alt="The Signature Tower on Abu Dhabi Corniche"
+              fill
+              className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-103"
+              sizes="100vw"
+              priority
+            />
+          </div>
           {/* Subtle linear overlay to guarantee excellent text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-brand-black/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-black/85 via-brand-black/35 to-transparent z-10" />
 
           {/* Integrated Text Overlay (No Box) */}
-          <div className="absolute bottom-8 left-8 right-8 sm:bottom-12 sm:left-12 max-w-xl text-brand-cream">
+          <div className="absolute bottom-8 left-8 right-8 sm:bottom-12 sm:left-12 max-w-xl text-brand-cream z-20">
             <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-3">
               Signature Asset
             </span>
@@ -256,19 +255,23 @@ export default function AssetShowcase() {
           {assets.map((asset, idx) => (
             <div
               key={asset.name}
-              className={`portfolio-card group flex flex-col bg-transparent transition-all duration-300 opacity-0 ${
+              className={`portfolio-card group flex flex-col bg-transparent opacity-0 ${
                 idx === 1 ? "md:translate-y-10" : ""
               }`}
             >
-              <div className="relative aspect-[3/2] w-full overflow-hidden bg-brand-beige mb-6 shadow-md">
-                <Image
-                  ref={getImageRef(idx)}
-                  src={asset.image}
-                  alt={asset.name}
-                  fill
-                  className="object-cover transform group-hover:scale-103 transition-transform duration-[1200ms] ease-out will-change-transform"
-                  sizes="(max-width: 768px) 100vw, 30vw"
-                />
+              {/* Image container is the scale-wrapper on hover */}
+              <div className="relative aspect-[3/2] w-full overflow-hidden bg-brand-beige mb-6 shadow-md transition-transform duration-[800ms] ease-out-expo group-hover:scale-[1.03] group-hover:shadow-lg">
+                {/* Inner parallax container is 115% height to accommodate yPercent shifts without white spaces */}
+                <div className="absolute inset-0 w-full h-[115%] -top-[7.5%]">
+                  <Image
+                    ref={getImageRef(idx)}
+                    src={asset.image}
+                    alt={asset.name}
+                    fill
+                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-102"
+                    sizes="(max-width: 768px) 100vw, 30vw"
+                  />
+                </div>
               </div>
               <div className="px-1">
                 <span className="text-[9px] font-sans font-bold text-brand-gold uppercase tracking-[0.2em] mb-2 block">

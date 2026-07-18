@@ -37,7 +37,7 @@ export default function Footer() {
               trigger: banner,
               start: "top 92%",
               end: "top 65%",
-              scrub: true,
+              scrub: 0.5,
             }
           }
         );

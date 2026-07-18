@@ -23,27 +23,29 @@ export default function Home() {
       // Global Section Transitions: focus fading on scroll
       const sections = gsap.utils.toArray("section, footer");
       sections.forEach((sec: any) => {
-        // Subtle focus loss when leaving the viewport (100% -> 92% opacity)
+        // One-time smooth fade-out (opacity 92%) when section leaves focus
         gsap.to(sec, {
           opacity: 0.92,
+          duration: 0.6,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: sec,
             start: "bottom 85%",
-            end: "bottom top",
-            scrub: true,
+            toggleActions: "play reverse play reverse",
           }
         });
 
-        // Subtle focus gain when entering the viewport
+        // One-time smooth focus-gain (opacity 100%) when section enters focus
         gsap.fromTo(sec,
           { opacity: 0.92 },
           {
             opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: sec,
               start: "top 95%",
-              end: "top 75%",
-              scrub: true,
+              toggleActions: "play reverse play reverse",
             }
           }
         );
