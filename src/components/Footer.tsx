@@ -15,21 +15,36 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-brand-black text-brand-cream border-t border-brand-gold/10">
       
-      {/* Top CTA Banner */}
-      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 py-16 sm:py-20 lg:py-24 border-b border-brand-cream/10">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
-          <div className="max-w-xl">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-4 leading-tight">
-              Let’s Protect Your Investment.
+      {/* Top CTA Banner with Background Image */}
+      <div className="relative w-full max-w-none py-24 sm:py-32 overflow-hidden border-b border-brand-cream/10 group">
+        {/* Background Image */}
+        <Image
+          src="/cta_bg.png"
+          alt="Luxury property heritage background"
+          fill
+          className="object-cover object-center transform group-hover:scale-105 transition-transform duration-[10000ms] ease-out"
+          priority
+        />
+        {/* Dark Cinematic Overlay */}
+        <div className="absolute inset-0 bg-brand-black/85 backdrop-blur-[2px] z-10" />
+
+        {/* Content Container */}
+        <div className="relative z-20 w-full px-6 sm:px-12 lg:px-20 xl:px-32 flex flex-col md:flex-row md:items-center justify-between gap-10">
+          <div className="max-w-2xl">
+            <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
+              ADVISORY & INTAKE
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-6 leading-tight">
+              Let’s Protect Your <span className="text-brand-gold italic">Investment</span>.
             </h2>
-            <p className="text-brand-cream/70 text-sm sm:text-base font-sans font-light leading-relaxed">
+            <p className="text-brand-cream/80 text-sm sm:text-base font-sans font-light leading-relaxed">
               Connect with our property advisors in Abu Dhabi to schedule a comprehensive portfolio review or discuss custom management plans.
             </p>
           </div>
-          <div>
+          <div className="shrink-0">
             <Link
               href="mailto:advisory@assethomes.ae"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand-black hover:bg-brand-gold hover:text-brand-black text-xs font-sans font-semibold tracking-wider uppercase transition-all duration-300 shadow-lg"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand-black hover:bg-brand-gold hover:text-brand-black text-[10px] font-sans font-bold tracking-widest uppercase transition-all duration-300 border border-white hover:border-brand-gold shadow-none"
             >
               Schedule Consultation
               <ArrowUpRight className="w-4 h-4" />

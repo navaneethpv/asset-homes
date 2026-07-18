@@ -15,9 +15,9 @@ interface BlockProps {
 
 function EditorialBlock({ num, title, description, image, imageAlt, reverse = false }: BlockProps) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center py-16 sm:py-24">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center py-12 sm:py-16">
       {/* Text block */}
-      <div className={`lg:col-span-5 flex flex-col justify-center ${reverse ? "lg:order-2 lg:col-start-8" : "lg:order-1 lg:col-start-1"}`}>
+      <div className={`lg:col-span-6 flex flex-col justify-center ${reverse ? "lg:order-2" : "lg:order-1"}`}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,8 +54,8 @@ function EditorialBlock({ num, title, description, image, imageAlt, reverse = fa
       </div>
 
       {/* Image block */}
-      <div className={`lg:col-span-6 ${reverse ? "lg:order-1 lg:col-start-1" : "lg:order-2 lg:col-start-7"}`}>
-        <div className={`relative aspect-4/3 w-full overflow-hidden bg-brand-beige shadow-xl ${reverse ? "rounded-tr-[120px] sm:rounded-tr-[180px]" : "rounded-tl-[120px] sm:rounded-tl-[180px]"}`}>
+      <div className={`lg:col-span-6 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
+        <div className="relative aspect-[3/2] w-full overflow-hidden bg-brand-beige shadow-xl">
           <motion.div
             initial={{ opacity: 0, scale: 1.05 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -112,14 +112,14 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section id="why-choose-us" className="bg-brand-cream py-24 sm:py-32">
+    <section id="why-choose-us" className="bg-brand-beige py-24 sm:py-20">
       <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         {/* Main Section Header */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
+        <div className="max-w-3xl mb-10 sm:mb-12">
           <span className="text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
             Why Choose Us
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black mb-6 leading-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black mb-6 leading-tight">
             Why Property Owners <span className="text-brand-gold italic">Choose</span> Asset Homes
           </h2>
           <p className="text-brand-charcoal-light text-base font-sans leading-relaxed max-w-2xl">
