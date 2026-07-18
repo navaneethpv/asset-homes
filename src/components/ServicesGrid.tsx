@@ -79,7 +79,7 @@ export default function ServicesGrid() {
   };
 
   return (
-    <section id="services" className="bg-brand-cream/10 py-20 sm:py-24 lg:py-32">
+    <section id="services" className="bg-brand-cream py-20 sm:py-24 lg:py-32">
       <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         
         {/* Header Content */}

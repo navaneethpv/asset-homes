@@ -108,7 +108,7 @@ export default function InstitutionalGrade() {
   ];
 
   return (
-    <section className="bg-brand-cream py-20 sm:py-24 lg:py-32 border-t border-brand-gold/10">
+    <section className="bg-brand-beige py-20 sm:py-24 lg:py-32">
       <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         
         {/* Main Section Header */}

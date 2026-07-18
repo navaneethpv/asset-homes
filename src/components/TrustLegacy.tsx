@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function TrustLegacy() {
   return (
-    <section id="heritage" className="bg-brand-cream/40 py-20 sm:py-24 lg:py-32">
+    <section id="heritage" className="bg-brand-beige py-20 sm:py-24 lg:py-32">
       <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -34,7 +34,7 @@ export default function TrustLegacy() {
 
           {/* Right Column (Offset image layout) */}
           <div className="lg:col-span-6 order-1 lg:order-2">
-            <div className="relative w-full aspect-4/5 sm:aspect-square lg:aspect-4/5 overflow-hidden shadow-xl">
+            <div className="relative w-full aspect-16/10 sm:aspect-video lg:aspect-16/10 overflow-hidden shadow-xl">
               <motion.div
                 initial={{ scale: 1.05, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
