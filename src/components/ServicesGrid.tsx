@@ -111,38 +111,37 @@ export default function ServicesGrid() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-brand-gold/10"
         >
           {services.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="group flex flex-col bg-white border border-brand-gold/10 p-5 transition-all duration-300 hover:border-brand-gold/25 hover:shadow-xl"
+              className="group flex flex-col bg-transparent border-r border-b border-brand-gold/10 p-6 lg:p-8 transition-colors duration-500 hover:bg-brand-gold/[0.02]"
             >
               {/* Image Container */}
-              <div className="relative aspect-4/3 w-full overflow-hidden mb-6 bg-brand-beige">
-                {/* Number Overlay */}
-                <div className="absolute top-4 left-4 z-10 flex flex-col items-start pointer-events-none">
-                  <span className="font-serif text-lg font-semibold text-brand-gold leading-none drop-shadow-xs">
-                    {service.num}
-                  </span>
-                  <div className="h-px w-6 bg-brand-gold mt-1" />
-                </div>
-                
+              <div className="relative aspect-[16/10] w-full overflow-hidden mb-6 bg-brand-beige">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-cover transform group-hover:scale-105 transition-transform duration-1200 ease-out"
+                  className="object-cover transform group-hover:scale-103 transition-transform duration-[1200ms] ease-out will-change-transform"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>
 
               {/* Text content */}
               <div className="flex flex-col grow">
-                <h3 className="font-serif text-lg font-medium text-brand-black mb-3">
+                {/* Number and Title */}
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="font-serif text-xs font-semibold text-brand-gold tracking-widest">{service.num}</span>
+                  <div className="h-px w-4 bg-brand-gold/30" />
+                </div>
+                
+                <h3 className="font-serif text-xl font-medium text-brand-black mb-3 leading-tight group-hover:text-brand-gold transition-colors duration-300">
                   {service.title}
                 </h3>
+                
                 <p className="text-brand-charcoal-light text-sm font-sans leading-relaxed mb-6 grow">
                   {service.description}
                 </p>
@@ -156,7 +155,7 @@ export default function ServicesGrid() {
                     <span>Learn More</span>
                     <div className="flex items-center">
                       <div className="w-12 h-px bg-brand-gold/60 group-hover/link:w-16 transition-all duration-300" />
-                      <span className="text-[10px] -ml-px">→</span>
+                      <span className="text-[10px] -ml-px transition-transform duration-300 group-hover/link:translate-x-1.5">→</span>
                     </div>
                   </Link>
                 </div>
