@@ -1,9 +1,15 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface ServiceItem {
   num: string;
@@ -14,6 +20,8 @@ interface ServiceItem {
 }
 
 export default function ServicesGrid() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   const services: ServiceItem[] = [
     {
       num: "01",
@@ -73,51 +81,72 @@ export default function ServicesGrid() {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const section = sectionRef.current;
+      if (section) {
+        // Staggered reveal of header
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          }
+        })
+        .fromTo(".services-eyebrow",
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+        )
+        .fromTo(".services-heading",
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+          "-=0.4"
+        )
+        .fromTo(".services-desc",
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+          "-=0.6"
+        )
+        .fromTo(".service-card",
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.1,
+          },
+          "-=0.4"
+        );
+      }
+    }, sectionRef);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-  };
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="services" className="bg-brand-cream py-20 sm:py-24 lg:py-32">
+    <section ref={sectionRef} id="services" className="bg-brand-cream py-20 sm:py-24 lg:py-32 overflow-hidden">
       <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         
         {/* Header Content */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <span className="text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
+          <span className="services-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block opacity-0">
             Our Services
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black mb-6 leading-tight">
+          <h2 className="services-heading font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black mb-6 leading-tight opacity-0">
             Comprehensive Property Management <span className="text-brand-gold italic">Solutions</span>
           </h2>
-          <p className="text-brand-charcoal-light text-base font-sans leading-relaxed max-w-2xl mx-auto">
+          <p className="services-desc text-brand-charcoal-light text-base font-sans leading-relaxed max-w-2xl mx-auto opacity-0">
             We provide end-to-end management services designed to protect your investment, enhance value, and deliver peace of mind.
           </p>
         </div>
 
         {/* Services Grid (4x2 on Large screens) */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 sm:border-t sm:border-l border-brand-gold/10"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 sm:border-t sm:border-l border-brand-gold/10">
           {services.map((service) => (
-            <motion.div
+            <div
               key={service.title}
-              variants={itemVariants}
-              className="group flex flex-col bg-transparent border-b border-brand-gold/10 last:border-b-0 sm:border-r sm:border-b sm:last:border-b-1 p-0 py-8 sm:p-6 lg:p-8 transition-colors duration-500 hover:bg-brand-gold/[0.02]"
+              className="service-card group flex flex-col bg-transparent border-b border-brand-gold/10 last:border-b-0 sm:border-r sm:border-b sm:last:border-b-1 p-0 py-8 sm:p-6 lg:p-8 transition-colors duration-500 hover:bg-brand-gold/[0.02] opacity-0"
             >
               {/* Image Container */}
               <div className="relative aspect-[16/10] w-full overflow-hidden mb-6 bg-brand-beige">
@@ -130,8 +159,8 @@ export default function ServicesGrid() {
                 />
               </div>
 
-              {/* Text content */}
-              <div className="flex flex-col grow">
+              {/* Text content - shifts 2px on hover */}
+              <div className="flex flex-col grow transform group-hover:translate-x-[2px] transition-transform duration-300">
                 {/* Number and Title */}
                 <div className="flex items-center gap-3 mb-2">
                   <span className="font-serif text-[10px] sm:text-xs font-semibold text-brand-gold tracking-widest">{service.num}</span>
@@ -160,9 +189,9 @@ export default function ServicesGrid() {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* View All Services CTA Button */}
         <div className="mt-16 text-center">

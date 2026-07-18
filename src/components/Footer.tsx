@@ -1,8 +1,15 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function Footer() {
   const quickLinks = [
@@ -12,11 +19,41 @@ export default function Footer() {
     { name: "Methodology", href: "#methodology" },
   ];
 
+  const ctaBannerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const banner = ctaBannerRef.current;
+      if (banner) {
+        gsap.fromTo(banner,
+          { scale: 0.94, opacity: 0, borderRadius: "16px" },
+          {
+            scale: 1,
+            opacity: 1,
+            borderRadius: "0px",
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: banner,
+              start: "top 92%",
+              end: "top 65%",
+              scrub: true,
+            }
+          }
+        );
+      }
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <footer id="contact" className="bg-brand-black text-brand-cream border-t border-brand-gold/10">
+    <footer id="contact" className="bg-brand-black text-brand-cream border-t border-brand-gold/10 overflow-hidden">
       
       {/* Top CTA Banner with Background Image */}
-      <div className="relative w-full max-w-none py-24 sm:py-32 overflow-hidden border-b border-brand-cream/10 group">
+      <div 
+        ref={ctaBannerRef}
+        className="relative w-full max-w-none py-24 sm:py-32 overflow-hidden border-b border-brand-cream/10 group origin-center opacity-0"
+      >
         {/* Background Image */}
         <Image
           src="/cta_bg.png"

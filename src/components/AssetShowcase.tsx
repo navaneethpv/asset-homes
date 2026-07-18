@@ -1,8 +1,15 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface SubAsset {
   name: string;
@@ -11,6 +18,14 @@ interface SubAsset {
 }
 
 export default function AssetShowcase() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const signatureWrapperRef = useRef<HTMLDivElement>(null);
+  const signatureImageRef = useRef<HTMLImageElement>(null);
+  
+  const card1ImageRef = useRef<HTMLImageElement>(null);
+  const card2ImageRef = useRef<HTMLImageElement>(null);
+  const card3ImageRef = useRef<HTMLImageElement>(null);
+
   const assets: SubAsset[] = [
     {
       name: "Saadiyat Beach Villas",
@@ -29,28 +44,185 @@ export default function AssetShowcase() {
     },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const section = sectionRef.current;
+      const signatureWrapper = signatureWrapperRef.current;
+      const signatureImage = signatureImageRef.current;
+      
+      const img1 = card1ImageRef.current;
+      const img2 = card2ImageRef.current;
+      const img3 = card3ImageRef.current;
+
+      if (section) {
+        // Entrance Header
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          }
+        })
+        .fromTo(".portfolio-eyebrow",
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+        )
+        .fromTo(".portfolio-heading",
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+          "-=0.4"
+        );
+
+        // Clip-path mask reveal for the big Signature Banner
+        if (signatureWrapper) {
+          gsap.fromTo(signatureWrapper,
+            { clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" },
+            {
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+              duration: 1.4,
+              ease: "power4.inOut",
+              scrollTrigger: {
+                trigger: signatureWrapper,
+                start: "top 80%",
+                toggleActions: "play none none none",
+              }
+            }
+          );
+        }
+
+        // Entrance for Minor Showcases
+        gsap.fromTo(".portfolio-card",
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            stagger: 0.15,
+            scrollTrigger: {
+              trigger: ".portfolio-cards-grid",
+              start: "top 80%",
+              toggleActions: "play none none none",
+            }
+          }
+        );
+
+        // Independent Parallax speeds (Only on desktop)
+        const mm = gsap.matchMedia();
+        mm.add("(min-width: 1024px)", () => {
+          // Signature image parallax (0.08 speed -> yPercent: 10)
+          if (signatureImage) {
+            gsap.fromTo(signatureImage,
+              { yPercent: 0, scale: 1.1 },
+              {
+                yPercent: -10,
+                scale: 1.1,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: signatureWrapper,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true,
+                }
+              }
+            );
+          }
+
+          // Asset 1 Image parallax (0.10 speed -> yPercent: -12)
+          if (img1) {
+            gsap.fromTo(img1,
+              { yPercent: 5, scale: 1.15 },
+              {
+                yPercent: -10,
+                scale: 1.15,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: img1.parentElement,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true,
+                }
+              }
+            );
+          }
+
+          // Asset 2 Image parallax (0.07 speed -> yPercent: -8)
+          if (img2) {
+            gsap.fromTo(img2,
+              { yPercent: 4, scale: 1.12 },
+              {
+                yPercent: -7,
+                scale: 1.12,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: img2.parentElement,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true,
+                }
+              }
+            );
+          }
+
+          // Asset 3 Image parallax (0.05 speed -> yPercent: -5)
+          if (img3) {
+            gsap.fromTo(img3,
+              { yPercent: 3, scale: 1.1 },
+              {
+                yPercent: -5,
+                scale: 1.1,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: img3.parentElement,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true,
+                }
+              }
+            );
+          }
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // Map each card image ref based on index
+  const getImageRef = (idx: number) => {
+    if (idx === 0) return card1ImageRef;
+    if (idx === 1) return card2ImageRef;
+    return card3ImageRef;
+  };
+
   return (
-    <section id="portfolio" className="bg-brand-cream py-20 sm:py-24 lg:py-32">
+    <section ref={sectionRef} id="portfolio" className="bg-brand-cream py-20 sm:py-24 lg:py-32 overflow-hidden">
       <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         
         {/* Section Header */}
         <div className="max-w-2xl mb-12 sm:mb-16">
-          <span className="text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
+          <span className="portfolio-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block opacity-0">
             Portfolio Showcase
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black leading-tight">
+          <h2 className="portfolio-heading font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black leading-tight opacity-0">
             Assets Under <span className="text-brand-gold italic">Stewardship</span>
           </h2>
         </div>
 
         {/* Feature Signature Asset (Big Banner) */}
-        <div className="relative w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden shadow-xl mb-16 bg-brand-beige group">
+        <div 
+          ref={signatureWrapperRef}
+          className="relative w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden shadow-xl mb-16 bg-brand-beige group"
+          style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
+        >
           <Image
+            ref={signatureImageRef}
             src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200"
             alt="The Signature Tower on Abu Dhabi Corniche"
             fill
             className="object-cover transform group-hover:scale-102 transition-transform duration-[2000ms] ease-out will-change-transform"
             sizes="100vw"
+            priority
           />
           {/* Subtle linear overlay to guarantee excellent text contrast */}
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-brand-black/35 to-transparent" />
@@ -80,16 +252,17 @@ export default function AssetShowcase() {
         </div>
 
         {/* Multi-column minor showcases (Staggered layout on larger screens) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-24">
+        <div className="portfolio-cards-grid grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-24">
           {assets.map((asset, idx) => (
             <div
               key={asset.name}
-              className={`group flex flex-col bg-transparent transition-all duration-300 ${
+              className={`portfolio-card group flex flex-col bg-transparent transition-all duration-300 opacity-0 ${
                 idx === 1 ? "md:translate-y-10" : ""
               }`}
             >
               <div className="relative aspect-[3/2] w-full overflow-hidden bg-brand-beige mb-6 shadow-md">
                 <Image
+                  ref={getImageRef(idx)}
                   src={asset.image}
                   alt={asset.name}
                   fill
