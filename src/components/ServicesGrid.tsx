@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 interface ServiceItem {
+  num: string;
   title: string;
   description: string;
   image: string;
@@ -14,51 +15,59 @@ interface ServiceItem {
 export default function ServicesGrid() {
   const services: ServiceItem[] = [
     {
-      title: "Residential Management",
-      description: "Bespoke operations and end-to-end leasing services for luxury towers and exclusive villa communities.",
+      num: "01",
+      title: "Property Management",
+      description: "Complete end-to-end management for residential and commercial properties.",
       image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=600",
       link: "#services",
     },
     {
-      title: "Commercial Operations",
-      description: "Maximizing value, driving tenancy, and streamlining maintenance for premium offices and retail centers.",
+      num: "02",
+      title: "Tenant Management",
+      description: "Professional tenant screening and relationship management.",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600",
+      link: "#services",
+    },
+    {
+      num: "03",
+      title: "Maintenance Services",
+      description: "Preventive and emergency maintenance to keep properties in excellent condition.",
+      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=600",
+      link: "#services",
+    },
+    {
+      num: "04",
+      title: "Infrastructure Management",
+      description: "Complete facility and infrastructure management solutions.",
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600",
       link: "#services",
     },
     {
-      title: "Facilities Engineering",
-      description: "Preventative MEP maintenance, energy audits, and smart building technology implementations.",
-      image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=600",
+      num: "05",
+      title: "Lease Management",
+      description: "Efficient lease administration and documentation.",
+      image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=600",
       link: "#services",
     },
     {
-      title: "Tenant Relations & Leasing",
-      description: "Seamless tenant onboarding, 24/7 helpdesk support, and proactive renewals that build high retention.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=600",
-      link: "#services",
-    },
-    {
-      title: "Financial Yield Strategy",
-      description: "Transparent financial reporting, operating budget design, cash-flow optimization, and yield reporting.",
+      num: "06",
+      title: "Financial Reporting",
+      description: "Transparent reporting and financial oversight for property owners.",
       image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=600",
       link: "#services",
     },
     {
-      title: "Regulatory Compliance",
-      description: "Navigating Abu Dhabi's property laws, municipality registrations, and health & safety compliance.",
-      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600",
+      num: "07",
+      title: "Compliance Management",
+      description: "Ensuring regulatory compliance and operational excellence.",
+      image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=600",
       link: "#services",
     },
     {
-      title: "Property Marketing",
-      description: "Premium property placements, custom digital campaigns, and targeted marketing for high-end listings.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600",
-      link: "#services",
-    },
-    {
-      title: "Concierge & Hospitality",
-      description: "Curated experiences, front-desk staffing, valet management, and premium services for elite residences.",
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600",
+      num: "08",
+      title: "24/7 Client Support",
+      description: "Dedicated assistance whenever property owners need us.",
+      image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&q=80&w=600",
       link: "#services",
     },
   ];
@@ -83,16 +92,15 @@ export default function ServicesGrid() {
       <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         
         {/* Header Content */}
-        <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <span className="text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
-            Our Capabilities
+            Our Services
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black mb-6">
             Comprehensive Property Management Solutions
           </h2>
-          <div className="h-px w-12 bg-brand-gold mx-auto my-6" />
-          <p className="text-brand-charcoal-light text-base font-sans leading-relaxed">
-            Tailored property lifecycle management that maximizes tenant satisfaction, asset value, and owner returns.
+          <p className="text-brand-charcoal-light text-base font-sans leading-relaxed max-w-2xl mx-auto">
+            We provide end-to-end management services designed to protect your investment, enhance value, and deliver peace of mind.
           </p>
         </div>
 
@@ -108,10 +116,18 @@ export default function ServicesGrid() {
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="group flex flex-col bg-white border border-brand-gold/10 p-4 transition-all duration-300 hover:border-brand-gold/30 hover:shadow-lg"
+              className="group flex flex-col bg-white border border-brand-gold/10 p-5 transition-all duration-300 hover:border-brand-gold/25 hover:shadow-xl"
             >
               {/* Image Container */}
               <div className="relative aspect-4/3 w-full overflow-hidden mb-6 bg-brand-beige">
+                {/* Number Overlay */}
+                <div className="absolute top-4 left-4 z-10 flex flex-col items-start pointer-events-none">
+                  <span className="font-serif text-lg font-semibold text-brand-gold leading-none drop-shadow-xs">
+                    {service.num}
+                  </span>
+                  <div className="h-px w-6 bg-brand-gold mt-1" />
+                </div>
+                
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -122,7 +138,7 @@ export default function ServicesGrid() {
               </div>
 
               {/* Text content */}
-              <div className="flex flex-col flex-1">
+              <div className="flex flex-col grow">
                 <h3 className="font-serif text-lg font-medium text-brand-black mb-3">
                   {service.title}
                 </h3>
@@ -130,13 +146,19 @@ export default function ServicesGrid() {
                   {service.description}
                 </p>
                 
-                {/* Interactive link */}
-                <Link
-                  href={service.link}
-                  className="inline-flex items-center text-xs font-sans font-bold tracking-wider text-brand-gold hover:text-brand-gold-dark uppercase mt-auto transition-colors duration-300"
-                >
-                  Explore service <span className="ml-1.5 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </Link>
+                {/* Interactive link with line and arrow */}
+                <div className="mt-auto">
+                  <Link
+                    href={service.link}
+                    className="inline-flex items-center gap-3 group/link text-[10px] font-sans font-bold tracking-widest text-brand-gold hover:text-brand-gold-dark uppercase transition-colors duration-300"
+                  >
+                    <span>Learn More</span>
+                    <div className="flex items-center">
+                      <div className="w-12 h-px bg-brand-gold/60 group-hover/link:w-16 transition-all duration-300" />
+                      <span className="text-[10px] -ml-px">→</span>
+                    </div>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}
