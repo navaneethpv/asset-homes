@@ -146,15 +146,15 @@ export default function ServicesGrid() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="service-card group flex flex-col bg-transparent border-b border-brand-gold/10 last:border-b-0 sm:border-r sm:border-b sm:last:border-b-1 p-0 py-8 sm:p-6 lg:p-8 transition-colors duration-500 hover:bg-brand-gold/[0.02] opacity-0"
+              className="service-card group flex flex-col bg-transparent border-b border-brand-gold/10 last:border-b-0 sm:border-r sm:border-b p-0 py-8 sm:p-6 lg:p-8 transition-colors duration-500 hover:bg-brand-gold/2 opacity-0"
             >
               {/* Image Container */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden mb-6 bg-brand-beige">
+              <div className="relative aspect-16/10 w-full overflow-hidden mb-6 bg-brand-beige">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-cover transform group-hover:scale-103 transition-transform duration-[1200ms] ease-out will-change-transform"
+                  className="object-cover transform group-hover:scale-103 transition-transform duration-1200 ease-out will-change-transform"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>

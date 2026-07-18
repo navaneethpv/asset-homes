@@ -226,7 +226,7 @@ export default function OperationalRoadmap() {
                   src={step.image}
                   alt={step.title}
                   fill
-                  className="object-cover transition-transform duration-[4000ms] ease-out group-hover/card:scale-105"
+                  className="object-cover transition-transform duration-4000 ease-out group-hover/card:scale-105"
                   sizes="560px"
                 />
                 

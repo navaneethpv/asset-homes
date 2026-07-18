@@ -113,8 +113,8 @@ export default function AssetShowcase() {
           );
 
           // Card image parallax on container divs
-          const cardContainers = gsap.utils.toArray(".card-parallax-container");
-          cardContainers.forEach((container: any, idx: number) => {
+          const cardContainers = gsap.utils.toArray(".card-parallax-container") as HTMLElement[];
+          cardContainers.forEach((container, idx) => {
             const img = container.querySelector(".card-parallax-img");
             const speed = idx === 0 ? -10 : idx === 1 ? -7 : -5;
             if (img) {
@@ -156,22 +156,22 @@ export default function AssetShowcase() {
 
         {/* Feature Signature Asset (Big Banner) */}
         <div 
-          className="signature-parallax-container relative w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden shadow-xl mb-16 bg-brand-beige group opacity-0 transition-transform duration-[800ms] ease-out-expo hover:scale-[1.01] hover:shadow-2xl"
+          className="signature-parallax-container relative w-full aspect-16/10 sm:aspect-21/9 overflow-hidden shadow-xl mb-16 bg-brand-beige group opacity-0 transition-transform duration-800 ease-out-expo hover:scale-[1.01] hover:shadow-2xl"
           style={{ clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" }}
         >
           {/* Inner parallax container to hold the image */}
-          <div className="signature-parallax-img absolute inset-0 w-full h-[115%] -top-[7.5%]">
+          <div className="signature-parallax-img absolute inset-0 w-full h-[115%] top-[-7.5%]">
             <Image
               src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200"
               alt="The Signature Tower on Abu Dhabi Corniche"
               fill
-              className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-103"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-103"
               sizes="100vw"
               priority
             />
           </div>
           {/* Subtle linear overlay to guarantee excellent text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-black/85 via-brand-black/35 to-transparent z-10" />
+          <div className="absolute inset-0 bg-linear-to-t from-brand-black/85 via-brand-black/35 to-transparent z-10" />
 
           {/* Integrated Text Overlay (No Box) */}
           <div className="absolute bottom-8 left-8 right-8 sm:bottom-12 sm:left-12 max-w-xl text-brand-cream z-20">
@@ -207,14 +207,14 @@ export default function AssetShowcase() {
               }`}
             >
               {/* Image container is the scale-wrapper on hover */}
-              <div className="card-parallax-container relative aspect-[3/2] w-full overflow-hidden bg-brand-beige mb-6 shadow-md transition-transform duration-[800ms] ease-out-expo group-hover:scale-[1.03] group-hover:shadow-lg">
+              <div className="card-parallax-container relative aspect-3/2 w-full overflow-hidden bg-brand-beige mb-6 shadow-md transition-transform duration-800 ease-out-expo group-hover:scale-[1.03] group-hover:shadow-lg">
                 {/* Inner parallax container is 115% height to accommodate yPercent shifts without white spaces */}
-                <div className="card-parallax-img absolute inset-0 w-full h-[115%] -top-[7.5%]">
+                <div className="card-parallax-img absolute inset-0 w-full h-[115%] top-[-7.5%]">
                   <Image
                     src={asset.image}
                     alt={asset.name}
                     fill
-                    className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-102"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-102"
                     sizes="(max-width: 768px) 100vw, 30vw"
                   />
                 </div>

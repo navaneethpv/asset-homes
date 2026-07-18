@@ -72,7 +72,7 @@ export default function Footer() {
           src="/cta_bg.png"
           alt="Luxury property heritage background"
           fill
-          className="object-cover object-center transform group-hover:scale-105 transition-transform duration-[10000ms] ease-out"
+          className="object-cover object-center transform group-hover:scale-105 transition-transform duration-10000 ease-out"
           priority
         />
         {/* Dark Cinematic Overlay */}
