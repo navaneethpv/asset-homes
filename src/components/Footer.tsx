@@ -80,14 +80,14 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4 text-brand-cream/70">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4.5 h-4.5 text-brand-gold flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4.5 h-4.5 text-brand-gold shrink-0 mt-0.5" />
                 <span className="text-xs sm:text-sm font-sans font-light leading-relaxed">
                   Level 14, West Corniche Tower,<br />
                   Al Bateen, Abu Dhabi, UAE
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-brand-gold flex-shrink-0" />
+                <Phone className="w-4 h-4 text-brand-gold shrink-0" />
                 <a
                   href="tel:+97121234567"
                   className="text-xs sm:text-sm font-sans font-light hover:text-brand-gold transition-colors duration-300"
@@ -96,7 +96,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-brand-gold flex-shrink-0" />
+                <Mail className="w-4 h-4 text-brand-gold shrink-0" />
                 <a
                   href="mailto:advisory@assethomes.ae"
                   className="text-xs sm:text-sm font-sans font-light hover:text-brand-gold transition-colors duration-300"

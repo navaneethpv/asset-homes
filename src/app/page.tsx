@@ -14,7 +14,7 @@ export default function Home() {
       {/* 0. Navbar */}
       <Navbar />
 
-      <main className="flex-grow">
+      <main className="grow">
         {/* 1. Hero Section */}
         <HeroSection />
 

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 interface SubAsset {
@@ -45,15 +44,15 @@ export default function AssetShowcase() {
         </div>
 
         {/* Feature Signature Asset (Big Banner) */}
-        <div className="relative w-full aspect-[21/10] sm:aspect-[21/9] overflow-hidden shadow-2xl mb-12 bg-brand-beige group">
+        <div className="relative w-full aspect-21/10 sm:aspect-21/9 overflow-hidden shadow-2xl mb-12 bg-brand-beige group">
           <Image
             src="https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?auto=format&fit=crop&q=80&w=1200"
             alt="The Signature Tower on Abu Dhabi Corniche"
             fill
-            className="object-cover transform group-hover:scale-103 transition-transform duration-[2000ms] ease-out"
+            className="object-cover transform group-hover:scale-103 transition-transform duration-2000 ease-out"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-black/50 via-transparent to-brand-black/10" />
+          <div className="absolute inset-0 bg-linear-to-t from-brand-black/50 via-transparent to-brand-black/10" />
 
           {/* Overlapping Info Card */}
           <div className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 md:max-w-md bg-brand-black/80 backdrop-blur-md border border-brand-gold/25 p-6 sm:p-8 text-brand-cream">
@@ -80,12 +79,12 @@ export default function AssetShowcase() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {assets.map((asset) => (
             <div key={asset.name} className="group flex flex-col bg-white border border-brand-gold/10 p-3 transition-all duration-300 hover:border-brand-gold/25">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-beige mb-4">
+              <div className="relative aspect-4/3 w-full overflow-hidden bg-brand-beige mb-4">
                 <Image
                   src={asset.image}
                   alt={asset.name}
                   fill
-                  className="object-cover transform group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
+                  className="object-cover transform group-hover:scale-105 transition-transform duration-1200 ease-out"
                   sizes="(max-width: 768px) 100vw, 30vw"
                 />
               </div>

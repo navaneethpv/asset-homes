@@ -68,7 +68,7 @@ export default function OperationalRoadmap() {
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black mb-4">
             A Seamless Journey to Optimization
           </h2>
-          <div className="h-[1px] w-12 bg-brand-gold mx-auto my-6" />
+          <div className="h-px w-12 bg-brand-gold mx-auto my-6" />
         </div>
 
         {/* 5-step timeline */}

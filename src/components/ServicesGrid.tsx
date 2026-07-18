@@ -90,7 +90,7 @@ export default function ServicesGrid() {
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black mb-4">
             Comprehensive Property Management Solutions
           </h2>
-          <div className="h-[1px] w-12 bg-brand-gold mx-auto my-6" />
+          <div className="h-px w-12 bg-brand-gold mx-auto my-6" />
           <p className="text-brand-charcoal-light text-base font-sans leading-relaxed">
             Tailored property lifecycle management that maximizes tenant satisfaction, asset value, and owner returns.
           </p>
@@ -104,19 +104,19 @@ export default function ServicesGrid() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
               className="group flex flex-col bg-white border border-brand-gold/10 p-4 transition-all duration-300 hover:border-brand-gold/30 hover:shadow-lg"
             >
               {/* Image Container */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden mb-6 bg-brand-beige">
+              <div className="relative aspect-4/3 w-full overflow-hidden mb-6 bg-brand-beige">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-cover transform group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
+                  className="object-cover transform group-hover:scale-105 transition-transform duration-1200 ease-out"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>
@@ -126,7 +126,7 @@ export default function ServicesGrid() {
                 <h3 className="font-serif text-lg font-medium text-brand-black mb-3">
                   {service.title}
                 </h3>
-                <p className="text-brand-charcoal-light text-sm font-sans leading-relaxed mb-6 flex-grow">
+                <p className="text-brand-charcoal-light text-sm font-sans leading-relaxed mb-6 grow">
                   {service.description}
                 </p>
                 

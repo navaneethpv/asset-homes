@@ -32,7 +32,7 @@ function DetailRow({ category, title, description, points, image, imageAlt, reve
         <ul className="space-y-3.5">
           {points.map((point) => (
             <li key={point} className="flex items-start gap-3">
-              <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold">
+              <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold">
                 <Check className="w-3 h-3 stroke-[2.5]" />
               </span>
               <span className="text-brand-charcoal text-sm font-sans font-medium">{point}</span>
@@ -43,7 +43,7 @@ function DetailRow({ category, title, description, points, image, imageAlt, reve
 
       {/* Image block */}
       <div className={`lg:col-span-6 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
-        <div className="relative aspect-[16/10] w-full overflow-hidden shadow-lg bg-brand-beige">
+        <div className="relative aspect-16/10 w-full overflow-hidden shadow-lg bg-brand-beige">
           <motion.div
             initial={{ opacity: 0, scale: 1.03 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -55,7 +55,7 @@ function DetailRow({ category, title, description, points, image, imageAlt, reve
               src={image}
               alt={imageAlt}
               fill
-              className="object-cover transform hover:scale-103 transition-transform duration-[1200ms]"
+              className="object-cover transform hover:scale-103 transition-transform duration-1200"
               sizes="(max-width: 768px) 100vw, 40vw"
             />
           </motion.div>
@@ -123,7 +123,7 @@ export default function InstitutionalGrade() {
 
         {/* Alternating Detail Rows */}
         <div className="divide-y divide-brand-gold/10">
-          {rows.map((row, index) => (
+          {rows.map((row) => (
             <DetailRow key={row.title} {...row} />
           ))}
         </div>

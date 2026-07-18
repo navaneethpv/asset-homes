@@ -84,10 +84,10 @@ export default function HeroSection() {
                 alt="Abu Dhabi skyline dusk architecture"
                 fill
                 priority
-                className="object-cover transform hover:scale-105 transition-transform duration-[2000ms] ease-out"
+                className="object-cover transform hover:scale-105 transition-transform duration-2000 ease-out"
                 sizes="(max-width: 768px) 100vw, 40vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-brand-black/20 via-transparent to-transparent pointer-events-none" />
             </motion.div>
           </div>
 

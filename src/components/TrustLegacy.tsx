@@ -27,14 +27,14 @@ export default function TrustLegacy() {
                 We recognize that property is more than bricks and mortar; it is a critical asset class that requires strategic oversight. From Al Reem Island to Saadiyat Beach, our deep understanding of the Abu Dhabi regulatory landscape and tenant demography allows us to curate bespoke management plans that unlock maximum value.
               </p>
               <p className="border-l-2 border-brand-gold pl-4 italic text-brand-charcoal">
-                "Our mission is to safeguard and elevate your real estate wealth, ensuring that every asset performs to its maximum potential under our meticulous stewardship."
+                &quot;Our mission is to safeguard and elevate your real estate wealth, ensuring that every asset performs to its maximum potential under our meticulous stewardship.&quot;
               </p>
             </div>
           </div>
 
           {/* Right Column (Offset image layout) */}
           <div className="lg:col-span-6 order-1 lg:order-2">
-            <div className="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] overflow-hidden shadow-xl">
+            <div className="relative w-full aspect-4/5 sm:aspect-square lg:aspect-4/5 overflow-hidden shadow-xl">
               <motion.div
                 initial={{ scale: 1.05, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -46,7 +46,7 @@ export default function TrustLegacy() {
                   src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200"
                   alt="Luxury property reception and lobby space"
                   fill
-                  className="object-cover transform hover:scale-105 transition-transform duration-[1500ms]"
+                  className="object-cover transform hover:scale-105 transition-transform duration-1500"
                   sizes="(max-width: 768px) 100vw, 40vw"
                 />
               </motion.div>
