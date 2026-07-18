@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { ShieldCheck, Eye, Compass } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,6 +14,7 @@ interface Step {
   num: string;
   title: string;
   description: string;
+  image: string;
 }
 
 export default function OperationalRoadmap() {
@@ -21,26 +23,31 @@ export default function OperationalRoadmap() {
       num: "01",
       title: "Onboarding & Audit",
       description: "Thorough assessment of structural integrity, tenant contracts, MEP systems, and financial ledgers.",
+      image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=800",
     },
     {
       num: "02",
       title: "Strategy & Valuation",
       description: "Establishing rent models, marketing strategy, and budget projections to optimize cash flow yields.",
+      image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800",
     },
     {
       num: "03",
       title: "System Integration",
       description: "Deploying portal accounts for tenants and automated financial accounting integrations for the owner.",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
     },
     {
       num: "04",
       title: "Active Stewardship",
       description: "Preventative facilities maintenance, 24/7 concierge operations, and active occupancy management.",
+      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
     },
     {
       num: "05",
       title: "Yield Optimization",
       description: "Quarterly review of utility spend, tenancy retention rates, and local market cap-rate trends to grow yields.",
+      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
     },
   ];
 
@@ -63,21 +70,19 @@ export default function OperationalRoadmap() {
   ];
 
   const sectionRef = useRef<HTMLDivElement>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const section = sectionRef.current;
-      const timeline = timelineRef.current;
-      const line = lineRef.current;
+      const track = trackRef.current;
 
-      if (section && timeline) {
+      if (section && track) {
         // Entrance Header
         gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: "top 80%",
+            start: "top 85%",
             toggleActions: "play none none none",
           }
         })
@@ -102,66 +107,71 @@ export default function OperationalRoadmap() {
             stagger: 0.15,
             scrollTrigger: {
               trigger: ".pillars-container",
-              start: "top 80%",
+              start: "top 85%",
               toggleActions: "play none none none",
             }
           }
         );
 
-        // Responsive Timeline Animations
         const mm = gsap.matchMedia();
 
-        // DESKTOP: Pinned Timeline
+        // DESKTOP: Horizontal Pinned Expanding Slides
         mm.add("(min-width: 1024px)", () => {
+          const cards = gsap.utils.toArray(".roadmap-card");
+          const totalWidth = track.scrollWidth;
+          const viewportWidth = window.innerWidth;
+          
+          // Move track leftward so all cards scroll across
+          const xTranslation = -(totalWidth - viewportWidth + 120);
+
           const tl = gsap.timeline({
             scrollTrigger: {
-              trigger: timeline,
-              start: "top 35%",
-              end: "+=500",
+              trigger: section,
+              start: "top top",
+              end: `+=${totalWidth}`,
               pin: true,
-              scrub: 1,
+              scrub: 0.5,
+              invalidateOnRefresh: true,
             }
           });
 
-          // Draw the connecting line
-          if (line) {
-            tl.fromTo(line, 
-              { scaleX: 0 }, 
-              { scaleX: 1, ease: "none", duration: 2 }
-            );
-          }
+          // Horizontal slide of the card track
+          tl.to(track, {
+            x: xTranslation,
+            ease: "none",
+          }, 0);
 
-          // Light up each step as progress bar reaches it
-          steps.forEach((_, idx) => {
-            const stepNum = idx + 1;
-            const positionTime = (idx / (steps.length - 1)) * 2;
-            
-            tl.fromTo(`.step-badge-${stepNum}`,
-              { scale: 0.9, backgroundColor: "#f4f0e6", borderColor: "rgba(197, 160, 89, 0.2)", color: "rgba(197, 160, 89, 0.6)" },
-              { scale: 1.1, backgroundColor: "#c5a059", borderColor: "#c5a059", color: "#0f0f0f", duration: 0.25 },
-              positionTime
-            )
-            .fromTo(`.step-text-${stepNum}`,
-              { opacity: 0.25, y: 15 },
-              { opacity: 1, y: 0, duration: 0.25 },
-              positionTime
-            );
-          });
+          // Card width transitions timeline distribution
+          const cardDuration = 1 / (cards.length - 1);
+
+          for (let i = 0; i < cards.length - 1; i++) {
+            const startTime = i * cardDuration;
+
+            // Collapse card i
+            tl.to(`.roadmap-card-${i}`, { width: "240px", duration: cardDuration, ease: "power2.inOut" }, startTime)
+              .to(`.roadmap-card-desc-${i}`, { opacity: 0, duration: cardDuration * 0.4, ease: "power2.inOut" }, startTime)
+              .to(`.roadmap-card-overlay-${i}`, { opacity: 0.75, duration: cardDuration, ease: "power2.inOut" }, startTime);
+
+            // Expand card i+1
+            tl.to(`.roadmap-card-${i+1}`, { width: "560px", duration: cardDuration, ease: "power2.inOut" }, startTime)
+              .to(`.roadmap-card-desc-${i+1}`, { opacity: 1, duration: cardDuration * 0.4, ease: "power2.inOut" }, startTime + cardDuration * 0.5)
+              .to(`.roadmap-card-overlay-${i+1}`, { opacity: 0.35, duration: cardDuration, ease: "power2.inOut" }, startTime);
+          }
         });
 
-        // MOBILE & TABLET: Simple Scroll Stagger (No Pinning)
+        // MOBILE & TABLET: Simple vertical staggers
         mm.add("(max-width: 1023px)", () => {
-          gsap.fromTo(".step-mobile-reveal",
-            { opacity: 0, y: 30 },
+          gsap.fromTo(".roadmap-mobile-card",
+            { opacity: 0, y: 35 },
             {
               opacity: 1,
               y: 0,
               duration: 0.8,
               ease: "power3.out",
-              stagger: 0.15,
+              stagger: 0.12,
               scrollTrigger: {
-                trigger: timeline,
-                start: "top 80%",
+                trigger: ".roadmap-mobile-grid",
+                start: "top 85%",
                 toggleActions: "play none none none",
               }
             }
@@ -174,76 +184,124 @@ export default function OperationalRoadmap() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="methodology" className="bg-brand-beige py-20 sm:py-24 lg:py-32 overflow-hidden">
-      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
+    <section 
+      ref={sectionRef} 
+      id="methodology" 
+      className="bg-brand-beige py-20 lg:py-0 lg:h-screen flex flex-col justify-center overflow-hidden"
+    >
+      <div className="w-full max-w-none flex flex-col h-full lg:justify-between py-12 lg:py-24">
         
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
-          <span className="roadmap-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block opacity-0">
+        {/* Section Header */}
+        <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-32 mb-10 shrink-0">
+          <span className="roadmap-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-3 block opacity-0">
             Our Methodology
           </span>
-          <h2 className="roadmap-heading font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black mb-4 leading-tight opacity-0">
+          <h2 className="roadmap-heading font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black leading-tight opacity-0">
             A Seamless Journey to <span className="text-brand-gold italic">Optimization</span>
           </h2>
-          <div className="h-px w-12 bg-brand-gold mx-auto my-6" />
         </div>
 
-        {/* 5-step timeline */}
-        <div ref={timelineRef} className="relative mb-24 lg:mb-32">
-          {/* Background Connecting Line (faint gold) */}
-          <div className="hidden lg:block absolute top-[28px] left-[5%] right-[5%] h-px bg-brand-gold/15 z-0" />
-          
-          {/* Active Connecting Line (animates on scrub) */}
-          <div 
-            ref={lineRef}
-            className="hidden lg:block absolute top-[28px] left-[5%] right-[5%] h-px bg-brand-gold z-0 origin-left"
-            style={{ transform: "scaleX(0)" }}
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8 relative z-10">
+        {/* DESKTOP TIMELINE: Pinned track */}
+        <div className="hidden lg:block w-full overflow-hidden select-none mb-12">
+          <div ref={trackRef} className="flex gap-6 px-6 sm:px-12 lg:px-20 xl:px-32 w-max">
             {steps.map((step, idx) => (
               <div
                 key={step.num}
-                className="step-mobile-reveal flex flex-col items-center lg:items-start text-center lg:text-left"
+                className={`roadmap-card roadmap-card-${idx} relative h-[420px] shrink-0 overflow-hidden bg-brand-cream border border-brand-gold/15`}
+                style={{ width: idx === 0 ? "560px" : "240px" }}
               >
-                {/* Number badge */}
-                <div className={`step-badge-${idx + 1} w-14 h-14 rounded-full bg-brand-beige border-2 border-brand-gold/20 text-brand-gold/60 font-serif text-lg font-semibold flex items-center justify-center mb-6 shadow-sm transition-all duration-300 lg:scale-90`}>
-                  {step.num}
-                </div>
-                <div className={`step-text-${idx + 1} transition-all duration-300 lg:opacity-25`}>
-                  <h3 className="font-serif text-lg font-medium text-brand-black mb-2.5">
-                    {step.title}
-                  </h3>
-                  <p className="text-brand-charcoal-light text-xs sm:text-sm font-sans leading-relaxed max-w-[200px] lg:max-w-none mx-auto lg:mx-0">
-                    {step.description}
-                  </p>
+                {/* Background image panel */}
+                <Image
+                  src={step.image}
+                  alt={step.title}
+                  fill
+                  className="object-cover"
+                  sizes="560px"
+                />
+                
+                {/* Visual filter overlay */}
+                <div
+                  className={`roadmap-card-overlay-${idx} absolute inset-0 bg-brand-black z-10 transition-opacity duration-300`}
+                  style={{ opacity: idx === 0 ? 0.35 : 0.75 }}
+                />
+
+                {/* Fixed-width content container (doesn't squish during width animation) */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-between text-brand-cream z-20 w-[480px]">
+                  <div>
+                    <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-3">
+                      {step.num} / Stage
+                    </span>
+                    <h3 className="font-serif text-2xl font-medium tracking-tight text-white mb-2">
+                      {step.title}
+                    </h3>
+                  </div>
+
+                  <div
+                    className={`roadmap-card-desc-${idx} transition-opacity duration-300`}
+                    style={{ opacity: idx === 0 ? 1 : 0 }}
+                  >
+                    <p className="text-xs sm:text-sm font-sans font-light text-brand-cream/80 leading-relaxed pr-8">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Three Columns Core Pillars */}
-        <div className="pillars-container grid grid-cols-1 md:grid-cols-3 gap-10 border-t border-brand-gold/15 pt-16">
-          {pillars.map((pillar) => {
-            const Icon = pillar.icon;
-            return (
-              <div
-                key={pillar.title}
-                className="pillar-item flex flex-col items-start"
-              >
-                <div className="p-3 bg-brand-gold/10 text-brand-gold rounded-sm mb-5">
-                  <Icon className="w-6 h-6 stroke-[1.5]" />
-                </div>
-                <h4 className="font-serif text-xl font-medium text-brand-black mb-3">
-                  {pillar.title}
-                </h4>
-                <p className="text-brand-charcoal-light text-sm sm:text-base font-sans leading-relaxed">
-                  {pillar.description}
-                </p>
+        {/* MOBILE TIMELINE: Stacked cards */}
+        <div className="roadmap-mobile-grid lg:hidden px-6 sm:px-12 mb-16 space-y-8">
+          {steps.map((step) => (
+            <div
+              key={step.num}
+              className="roadmap-mobile-card relative h-[260px] overflow-hidden bg-brand-black border border-brand-gold/15 flex flex-col justify-between p-6 shadow-md"
+            >
+              <Image
+                src={step.image}
+                alt={step.title}
+                fill
+                className="object-cover opacity-45"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="relative z-10">
+                <span className="text-[9px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-2">
+                  {step.num} / Stage
+                </span>
+                <h3 className="font-serif text-xl font-medium text-white">
+                  {step.title}
+                </h3>
               </div>
-            );
-          })}
+              <p className="relative z-10 text-xs font-sans font-light text-brand-cream/80 leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Three Columns Core Pillars */}
+        <div className="pillars-container w-full px-6 sm:px-12 lg:px-20 xl:px-32 border-t border-brand-gold/15 pt-8 shrink-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon;
+              return (
+                <div
+                  key={pillar.title}
+                  className="pillar-item flex flex-col items-start"
+                >
+                  <div className="p-2.5 bg-brand-gold/10 text-brand-gold rounded-sm mb-3">
+                    <Icon className="w-5 h-5 stroke-[1.5]" />
+                  </div>
+                  <h4 className="font-serif text-base font-semibold text-brand-black mb-1.5">
+                    {pillar.title}
+                  </h4>
+                  <p className="text-brand-charcoal-light text-xs font-sans leading-relaxed font-light">
+                    {pillar.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
       </div>
