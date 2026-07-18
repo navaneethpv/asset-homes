@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 interface ServiceItem {
   num: string;
@@ -163,6 +164,17 @@ export default function ServicesGrid() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* View All Services CTA Button */}
+        <div className="mt-16 text-center">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 px-8 py-3.5 border border-brand-gold text-brand-black hover:bg-brand-black hover:text-brand-cream hover:border-brand-black text-xs font-sans font-semibold tracking-widest uppercase transition-all duration-300 shadow-xs"
+          >
+            View All Services
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
 
       </div>
     </section>

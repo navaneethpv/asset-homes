@@ -100,6 +100,17 @@ export default function AssetShowcase() {
           ))}
         </div>
 
+        {/* View Complete Gallery CTA Button */}
+        <div className="mt-16 text-center">
+          <Link
+            href="/gallery"
+            className="inline-flex items-center gap-2 px-8 py-3.5 border border-brand-gold text-brand-black hover:bg-brand-black hover:text-brand-cream hover:border-brand-black text-xs font-sans font-semibold tracking-widest uppercase transition-all duration-300 shadow-xs"
+          >
+            Explore Complete Gallery
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
       </div>
     </section>
   );

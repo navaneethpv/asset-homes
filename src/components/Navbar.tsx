@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-brand-gold/10 bg-brand-cream/80 backdrop-blur-md transition-colors duration-300">
-      <div className="w-full flex h-24 items-center justify-between px-6 sm:px-12 lg:px-20 xl:px-32">
+      <div className="w-full flex h-20 md:h-24 items-center justify-between px-6 sm:px-12 lg:px-20 xl:px-32">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center">
           <Image
@@ -27,7 +27,7 @@ export default function Navbar() {
             alt="Asset Homes Property Management Logo"
             width={180}
             height={100}
-            className="h-18 w-auto object-contain brightness-0"
+            className="h-16 md:h-25 w-auto object-contain brightness-0"
             priority
           />
         </Link>
