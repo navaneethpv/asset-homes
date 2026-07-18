@@ -27,7 +27,7 @@ export default function Navbar() {
             alt="Asset Homes Property Management Logo"
             width={180}
             height={100}
-            className="h-16 md:h-25 w-auto object-contain brightness-0"
+            className="h-16 md:h-20 w-auto object-contain brightness-0"
             priority
           />
         </Link>
