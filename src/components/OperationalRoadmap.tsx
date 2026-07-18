@@ -65,8 +65,8 @@ export default function OperationalRoadmap() {
           <span className="text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
             Our Methodology
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black mb-4">
-            A Seamless Journey to Optimization
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black mb-4 leading-tight">
+            A Seamless Journey to <span className="text-brand-gold italic">Optimization</span>
           </h2>
           <div className="h-px w-12 bg-brand-gold mx-auto my-6" />
         </div>

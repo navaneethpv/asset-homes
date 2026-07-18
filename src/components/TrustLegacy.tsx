@@ -15,8 +15,8 @@ export default function TrustLegacy() {
               Our Heritage
             </span>
             
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black leading-snug mb-6">
-              A Legacy of Trust in the Heart of Abu Dhabi
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black leading-tight mb-6">
+              A Legacy of <span className="text-brand-gold italic">Trust</span> in the Heart of Abu Dhabi
             </h2>
             
             <div className="space-y-6 text-brand-charcoal-light text-base font-sans font-normal leading-relaxed">

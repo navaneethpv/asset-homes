@@ -97,8 +97,8 @@ export default function ServicesGrid() {
           <span className="text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
             Our Services
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black mb-6">
-            Comprehensive Property Management Solutions
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black mb-6 leading-tight">
+            Comprehensive Property Management <span className="text-brand-gold italic">Solutions</span>
           </h2>
           <p className="text-brand-charcoal-light text-base font-sans leading-relaxed max-w-2xl mx-auto">
             We provide end-to-end management services designed to protect your investment, enhance value, and deliver peace of mind.
