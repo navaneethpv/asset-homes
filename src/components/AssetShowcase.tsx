@@ -19,12 +19,6 @@ interface SubAsset {
 
 export default function AssetShowcase() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const signatureWrapperRef = useRef<HTMLDivElement>(null);
-  const signatureImageRef = useRef<HTMLImageElement>(null);
-  
-  const card1ImageRef = useRef<HTMLImageElement>(null);
-  const card2ImageRef = useRef<HTMLImageElement>(null);
-  const card3ImageRef = useRef<HTMLImageElement>(null);
 
   const assets: SubAsset[] = [
     {
@@ -47,12 +41,6 @@ export default function AssetShowcase() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const section = sectionRef.current;
-      const signatureWrapper = signatureWrapperRef.current;
-      const signatureImage = signatureImageRef.current;
-      
-      const img1 = card1ImageRef.current;
-      const img2 = card2ImageRef.current;
-      const img3 = card3ImageRef.current;
 
       if (section) {
         // Entrance Header
@@ -74,22 +62,20 @@ export default function AssetShowcase() {
         );
 
         // Clip-path mask reveal for the big Signature Banner
-        if (signatureWrapper) {
-          gsap.fromTo(signatureWrapper,
-            { clipPath: "polygon(0 60%, 100% 60%, 100% 100%, 0 100%)", opacity: 0 },
-            {
-              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-              opacity: 1,
-              duration: 0.8,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: signatureWrapper,
-                start: "top 95%",
-                toggleActions: "play none none none",
-              }
+        gsap.fromTo(".signature-parallax-container",
+          { clipPath: "polygon(0 60%, 100% 60%, 100% 100%, 0 100%)", opacity: 0 },
+          {
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".signature-parallax-container",
+              start: "top 95%",
+              toggleActions: "play none none none",
             }
-          );
-        }
+          }
+        );
 
         // Entrance for Minor Showcases
         gsap.fromTo(".portfolio-card",
@@ -111,85 +97,48 @@ export default function AssetShowcase() {
         // Independent Parallax speeds on the images (Only on desktop)
         const mm = gsap.matchMedia();
         mm.add("(min-width: 1024px)", () => {
-          // Signature image parallax (yPercent mapping, no scale mapping so we don't fight hover transitions)
-          if (signatureImage) {
-            gsap.fromTo(signatureImage,
-              { yPercent: 0 },
-              {
-                yPercent: -8,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: signatureWrapper,
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: 0.5,
-                }
+          // Signature image parallax on container div
+          gsap.fromTo(".signature-parallax-img",
+            { yPercent: 0 },
+            {
+              yPercent: -8,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".signature-parallax-container",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
               }
-            );
-          }
+            }
+          );
 
-          // Asset 1 Image parallax
-          if (img1) {
-            gsap.fromTo(img1,
-              { yPercent: 0 },
-              {
-                yPercent: -10,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: img1.parentElement,
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: 0.5,
+          // Card image parallax on container divs
+          const cardContainers = gsap.utils.toArray(".card-parallax-container");
+          cardContainers.forEach((container: any, idx: number) => {
+            const img = container.querySelector(".card-parallax-img");
+            const speed = idx === 0 ? -10 : idx === 1 ? -7 : -5;
+            if (img) {
+              gsap.fromTo(img,
+                { yPercent: 0 },
+                {
+                  yPercent: speed,
+                  ease: "none",
+                  scrollTrigger: {
+                    trigger: container,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                  }
                 }
-              }
-            );
-          }
-
-          // Asset 2 Image parallax
-          if (img2) {
-            gsap.fromTo(img2,
-              { yPercent: 0 },
-              {
-                yPercent: -7,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: img2.parentElement,
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: 0.5,
-                }
-              }
-            );
-          }
-
-          // Asset 3 Image parallax
-          if (img3) {
-            gsap.fromTo(img3,
-              { yPercent: 0 },
-              {
-                yPercent: -5,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: img3.parentElement,
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: 0.5,
-                }
-              }
-            );
-          }
+              );
+            }
+          });
         });
       }
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
-
-  const getImageRef = (idx: number) => {
-    if (idx === 0) return card1ImageRef;
-    if (idx === 1) return card2ImageRef;
-    return card3ImageRef;
-  };
 
   return (
     <section ref={sectionRef} id="portfolio" className="bg-brand-cream py-20 sm:py-24 lg:py-32 overflow-hidden">
@@ -207,18 +156,16 @@ export default function AssetShowcase() {
 
         {/* Feature Signature Asset (Big Banner) */}
         <div 
-          ref={signatureWrapperRef}
-          className="relative w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden shadow-xl mb-16 bg-brand-beige group opacity-0 transition-transform duration-[800ms] ease-out-expo hover:scale-[1.01] hover:shadow-2xl"
+          className="signature-parallax-container relative w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden shadow-xl mb-16 bg-brand-beige group opacity-0 transition-transform duration-[800ms] ease-out-expo hover:scale-[1.01] hover:shadow-2xl"
           style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
         >
           {/* Inner parallax container to hold the image */}
-          <div className="absolute inset-0 w-full h-[115%] -top-[7.5%]">
+          <div className="signature-parallax-img absolute inset-0 w-full h-[115%] -top-[7.5%]">
             <Image
-              ref={signatureImageRef}
               src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200"
               alt="The Signature Tower on Abu Dhabi Corniche"
               fill
-              className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-103"
+              className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-103"
               sizes="100vw"
               priority
             />
@@ -260,15 +207,14 @@ export default function AssetShowcase() {
               }`}
             >
               {/* Image container is the scale-wrapper on hover */}
-              <div className="relative aspect-[3/2] w-full overflow-hidden bg-brand-beige mb-6 shadow-md transition-transform duration-[800ms] ease-out-expo group-hover:scale-[1.03] group-hover:shadow-lg">
+              <div className="card-parallax-container relative aspect-[3/2] w-full overflow-hidden bg-brand-beige mb-6 shadow-md transition-transform duration-[800ms] ease-out-expo group-hover:scale-[1.03] group-hover:shadow-lg">
                 {/* Inner parallax container is 115% height to accommodate yPercent shifts without white spaces */}
-                <div className="absolute inset-0 w-full h-[115%] -top-[7.5%]">
+                <div className="card-parallax-img absolute inset-0 w-full h-[115%] -top-[7.5%]">
                   <Image
-                    ref={getImageRef(idx)}
                     src={asset.image}
                     alt={asset.name}
                     fill
-                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-102"
+                    className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-102"
                     sizes="(max-width: 768px) 100vw, 30vw"
                   />
                 </div>

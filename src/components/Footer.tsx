@@ -6,12 +6,25 @@ import Image from "next/image";
 import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLenis } from "lenis/react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function Footer() {
+  const lenis = useLenis();
+
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      lenis?.scrollTo(href, {
+        offset: -80,
+        duration: 1.2,
+      });
+    }
+  };
+
   const quickLinks = [
     { name: "Our Portfolio", href: "#portfolio" },
     { name: "Services", href: "#services" },
@@ -119,6 +132,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
+                    onClick={(e) => handleScrollTo(e, link.href)}
                     className="text-xs sm:text-sm font-sans font-normal text-brand-cream/70 hover:text-brand-gold transition-colors duration-300"
                   >
                     {link.name}
@@ -191,9 +205,9 @@ export default function Footer() {
         <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans font-light text-brand-cream/40">
           <p>© {new Date().getFullYear()} Asset Homes Property Management LLC. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="#contact" className="hover:text-brand-gold transition-colors duration-300">Privacy Policy</Link>
-            <Link href="#contact" className="hover:text-brand-gold transition-colors duration-300">Terms of Service</Link>
-            <Link href="#contact" className="hover:text-brand-gold transition-colors duration-300">Regulatory Disclosures</Link>
+            <Link href="#contact" onClick={(e) => handleScrollTo(e, "#contact")} className="hover:text-brand-gold transition-colors duration-300">Privacy Policy</Link>
+            <Link href="#contact" onClick={(e) => handleScrollTo(e, "#contact")} className="hover:text-brand-gold transition-colors duration-300">Terms of Service</Link>
+            <Link href="#contact" onClick={(e) => handleScrollTo(e, "#contact")} className="hover:text-brand-gold transition-colors duration-300">Regulatory Disclosures</Link>
           </div>
         </div>
       </div>
@@ -201,3 +215,4 @@ export default function Footer() {
     </footer>
   );
 }
+

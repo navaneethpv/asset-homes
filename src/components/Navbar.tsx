@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLenis } from "lenis/react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -18,6 +19,7 @@ export default function Navbar() {
   const logoRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLAnchorElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
+  const lenis = useLenis();
 
   const navLinks = [
     { name: "Portfolio", href: "#portfolio" },
@@ -26,6 +28,17 @@ export default function Navbar() {
     { name: "Methodology", href: "#methodology" },
     { name: "Insights", href: "#insights" },
   ];
+
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      // Scroll using Lenis with offset for sticky header
+      lenis?.scrollTo(href, {
+        offset: -80,
+        duration: 1.2,
+      });
+    }
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -115,6 +128,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
+              onClick={(e) => handleScrollTo(e, link.href)}
               className="relative text-sm font-sans font-medium tracking-wide text-brand-charcoal hover:text-brand-gold transition-colors duration-300 group py-2"
             >
               {link.name}
@@ -128,6 +142,7 @@ export default function Navbar() {
           <Link
             ref={ctaRef}
             href="#contact"
+            onClick={(e) => handleScrollTo(e, "#contact")}
             className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-brand-black text-brand-cream hover:bg-brand-gold hover:text-brand-black text-xs font-sans font-semibold tracking-wider uppercase transition-all duration-300"
           >
             Schedule Consultation
@@ -160,7 +175,10 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    setIsOpen(false);
+                    handleScrollTo(e, link.href);
+                  }}
                   className="text-base font-sans font-medium tracking-wide text-brand-charcoal hover:text-brand-gold transition-colors duration-300"
                 >
                   {link.name}
@@ -169,7 +187,10 @@ export default function Navbar() {
               <div className="pt-4 border-t border-brand-gold/10">
                 <Link
                   href="#contact"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    setIsOpen(false);
+                    handleScrollTo(e, "#contact");
+                  }}
                   className="flex items-center justify-center gap-2 w-full py-3 bg-brand-black text-brand-cream hover:bg-brand-gold hover:text-brand-black text-sm font-sans font-semibold tracking-wider uppercase transition-all duration-300"
                 >
                   Schedule Consultation
@@ -183,3 +204,4 @@ export default function Navbar() {
     </header>
   );
 }
+
