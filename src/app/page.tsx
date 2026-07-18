@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustLegacy from "@/components/TrustLegacy";
 import ServicesGrid from "@/components/ServicesGrid";
-import InstitutionalGrade from "@/components/InstitutionalGrade";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import AssetShowcase from "@/components/AssetShowcase";
 import OperationalRoadmap from "@/components/OperationalRoadmap";
 import Testimonial from "@/components/Testimonial";
@@ -24,8 +24,8 @@ export default function Home() {
         {/* 3. Services Capabilities Grid */}
         <ServicesGrid />
 
-        {/* 4. Institutional-Grade Management */}
-        <InstitutionalGrade />
+        {/* 4. Why Choose Asset Homes */}
+        <WhyChooseUs />
 
         {/* 5. Assets Showcase */}
         <AssetShowcase />

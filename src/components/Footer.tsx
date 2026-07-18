@@ -49,10 +49,10 @@ export default function Footer() {
               alt="Asset Homes Property Management Logo"
               width={160}
               height={90}
-              className="h-16 w-auto object-contain mb-6"
+              className="h-16 md:h-25 w-auto object-contain mb-6"
               priority
             />
-            <p className="text-xs sm:text-sm font-sans font-light text-brand-cream/60 leading-relaxed">
+            <p className="text-xs sm:text-sm font-sans text-center font-light text-brand-cream/60 leading-relaxed">
               Premium, institutional-grade property lifecycle operations for real estate investors and developers across Abu Dhabi.
             </p>
           </div>
