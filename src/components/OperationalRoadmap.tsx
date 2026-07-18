@@ -58,7 +58,7 @@ export default function OperationalRoadmap() {
 
   return (
     <section id="methodology" className="bg-brand-cream py-20 sm:py-24 lg:py-32 border-t border-brand-gold/10">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">

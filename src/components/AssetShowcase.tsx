@@ -32,7 +32,7 @@ export default function AssetShowcase() {
 
   return (
     <section id="portfolio" className="bg-brand-cream/40 py-20 sm:py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         
         {/* Section Header */}
         <div className="max-w-2xl mb-12 sm:mb-16">

@@ -80,7 +80,7 @@ export default function ServicesGrid() {
 
   return (
     <section id="services" className="bg-brand-cream/10 py-20 sm:py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         
         {/* Header Content */}
         <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">

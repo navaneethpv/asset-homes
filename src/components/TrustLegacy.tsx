@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function TrustLegacy() {
   return (
     <section id="heritage" className="bg-brand-cream/40 py-20 sm:py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column (Editorial text block) */}

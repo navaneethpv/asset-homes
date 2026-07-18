@@ -15,7 +15,7 @@ export default function Footer() {
     <footer id="contact" className="bg-brand-black text-brand-cream border-t border-brand-gold/10">
       
       {/* Top CTA Banner */}
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24 border-b border-brand-cream/10">
+      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 py-16 sm:py-20 lg:py-24 border-b border-brand-cream/10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
           <div className="max-w-xl">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-4 leading-tight">
@@ -38,7 +38,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Links & Info Grid */}
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           
           {/* Column 1: Branding */}
@@ -133,7 +133,7 @@ export default function Footer() {
 
       {/* Bottom Legal bar */}
       <div className="border-t border-brand-cream/5 py-8">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans font-light text-brand-cream/40">
+        <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans font-light text-brand-cream/40">
           <p>© {new Date().getFullYear()} Asset Homes Property Management LLC. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#contact" className="hover:text-brand-gold transition-colors duration-300">Privacy Policy</Link>

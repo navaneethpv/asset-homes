@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-brand-gold/10 bg-brand-cream/80 backdrop-blur-md transition-colors duration-300">
-      <div className="mx-auto flex max-w-7xl h-20 items-center justify-between px-6 sm:px-8 lg:px-12">
+      <div className="w-full flex h-20 items-center justify-between px-6 sm:px-12 lg:px-20 xl:px-32">
         {/* Brand Logo */}
         <Link href="/" className="group flex flex-col justify-center">
           <span className="font-serif text-xl font-bold tracking-tight text-brand-black transition-colors duration-300 sm:text-2xl">
