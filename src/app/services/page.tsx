@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowUpRight, Landmark, Building2, Wrench, Headphones } from "lucide-react";
 
 export default function ServicesPage() {
@@ -122,7 +121,7 @@ export default function ServicesPage() {
                     }`}
                   >
                     <div
-                      className={`relative aspect-[4/3] w-full overflow-hidden bg-brand-beige shadow-xl ${
+                      className={`relative aspect-4/3 w-full overflow-hidden bg-brand-beige shadow-xl ${
                         isEven
                           ? "rounded-tr-[120px] sm:rounded-tr-[180px]"
                           : "rounded-tl-[120px] sm:rounded-tl-[180px]"
@@ -152,10 +151,10 @@ export default function ServicesPage() {
               Bespeaking Operations
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-6">
-              Ready to Secure Your Portfolio's <span className="text-brand-gold italic">Legacy</span>?
+              Ready to Secure Your Portfolio&apos;s <span className="text-brand-gold italic">Legacy</span>?
             </h2>
             <p className="text-brand-cream/70 text-sm sm:text-base font-sans font-light leading-relaxed mb-10">
-              Work with Abu Dhabi’s premiere boutique operations team. Get a customized stewardship proposal matching the unique physical and financial scale of your properties.
+              Work with Abu Dhabi&apos;s premiere boutique operations team. Get a customized stewardship proposal matching the unique physical and financial scale of your properties.
             </p>
             <Link
               href="/#contact"

@@ -55,7 +55,7 @@ function EditorialBlock({ num, title, description, image, imageAlt, reverse = fa
 
       {/* Image block */}
       <div className={`lg:col-span-6 ${reverse ? "lg:order-1 lg:col-start-1" : "lg:order-2 lg:col-start-7"}`}>
-        <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-beige">
+        <div className={`relative aspect-4/3 w-full overflow-hidden bg-brand-beige shadow-xl ${reverse ? "rounded-tr-[120px] sm:rounded-tr-[180px]" : "rounded-tl-[120px] sm:rounded-tl-[180px]"}`}>
           <motion.div
             initial={{ opacity: 0, scale: 1.05 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -112,7 +112,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section id="why-choose-us" className="bg-[#FAF8F5] py-24 sm:py-32">
+    <section id="why-choose-us" className="bg-brand-cream py-24 sm:py-32">
       <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
         {/* Main Section Header */}
         <div className="max-w-3xl mb-16 sm:mb-20">
@@ -120,7 +120,7 @@ export default function WhyChooseUs() {
             Why Choose Us
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black mb-6 leading-tight">
-            Why Property Owners Choose Asset Homes
+            Why Property Owners <span className="text-brand-gold italic">Choose</span> Asset Homes
           </h2>
           <p className="text-brand-charcoal-light text-base font-sans leading-relaxed max-w-2xl">
             We combine local expertise, transparent management, and proactive property care to protect your investment while delivering exceptional experiences for owners and tenants.

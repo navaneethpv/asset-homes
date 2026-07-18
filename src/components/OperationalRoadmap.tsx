@@ -74,7 +74,7 @@ export default function OperationalRoadmap() {
         {/* 5-step timeline */}
         <div className="relative mb-24 lg:mb-32">
           {/* Horizontal line for desktop connecting the steps */}
-          <div className="hidden lg:block absolute top-[28px] left-[5%] right-[5%] h-[1.5px] bg-brand-gold/20 z-0" />
+          <div className="hidden lg:block absolute top-[28px] left-[5%] right-[5%] h-px bg-brand-gold/15 z-0" />
           
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8 relative z-10">
             {steps.map((step, idx) => (
