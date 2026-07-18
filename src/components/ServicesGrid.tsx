@@ -28,7 +28,7 @@ export default function ServicesGrid() {
     {
       title: "Facilities Engineering",
       description: "Preventative MEP maintenance, energy audits, and smart building technology implementations.",
-      image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&q=80&w=600",
+      image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=600",
       link: "#services",
     },
     {

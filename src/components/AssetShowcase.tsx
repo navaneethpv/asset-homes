@@ -46,7 +46,7 @@ export default function AssetShowcase() {
         {/* Feature Signature Asset (Big Banner) */}
         <div className="relative w-full aspect-21/10 sm:aspect-21/9 overflow-hidden shadow-2xl mb-12 bg-brand-beige group">
           <Image
-            src="https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?auto=format&fit=crop&q=80&w=1200"
+            src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200"
             alt="The Signature Tower on Abu Dhabi Corniche"
             fill
             className="object-cover transform group-hover:scale-103 transition-transform duration-2000 ease-out"
