@@ -81,20 +81,20 @@ export default function Footer() {
         {/* Dark Cinematic Overlay */}
         <div className="absolute inset-0 bg-brand-black/85 backdrop-blur-[2px] z-10" />
 
-        {/* Content Container */}
-        <div className="relative z-20 w-full px-6 sm:px-12 lg:px-20 xl:px-32 flex flex-col md:flex-row md:items-center justify-between gap-10">
-          <div className="max-w-2xl">
+        {/* Content Container (Grid layout prevents baseline clipping and guarantees correct spacing) */}
+        <div className="relative z-20 w-full px-6 sm:px-12 lg:px-20 xl:px-32 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+          <div className="lg:col-span-8">
             <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
               ADVISORY & INTAKE
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-6 leading-tight">
-              Let’s Protect Your <span className="text-brand-gold italic">Investment</span>.
+              Let’s Protect Your <span className="text-brand-gold italic">Investment</span>
             </h2>
             <p className="text-brand-cream/80 text-sm sm:text-base font-sans font-light leading-relaxed">
               Connect with our property advisors in Abu Dhabi to schedule a comprehensive portfolio review or discuss custom management plans.
             </p>
           </div>
-          <div className="shrink-0">
+          <div className="lg:col-span-4 flex justify-start lg:justify-end">
             <Link
               href="mailto:advisory@assethomes.ae"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand-black hover:bg-brand-gold hover:text-brand-black text-[10px] font-sans font-bold tracking-widest uppercase transition-all duration-300 border border-white hover:border-brand-gold shadow-none"
