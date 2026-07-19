@@ -69,15 +69,26 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Header Banner */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 border-b border-brand-gold/15">
-        <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 text-center md:text-left">
+      <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 border-b border-brand-gold/15 overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1600"
+          alt="Premium real estate architecture at dusk"
+          fill
+          className="object-cover object-center pointer-events-none z-0"
+          priority
+        />
+        {/* Dark Cinematic Overlay */}
+        <div className="absolute inset-0 bg-brand-black/85 backdrop-blur-[2px] z-10" />
+
+        <div className="relative z-20 w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 text-center flex flex-col items-center">
           <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
             Who We Are
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-brand-black mb-6 max-w-4xl leading-tight">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white mb-6 max-w-4xl mx-auto leading-tight">
             The Standard of Real Estate <span className="text-brand-gold italic">Stewardship</span>
           </h1>
-          <p className="text-brand-charcoal-light text-base sm:text-lg font-sans leading-relaxed max-w-2xl font-light">
+          <p className="text-brand-cream/80 text-base sm:text-lg font-sans leading-relaxed max-w-2xl mx-auto font-light">
             Asset Homes Property Management LLC is dedicated to preserving, managing, and optimizing premium real estate assets across Abu Dhabi with uncompromising quality.
           </p>
         </div>
