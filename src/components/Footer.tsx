@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 import gsap from "gsap";
@@ -14,11 +15,13 @@ if (typeof window !== "undefined") {
 
 export default function Footer() {
   const lenis = useLenis();
+  const pathname = usePathname();
 
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("#")) {
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isHash: boolean = true) => {
+    if (isHash && pathname === "/") {
       e.preventDefault();
-      lenis?.scrollTo(href, {
+      const targetId = href.startsWith("/") ? href.substring(1) : href;
+      lenis?.scrollTo(targetId, {
         offset: -80,
         duration: 1.2,
       });
@@ -26,10 +29,10 @@ export default function Footer() {
   };
 
   const quickLinks = [
-    { name: "Our Portfolio", href: "#portfolio" },
-    { name: "Services", href: "#services" },
-    { name: "Our Heritage", href: "#heritage" },
-    { name: "Methodology", href: "#methodology" },
+    { name: "Our Portfolio", href: "/#portfolio", isHash: true },
+    { name: "Services", href: "/#services", isHash: true },
+    { name: "Our Heritage", href: "/#heritage", isHash: true },
+    { name: "Methodology", href: "/#methodology", isHash: true },
   ];
 
   const ctaBannerRef = useRef<HTMLDivElement>(null);
@@ -132,7 +135,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    onClick={(e) => handleScrollTo(e, link.href)}
+                    onClick={(e) => handleScrollTo(e, link.href, link.isHash)}
                     className="text-xs sm:text-sm font-sans font-normal text-brand-cream/70 hover:text-brand-gold transition-colors duration-300"
                   >
                     {link.name}
@@ -205,9 +208,9 @@ export default function Footer() {
         <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans font-light text-brand-cream/40">
           <p>© {new Date().getFullYear()} Asset Homes Property Management LLC. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="#contact" onClick={(e) => handleScrollTo(e, "#contact")} className="hover:text-brand-gold transition-colors duration-300">Privacy Policy</Link>
-            <Link href="#contact" onClick={(e) => handleScrollTo(e, "#contact")} className="hover:text-brand-gold transition-colors duration-300">Terms of Service</Link>
-            <Link href="#contact" onClick={(e) => handleScrollTo(e, "#contact")} className="hover:text-brand-gold transition-colors duration-300">Regulatory Disclosures</Link>
+            <Link href="/#contact" onClick={(e) => handleScrollTo(e, "/#contact", true)} className="hover:text-brand-gold transition-colors duration-300">Privacy Policy</Link>
+            <Link href="/#contact" onClick={(e) => handleScrollTo(e, "/#contact", true)} className="hover:text-brand-gold transition-colors duration-300">Terms of Service</Link>
+            <Link href="/#contact" onClick={(e) => handleScrollTo(e, "/#contact", true)} className="hover:text-brand-gold transition-colors duration-300">Regulatory Disclosures</Link>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
@@ -20,20 +21,22 @@ export default function Navbar() {
   const ctaRef = useRef<HTMLAnchorElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const lenis = useLenis();
+  const pathname = usePathname();
 
   const navLinks = [
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Services", href: "#services" },
-    { name: "Heritage", href: "#heritage" },
-    { name: "Methodology", href: "#methodology" },
-    { name: "Insights", href: "#insights" },
+    { name: "About Us", href: "/about", isHash: false },
+    { name: "Portfolio", href: "/#portfolio", isHash: true },
+    { name: "Services", href: "/#services", isHash: true },
+    { name: "Heritage", href: "/#heritage", isHash: true },
+    { name: "Methodology", href: "/#methodology", isHash: true },
   ];
 
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("#")) {
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isHash: boolean = true) => {
+    if (isHash && pathname === "/") {
       e.preventDefault();
+      const targetId = href.startsWith("/") ? href.substring(1) : href;
       // Scroll using Lenis with offset for sticky header
-      lenis?.scrollTo(href, {
+      lenis?.scrollTo(targetId, {
         offset: -80,
         duration: 1.2,
       });
@@ -128,7 +131,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              onClick={(e) => handleScrollTo(e, link.href)}
+              onClick={(e) => handleScrollTo(e, link.href, link.isHash)}
               className="relative text-sm font-sans font-medium tracking-wide text-brand-charcoal hover:text-brand-gold transition-colors duration-300 group py-2"
             >
               {link.name}
@@ -141,8 +144,8 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             ref={ctaRef}
-            href="#contact"
-            onClick={(e) => handleScrollTo(e, "#contact")}
+            href="/#contact"
+            onClick={(e) => handleScrollTo(e, "/#contact", true)}
             className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-brand-black text-brand-cream hover:bg-brand-gold hover:text-brand-black text-xs font-sans font-semibold tracking-wider uppercase transition-all duration-300"
           >
             Schedule Consultation
@@ -177,7 +180,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={(e) => {
                     setIsOpen(false);
-                    handleScrollTo(e, link.href);
+                    handleScrollTo(e, link.href, link.isHash);
                   }}
                   className="text-base font-sans font-medium tracking-wide text-brand-charcoal hover:text-brand-gold transition-colors duration-300"
                 >
@@ -186,10 +189,10 @@ export default function Navbar() {
               ))}
               <div className="pt-4 border-t border-brand-gold/10">
                 <Link
-                  href="#contact"
+                  href="/#contact"
                   onClick={(e) => {
                     setIsOpen(false);
-                    handleScrollTo(e, "#contact");
+                    handleScrollTo(e, "/#contact", true);
                   }}
                   className="flex items-center justify-center gap-2 w-full py-3 bg-brand-black text-brand-cream hover:bg-brand-gold hover:text-brand-black text-sm font-sans font-semibold tracking-wider uppercase transition-all duration-300"
                 >
