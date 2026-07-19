@@ -4,8 +4,7 @@ import { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight, Shield, Award, Eye } from "lucide-react";
+import { Shield, Award, Eye } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -445,7 +444,7 @@ export default function AboutPage() {
               <h2 className="pillars-reveal font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black leading-tight mb-6">
                 The Foundations of Our <span className="text-brand-gold italic">Philosophy</span>
               </h2>
-              <div className="pillars-reveal w-12 h-[1px] bg-brand-gold mb-6" />
+              <div className="pillars-reveal w-12 h-px bg-brand-gold mb-6" />
               <p className="pillars-reveal text-brand-charcoal-light text-sm font-sans font-light leading-relaxed">
                 Stewardship is more than simple oversight. It is a philosophy that guides our daily actions, ensuring client wealth is preserved with engineering-level precision and absolute integrity.
               </p>
@@ -461,13 +460,13 @@ export default function AboutPage() {
                     className="pillar-card relative group bg-brand-beige/30 hover:bg-brand-beige/80 p-8 sm:p-10 border border-brand-gold/10 hover:border-brand-gold/35 transition-all duration-500 rounded-tr-[24px] overflow-hidden min-h-[160px] flex flex-col justify-center"
                   >
                     {/* Faint Background Number Watermark */}
-                    <div className="absolute -right-2 top-2 font-serif text-7xl sm:text-8xl font-semibold text-brand-gold/[0.02] select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-103 z-0">
+                    <div className="absolute -right-2 top-2 font-serif text-7xl sm:text-8xl font-semibold text-brand-gold/2 select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-103 z-0">
                       0{idx + 1}
                     </div>
 
                     <div className="relative z-10 flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
                       {/* Icon container */}
-                      <div className="flex-shrink-0 p-3 bg-brand-gold/10 border border-brand-gold/20 text-brand-gold rounded-none">
+                      <div className="shrink-0 p-3 bg-brand-gold/10 border border-brand-gold/20 text-brand-gold rounded-none">
                         <Icon className="w-6 h-6 stroke-[1.2]" />
                       </div>
 
@@ -508,7 +507,7 @@ export default function AboutPage() {
             <div ref={timelineLineRef} className="absolute top-5 left-0 right-0 h-[1.5px] bg-brand-gold/35 hidden md:block z-0 origin-left" />
 
             <div ref={timelineGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
-              {milestones.map((item, idx) => (
+              {milestones.map((item) => (
                 <div 
                   key={item.year} 
                   className="timeline-reveal pt-8 md:pt-0 relative"
@@ -543,7 +542,7 @@ export default function AboutPage() {
           <div className="lg:col-span-7 flex flex-col">
             <div 
               ref={storyImageWrapperRef}
-              className="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:h-[75vh] overflow-hidden bg-brand-beige shadow-2xl"
+              className="relative w-full aspect-4/5 sm:aspect-4/3 lg:h-[75vh] overflow-hidden bg-brand-beige shadow-2xl"
               style={{ clipPath: "inset(0% 100% 0% 0%)" }}
             >
               <div ref={storyImageParallaxRef} className="relative w-full h-full">
@@ -583,7 +582,7 @@ export default function AboutPage() {
 
             <div className="story-reveal border-l border-[#C6A15B]/30 pl-6 py-2">
               <span className="font-serif italic text-base text-[#C6A15B] block">
-                "True property management begins long before issues arise."
+                &ldquo;True property management begins long before issues arise.&rdquo;
               </span>
             </div>
           </div>
@@ -616,7 +615,7 @@ export default function AboutPage() {
                     src={leader.image}
                     alt={leader.name}
                     fill
-                    className="object-cover rounded-tr-[32px] grayscale-[25%] contrast-[105%] brightness-[98%] transition-transform duration-700 ease-out group-hover:scale-103"
+                    className="object-cover rounded-tr-[32px] grayscale-25 contrast-105 brightness-98 transition-transform duration-700 ease-out group-hover:scale-103"
                     style={{ borderTopRightRadius: "32px" }}
                     sizes="(max-width: 768px) 100vw, 30vw"
                   />
