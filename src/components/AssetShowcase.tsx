@@ -141,7 +141,7 @@ export default function AssetShowcase() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="portfolio" className="bg-brand-cream py-20 sm:py-24 lg:py-32 overflow-hidden">
+    <section ref={sectionRef} id="portfolio" className="bg-brand-cream py-16 sm:py-20 lg:py-24 overflow-hidden">
       <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
@@ -149,14 +149,14 @@ export default function AssetShowcase() {
           <span className="portfolio-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block opacity-0">
             Portfolio Showcase
           </span>
-          <h2 className="portfolio-heading font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-black leading-tight opacity-0">
+          <h2 className="portfolio-heading font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-brand-black leading-tight opacity-0">
             Assets Under <span className="text-brand-gold italic">Stewardship</span>
           </h2>
         </div>
 
         {/* Feature Signature Asset (Big Banner) */}
         <div 
-          className="signature-parallax-container relative w-full aspect-16/10 sm:aspect-21/9 overflow-hidden shadow-xl mb-16 bg-brand-beige group opacity-0 transition-transform duration-800 ease-out-expo hover:scale-[1.01] hover:shadow-2xl"
+          className="signature-parallax-container relative w-full aspect-16/10 sm:aspect-16/8 overflow-hidden shadow-xl mb-10 bg-brand-beige group opacity-0 transition-transform duration-800 ease-out-expo hover:scale-[1.01] hover:shadow-2xl"
           style={{ clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" }}
         >
           {/* Inner parallax container to hold the image */}
@@ -198,7 +198,7 @@ export default function AssetShowcase() {
         </div>
 
         {/* Multi-column minor showcases (Staggered layout on larger screens) */}
-        <div className="portfolio-cards-grid grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-24">
+        <div className="portfolio-cards-grid grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 mb-16">
           {assets.map((asset, idx) => (
             <div
               key={asset.name}
@@ -239,7 +239,7 @@ export default function AssetShowcase() {
         </div>
 
         {/* View Complete Gallery CTA Button */}
-        <div className="mt-16 text-center">
+        <div className="mt-10 text-center">
           <Link
             href="/gallery"
             className="inline-flex items-center gap-2 px-8 py-3.5 border border-brand-gold text-brand-black hover:bg-brand-black hover:text-brand-cream hover:border-brand-black text-xs font-sans font-semibold tracking-widest uppercase transition-all duration-300 shadow-xs"

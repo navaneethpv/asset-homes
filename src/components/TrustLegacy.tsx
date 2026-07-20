@@ -70,7 +70,7 @@ export default function TrustLegacy() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="heritage" className="bg-brand-beige py-20 sm:py-24 lg:py-32 overflow-hidden">
+    <section ref={sectionRef} id="heritage" className="bg-brand-beige py-16 sm:py-20 lg:py-24 overflow-hidden">
       <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -80,11 +80,11 @@ export default function TrustLegacy() {
               Our Heritage
             </span>
             
-            <h2 className="text-reveal font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-black leading-tight mb-6 opacity-0">
+            <h2 className="text-reveal font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-brand-black leading-tight mb-5 opacity-0">
               A Legacy of <span className="text-brand-gold italic">Trust</span> in the Heart of Abu Dhabi
             </h2>
             
-            <div className="space-y-6 text-brand-charcoal-light text-base font-sans font-normal leading-relaxed">
+            <div className="space-y-4 text-brand-charcoal-light text-sm font-sans font-normal leading-relaxed">
               <p className="text-reveal opacity-0">
                 Founded on the principles of transparency and architectural preservation, Asset Homes Property Management LLC has established itself as the trusted partner for local and institutional real estate owners across the United Arab Emirates.
               </p>

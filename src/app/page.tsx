@@ -106,7 +106,7 @@ export default function Home() {
         <ServicesGrid />
 
         {/* 4. Why Choose Asset Homes Hook */}
-        <section ref={whyChooseSectionRef} className="py-24 sm:py-32 bg-brand-beige text-brand-charcoal border-t border-brand-gold/15 relative overflow-hidden">
+        <section ref={whyChooseSectionRef} className="py-16 sm:py-20 bg-brand-beige text-brand-charcoal border-t border-brand-gold/15 relative overflow-hidden">
           <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
@@ -135,7 +135,7 @@ export default function Home() {
                   Our Advantage
                 </span>
                 
-                <h2 className="why-reveal font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black leading-tight">
+                <h2 className="why-reveal font-serif text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-brand-black leading-tight">
                   Why Leading Property Owners <span className="text-brand-gold italic">Choose Us</span>
                 </h2>
                 

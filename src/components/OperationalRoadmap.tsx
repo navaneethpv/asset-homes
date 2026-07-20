@@ -145,7 +145,7 @@ export default function OperationalRoadmap() {
     <section 
       ref={sectionRef} 
       id="methodology" 
-      className="bg-brand-beige py-20 sm:py-24 lg:py-32 scroll-mt-24 overflow-hidden"
+      className="bg-brand-beige py-16 sm:py-20 lg:py-24 scroll-mt-24 overflow-hidden"
     >
       <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
         
@@ -154,7 +154,7 @@ export default function OperationalRoadmap() {
           <span className="roadmap-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-3 block opacity-0">
             Our Methodology
           </span>
-          <h2 className="roadmap-heading font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-black leading-tight mb-6 opacity-0">
+          <h2 className="roadmap-heading font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-brand-black leading-tight mb-4 opacity-0">
             A Seamless Journey to <span className="text-brand-gold italic">Optimization</span>
           </h2>
           <p className="text-brand-charcoal-light text-sm sm:text-base font-sans leading-relaxed font-normal">
@@ -163,13 +163,13 @@ export default function OperationalRoadmap() {
         </div>
 
         {/* 5-Step Methodology Grid */}
-        <div className="steps-grid grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16 sm:mb-20">
+        <div className="steps-grid grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12 sm:mb-16">
           {steps.map((step, idx) => (
             <div
               key={step.num}
               onClick={() => setActiveStep(idx)}
               onMouseEnter={() => setActiveStep(idx)}
-              className={`step-card group relative bg-brand-cream border transition-all duration-500 rounded-sm overflow-hidden flex flex-col justify-between cursor-pointer p-6 shadow-xs ${
+              className={`step-card group relative bg-brand-cream border transition-all duration-500 rounded-sm overflow-hidden flex flex-col justify-between cursor-pointer p-4 shadow-xs ${
                 activeStep === idx
                   ? "border-brand-gold shadow-lg -translate-y-1 bg-white"
                   : "border-brand-gold/15 hover:border-brand-gold/40 hover:shadow-md"

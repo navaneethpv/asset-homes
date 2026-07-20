@@ -146,7 +146,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="hero" className="relative bg-brand-cream pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 overflow-hidden">
+    <section ref={sectionRef} id="hero" className="relative bg-brand-cream pt-24 pb-10 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 overflow-hidden">
       {/* Background Parallax Layer */}
       <div ref={bgRef} className="absolute inset-0 bg-[#F6F2E8]/40 pointer-events-none z-0" />
       
@@ -164,11 +164,11 @@ export default function HeroSection() {
               Property Management Services
             </span>
             
-            <h1 ref={headlineRef} className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-black leading-[1.15] mb-5">
+            <h1 ref={headlineRef} className="font-serif text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-brand-black leading-[1.15] mb-4">
               {splitText("Professional Property Management for Exceptional Investments")}
             </h1>
             
-            <p ref={paragraphRef} className="text-brand-charcoal-light text-sm sm:text-base lg:text-lg font-sans font-normal leading-relaxed max-w-xl mb-6 opacity-0">
+            <p ref={paragraphRef} className="text-brand-charcoal-light text-sm sm:text-sm lg:text-base font-sans font-normal leading-relaxed max-w-xl mb-5 opacity-0">
               Asset Homes offers bespoke management strategies for luxury residential and premium commercial portfolios in Abu Dhabi. We bridge institutional rigor with personalized care to optimize yields and maintain architectural integrity.
             </p>
             
@@ -190,7 +190,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Column (Hero Image) */}
-          <div className="lg:col-span-5 relative w-full h-[380px] sm:h-[460px] lg:h-[500px] xl:h-[560px]">
+          <div className="lg:col-span-5 relative w-full h-[300px] sm:h-[380px] lg:h-[420px] xl:h-[480px]">
             <div
               ref={imageWrapperRef}
               className="relative w-full h-full overflow-hidden shadow-2xl rounded-sm border border-brand-gold/20 opacity-0"
@@ -211,14 +211,14 @@ export default function HeroSection() {
         </div>
 
         {/* Stats strip */}
-        <div className="mt-20 lg:mt-24 border-t border-brand-gold/15 pt-8 sm:pt-10">
+        <div className="mt-10 lg:mt-12 border-t border-brand-gold/15 pt-6 sm:pt-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div
                 key={stat.label}
                 className="stat-item flex flex-col border-l border-brand-gold/20 pl-4 sm:pl-6 opacity-0"
               >
-                <span className="font-serif text-3xl sm:text-4xl font-semibold text-brand-gold tracking-tight mb-1">
+                <span className="font-serif text-2xl sm:text-3xl font-semibold text-brand-gold tracking-tight mb-1">
                   {stat.value}
                 </span>
                 <span className="text-[10px] sm:text-xs font-sans font-semibold tracking-wider text-brand-charcoal-light uppercase">

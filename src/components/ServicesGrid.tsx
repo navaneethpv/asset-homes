@@ -67,15 +67,15 @@ export default function ServicesGrid() {
     <section
       ref={sectionRef}
       id="services"
-      className="bg-brand-cream py-20 sm:py-24 lg:py-32 overflow-hidden"
+      className="bg-brand-cream py-16 sm:py-20 lg:py-24 overflow-hidden"
     >
       <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* Header Content */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <span className="services-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block opacity-0">
             Our Services
           </span>
-          <h2 className="services-heading font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-black mb-6 leading-tight opacity-0">
+          <h2 className="services-heading font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-brand-black mb-4 leading-tight opacity-0">
             Comprehensive Property Management{" "}
             <span className="text-brand-gold italic">Solutions</span>
           </h2>
@@ -119,7 +119,7 @@ export default function ServicesGrid() {
                     <div className="h-px w-4 bg-brand-gold/30" />
                   </div>
 
-                  <h3 className="font-serif text-lg sm:text-xl lg:text-2xl font-medium text-brand-black mb-3 leading-tight group-hover:text-brand-gold transition-colors duration-300">
+                  <h3 className="font-serif text-base sm:text-lg lg:text-xl font-medium text-brand-black mb-2 leading-tight group-hover:text-brand-gold transition-colors duration-300">
                     <Link href={serviceHref}>{service.title}</Link>
                   </h3>
 
@@ -149,7 +149,7 @@ export default function ServicesGrid() {
         </div>
 
         {/* View All Services CTA Button */}
-        <div className="mt-16 text-center">
+        <div className="mt-10 text-center">
           <Link
             href="/services"
             className="inline-flex items-center gap-2 px-8 py-3.5 border border-brand-gold text-brand-black hover:bg-brand-black hover:text-brand-cream hover:border-brand-black text-xs font-sans font-semibold tracking-widest uppercase transition-all duration-300 shadow-xs"
