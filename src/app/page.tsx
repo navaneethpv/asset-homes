@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustLegacy from "@/components/TrustLegacy";
 import ServicesGrid from "@/components/ServicesGrid";
-import WhyChooseUs from "@/components/WhyChooseUs";
+// import WhyChooseUs from "@/components/WhyChooseUs";
 import AssetShowcase from "@/components/AssetShowcase";
 import OperationalRoadmap from "@/components/OperationalRoadmap";
 import Testimonial from "@/components/Testimonial";
@@ -21,8 +21,8 @@ export default function Home() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Global Section Transitions: focus fading on scroll
-      const sections = gsap.utils.toArray("section, footer");
-      sections.forEach((sec: any) => {
+      const sections = gsap.utils.toArray<HTMLElement>("section, footer");
+      sections.forEach((sec: HTMLElement) => {
         // One-time smooth fade-out (opacity 92%) when section leaves focus
         gsap.to(sec, {
           opacity: 0.92,
@@ -71,7 +71,7 @@ export default function Home() {
         <ServicesGrid />
 
         {/* 4. Why Choose Asset Homes */}
-        <WhyChooseUs />
+        {/* <WhyChooseUs /> */}
 
         {/* 5. Assets Showcase */}
         <AssetShowcase />
