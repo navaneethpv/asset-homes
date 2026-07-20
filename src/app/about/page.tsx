@@ -307,7 +307,7 @@ export default function AboutPage() {
         />
         <div className="absolute inset-0 bg-brand-black/90 backdrop-blur-[3px] z-10" />
 
-        <div ref={heroTextRef} className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div ref={heroTextRef} className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="hero-reveal mb-4 flex justify-start">
             <Breadcrumb items={[{ label: "About Us" }]} />
           </div>
@@ -327,7 +327,7 @@ export default function AboutPage() {
 
       {/* ── Intro Split Section ── */}
       <section ref={introSectionRef} className="bg-brand-beige py-10 sm:py-14 lg:py-16 overflow-hidden">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
             {/* Left – text */}
@@ -373,7 +373,7 @@ export default function AboutPage() {
 
       {/* ── Pillars of Stewardship ── */}
       <section ref={pillarsSectionRef} className="py-10 sm:py-14 lg:py-16 bg-brand-cream border-t border-brand-gold/15">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
             {/* Left sticky label */}
@@ -422,7 +422,7 @@ export default function AboutPage() {
 
       {/* ── Milestones Timeline ── */}
       <section ref={timelineSectionRef} className="bg-brand-beige py-10 sm:py-14 lg:py-16 border-t border-brand-gold/15">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
 
           <div className="max-w-2xl mb-8 md:mb-10">
             <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-2 block">
@@ -455,7 +455,7 @@ export default function AboutPage() {
         ref={storySectionRef}
         className="bg-[#F8F5F0] py-10 sm:py-14 lg:py-16 relative overflow-hidden z-10 border-t border-brand-gold/15"
       >
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
           {/* Left – image */}
           <div className="lg:col-span-7 flex flex-col">
@@ -504,7 +504,7 @@ export default function AboutPage() {
 
       {/* ── Leadership Team ── */}
       <section ref={teamSectionRef} className="py-10 sm:py-14 lg:py-16 bg-brand-cream border-t border-brand-gold/15">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
 
           <div ref={teamTitleRef} className="max-w-2xl mb-8 md:mb-10">
             <span className="team-title-reveal text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-2 block">

@@ -147,7 +147,7 @@ export default function OperationalRoadmap() {
       id="methodology" 
       className="bg-brand-beige py-16 sm:py-20 lg:py-24 scroll-mt-24 overflow-hidden"
     >
-      <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
@@ -172,18 +172,18 @@ export default function OperationalRoadmap() {
               className={`step-card group relative bg-brand-cream border transition-all duration-500 rounded-sm overflow-hidden flex flex-col justify-between cursor-pointer p-4 shadow-xs ${
                 activeStep === idx
                   ? "border-brand-gold shadow-lg -translate-y-1 bg-white"
-                  : "border-brand-gold/15 hover:border-brand-gold/40 hover:shadow-md"
+                  : "border-brand-gold/25 hover:border-brand-gold/50 hover:shadow-md"
               }`}
             >
               {/* Step Header */}
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className={`font-serif text-3xl font-semibold tracking-tight transition-colors duration-300 ${
-                    activeStep === idx ? "text-brand-gold" : "text-brand-gold/60 group-hover:text-brand-gold"
+                    activeStep === idx ? "text-brand-gold" : "text-brand-gold/80 group-hover:text-brand-gold"
                   }`}>
                     {step.num}
                   </span>
-                  <span className="text-[9px] font-sans font-bold tracking-widest text-brand-charcoal-light/50 uppercase">
+                  <span className="text-[9px] font-sans font-bold tracking-widest text-brand-charcoal-light/80 uppercase">
                     Stage {step.num}
                   </span>
                 </div>

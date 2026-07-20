@@ -69,7 +69,7 @@ export default function ServicesGrid() {
       id="services"
       className="bg-brand-cream py-16 sm:py-20 lg:py-24 overflow-hidden"
     >
-      <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* Header Content */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <span className="services-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block opacity-0">
@@ -119,8 +119,10 @@ export default function ServicesGrid() {
                     <div className="h-px w-4 bg-brand-gold/30" />
                   </div>
 
-                  <h3 className="font-serif text-base sm:text-lg lg:text-xl font-medium text-brand-black mb-2 leading-tight group-hover:text-brand-gold transition-colors duration-300">
-                    <Link href={serviceHref}>{service.title}</Link>
+                  <h3 className="font-serif text-base sm:text-lg lg:text-xl font-medium mb-2 leading-tight">
+                    <Link href={serviceHref} className="text-brand-black group-hover:text-brand-gold transition-colors duration-300">
+                      {service.title}
+                    </Link>
                   </h3>
 
                   <p className="text-brand-charcoal-light text-xs sm:text-sm font-sans leading-relaxed mb-6 grow">

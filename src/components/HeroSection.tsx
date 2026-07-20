@@ -153,7 +153,7 @@ export default function HeroSection() {
       {/* Floating Decorative Elements */}
       <div ref={decorRef} className="absolute top-[20%] right-[10%] w-[100px] h-[100px] border border-brand-gold/15 rounded-full pointer-events-none z-0 hidden lg:block" />
 
-      <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
         
         {/* Main Grid: Left content, Right Image */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">

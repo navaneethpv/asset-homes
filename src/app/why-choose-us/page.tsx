@@ -26,7 +26,7 @@ export default function WhyChooseUsPage() {
           <div className="absolute inset-0 bg-brand-black/90 backdrop-blur-[2px] z-10" />
 
           {/* Content */}
-          <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+          <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
             {/* Top Left Breadcrumb */}
             <div className="mb-4 flex justify-start">
               <Breadcrumb items={[{ label: "Why Choose Us" }]} />

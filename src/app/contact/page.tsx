@@ -138,12 +138,12 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-brand-black/88 backdrop-blur-[2px] z-10" />
 
         {/* Top-Left Breadcrumb */}
-        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 pt-2 sm:pt-4">
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 pt-2 sm:pt-4">
           <Breadcrumb items={[{ label: "Contact Us" }]} />
         </div>
 
         {/* Hero Copy */}
-        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 my-auto py-6 sm:py-10 lg:py-12">
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 my-auto py-6 sm:py-10 lg:py-12">
           <div className="max-w-4xl text-center md:text-left">
             <span className="c-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.3em] text-brand-gold uppercase mb-3 sm:mb-6 block">
               {heroData.eyebrow}
@@ -175,7 +175,7 @@ export default function ContactPage() {
           CONTACT DETAILS CARDS — Telephone, Email, Address, 24/7 Support
           ========================================================================= */}
       <section className="py-10 sm:py-14 lg:py-18 bg-brand-cream border-b border-brand-gold/15">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {contactInfoItems.map((item) => {
@@ -219,7 +219,7 @@ export default function ContactPage() {
           INQUIRY INTAKE FORM — Luxury Form Component
           ========================================================================= */}
       <section id="inquiry-form" className="py-10 sm:py-16 lg:py-20 bg-brand-cream border-b border-brand-gold/15">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Left Column: Form Header & Guidance */}
@@ -383,7 +383,7 @@ export default function ContactPage() {
           OUR LOCATIONS & GOOGLE MAP — Clean Bottom Map Section
           ========================================================================= */}
       <section className="py-10 sm:py-16 lg:py-20 bg-brand-beige border-b border-brand-gold/15">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           
           {/* Section Heading */}
           <div className="max-w-3xl mb-8 sm:mb-14">

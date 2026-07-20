@@ -107,7 +107,7 @@ export default function Home() {
 
         {/* 4. Why Choose Asset Homes Hook */}
         <section ref={whyChooseSectionRef} className="py-16 sm:py-20 bg-brand-beige text-brand-charcoal border-t border-brand-gold/15 relative overflow-hidden">
-          <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               {/* Left Column: Architectural Image */}

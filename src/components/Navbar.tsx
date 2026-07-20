@@ -132,16 +132,16 @@ export default function Navbar() {
   return (
     <header 
       ref={headerRef} 
-      className="fixed top-0 left-0 right-0 z-50 w-full border-b border-transparent bg-transparent h-20 md:h-24 transition-all duration-300 flex items-center"
+      className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-transparent bg-transparent h-20 md:h-24 transition-all duration-300 flex items-center"
     >
       {/* Scroll Progress Indicator */}
       <div 
         ref={progressRef}
-        className="absolute top-0 left-0 right-0 h-[2.5px] bg-brand-gold origin-left z-50 pointer-events-none"
+        className="absolute top-0 left-0 right-0 h-[2.5px] bg-brand-gold origin-left z-[100] pointer-events-none"
         style={{ transform: "scaleX(0)" }}
       />
 
-      <div className="w-full flex items-center justify-between px-4 sm:px-8 lg:px-12 xl:px-16">
+      <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* Brand Logo Wrapper */}
         <div ref={logoRef} className="origin-left">
           <Link href="/" className="flex items-center">
