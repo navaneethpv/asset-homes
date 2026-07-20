@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Landmark, Building2, Wrench, Headphones } from "lucide-react";
@@ -43,8 +44,12 @@ export default function ServicesPage() {
       <Navbar />
 
       {/* Header Banner */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 border-b border-brand-gold/15">
+      <section className="pt-24 pb-16 md:pt-28 md:pb-24 border-b border-brand-gold/15">
         <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 text-center md:text-left">
+          <div className="mb-4 flex justify-start">
+            <Breadcrumb items={[{ label: "Services" }]} />
+          </div>
+
           <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
             Our Offerings
           </span>

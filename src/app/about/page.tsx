@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Shield, Award, Eye } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Breadcrumb from "@/components/Breadcrumb";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -361,7 +362,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Header Banner */}
-      <section ref={heroSectionRef} className="relative pt-40 pb-24 md:pt-48 md:pb-32 border-b border-brand-gold/15 overflow-hidden">
+      <section ref={heroSectionRef} className="relative pt-28 pb-20 md:pt-32 md:pb-28 border-b border-brand-gold/15 overflow-hidden">
         {/* Background Image */}
         <Image
           ref={heroImageRef}
@@ -374,16 +375,23 @@ export default function AboutPage() {
         {/* Dark Cinematic Overlay */}
         <div className="absolute inset-0 bg-brand-black/92 backdrop-blur-[3px] z-10" />
 
-        <div ref={heroTextRef} className="relative z-20 w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 text-center flex flex-col items-center">
-          <span className="hero-reveal text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
-            Who We Are
-          </span>
-          <h1 className="hero-reveal font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white mb-6 max-w-4xl mx-auto leading-tight">
-            The Standard of Real Estate <span className="text-brand-gold italic">Stewardship</span>
-          </h1>
-          <p className="hero-reveal text-brand-cream/90 text-base sm:text-lg font-sans leading-relaxed max-w-xl mx-auto font-normal">
-            Asset Homes Property Management LLC is dedicated to preserving, managing, and optimizing premium real estate assets across Abu Dhabi with uncompromising quality.
-          </p>
+        <div ref={heroTextRef} className="relative z-20 w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
+          {/* Top Left Breadcrumb */}
+          <div className="hero-reveal mb-4 flex justify-start">
+            <Breadcrumb items={[{ label: "About Us" }]} />
+          </div>
+
+          <div className="text-center flex flex-col items-center">
+            <span className="hero-reveal text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
+              Who We Are
+            </span>
+            <h1 className="hero-reveal font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white mb-6 max-w-4xl mx-auto leading-tight">
+              The Standard of Real Estate <span className="text-brand-gold italic">Stewardship</span>
+            </h1>
+            <p className="hero-reveal text-brand-cream/90 text-base sm:text-lg font-sans leading-relaxed max-w-xl mx-auto font-normal">
+              Asset Homes Property Management LLC is dedicated to preserving, managing, and optimizing premium real estate assets across Abu Dhabi with uncompromising quality.
+            </p>
+          </div>
         </div>
       </section>
 

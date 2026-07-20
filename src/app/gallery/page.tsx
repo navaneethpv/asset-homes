@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -82,6 +83,10 @@ export default function GalleryPage() {
       {/* Header Banner */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-20 border-b border-brand-gold/15">
         <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 text-center md:text-left">
+          <div className="mb-6 flex justify-start">
+            <Breadcrumb items={[{ label: "Gallery" }]} />
+          </div>
+
           <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
             Stewardship Portfolio
           </span>
