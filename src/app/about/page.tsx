@@ -303,6 +303,7 @@ export default function AboutPage() {
           alt="Premium real estate architecture at dusk"
           fill
           className="object-cover object-center pointer-events-none z-0 scale-[1.05]"
+          sizes="100vw"
           priority
         />
         <div className="absolute inset-0 bg-brand-black/90 backdrop-blur-[3px] z-10" />
@@ -362,7 +363,6 @@ export default function AboutPage() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 40vw"
-                  priority
                 />
               </div>
             </div>
@@ -472,7 +472,6 @@ export default function AboutPage() {
                   fill
                   className="object-cover scale-[1.05]"
                   sizes="(max-width: 768px) 100vw, 55vw"
-                  priority
                 />
               </div>
             </div>
