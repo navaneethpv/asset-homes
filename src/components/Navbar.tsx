@@ -26,9 +26,9 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/", isHash: false },
     { name: "About Us", href: "/about", isHash: false },
+    { name: "Vision", href: "/vision", isHash: false },
     { name: "Services", href: "/services", isHash: false },
     { name: "Gallery", href: "/gallery", isHash: false },
-    { name: "Portfolio", href: "/#portfolio", isHash: true },
   ];
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isHash: boolean = true) => {
