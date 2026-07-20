@@ -3,6 +3,7 @@ import { Lora, Inter } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import ScrollToTop from "@/components/ScrollToTop";
+import FloatingContactWidget from "@/components/FloatingContactWidget";
 
 const lora = Lora({
   variable: "--font-lora",
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <LenisProvider>
           {children}
+          <FloatingContactWidget />
           <ScrollToTop />
         </LenisProvider>
       </body>
