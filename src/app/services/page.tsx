@@ -88,11 +88,11 @@ export default function ServicesPage() {
       revealElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 35 },
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
-            duration: 1.2,
+            duration: 1.0,
             ease: "power3.out",
             scrollTrigger: {
               trigger: el,
@@ -103,81 +103,111 @@ export default function ServicesPage() {
         );
       });
 
-      // 2. GSAP ScrollTrigger Stacked Pinning & Depth Scaling Animation
-      const cards = gsap.utils.toArray<HTMLElement>(".service-card");
+      // 2. Responsive GSAP MatchMedia for Desktop Pinned Stack vs Mobile Scroll Flow
+      const mm = gsap.matchMedia();
 
-      cards.forEach((card, index) => {
-        // Pin each card while scrolling down
-        if (index < cards.length - 1) {
-          ScrollTrigger.create({
-            trigger: card,
-            start: "top top",
-            endTrigger: cards[cards.length - 1],
-            end: "top top",
-            pin: true,
-            pinSpacing: false,
-            scrub: true
-          });
+      mm.add("(min-width: 1024px)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(".service-card");
 
-          // As the NEXT card slides up over this card, scale & dim this current card
-          const nextCard = cards[index + 1];
-          const innerContent = card.querySelector(".service-inner-wrapper");
-
-          if (innerContent) {
-            gsap.to(innerContent, {
-              scale: 0.92,
-              opacity: 0.3,
-              transformOrigin: "center top",
-              ease: "none",
-              scrollTrigger: {
-                trigger: nextCard,
-                start: "top bottom",
-                end: "top top",
-                scrub: true
-              }
+        cards.forEach((card, index) => {
+          // Pin each card on desktop viewports
+          if (index < cards.length - 1) {
+            ScrollTrigger.create({
+              trigger: card,
+              start: "top top",
+              endTrigger: cards[cards.length - 1],
+              end: "top top",
+              pin: true,
+              pinSpacing: false,
+              scrub: true
             });
+
+            // Depth scaling animation on previous pinned card
+            const nextCard = cards[index + 1];
+            const innerContent = card.querySelector(".service-inner-wrapper");
+
+            if (innerContent) {
+              gsap.to(innerContent, {
+                scale: 0.93,
+                opacity: 0.3,
+                transformOrigin: "center top",
+                ease: "none",
+                scrollTrigger: {
+                  trigger: nextCard,
+                  start: "top bottom",
+                  end: "top top",
+                  scrub: true
+                }
+              });
+            }
           }
-        }
 
-        // Parallax effect on individual service feature image
-        const bgImg = card.querySelector(".service-feature-img");
-        if (bgImg) {
-          gsap.fromTo(
-            bgImg,
-            { scale: 1.12 },
-            {
-              scale: 1.0,
-              ease: "none",
-              scrollTrigger: {
-                trigger: card,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
+          // Image scale parallax
+          const bgImg = card.querySelector(".service-feature-img");
+          if (bgImg) {
+            gsap.fromTo(
+              bgImg,
+              { scale: 1.1 },
+              {
+                scale: 1.0,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true
+                }
               }
-            }
-          );
-        }
+            );
+          }
 
-        // Staggered text entrance per service
-        const textElements = card.querySelectorAll(".service-text-item");
-        if (textElements.length > 0) {
-          gsap.fromTo(
-            textElements,
-            { opacity: 0, y: 40 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 1.0,
-              stagger: 0.1,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: card,
-                start: "top 65%",
-                toggleActions: "play none none none"
+          // Staggered text entrance
+          const textElements = card.querySelectorAll(".service-text-item");
+          if (textElements.length > 0) {
+            gsap.fromTo(
+              textElements,
+              { opacity: 0, y: 35 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 1.0,
+                stagger: 0.1,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 65%",
+                  toggleActions: "play none none none"
+                }
               }
-            }
-          );
-        }
+            );
+          }
+        });
+      });
+
+      // Mobile / Tablet reveal triggers
+      mm.add("(max-width: 1023px)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(".service-card");
+        cards.forEach((card) => {
+          const textElements = card.querySelectorAll(".service-text-item");
+          if (textElements.length > 0) {
+            gsap.fromTo(
+              textElements,
+              { opacity: 0, y: 25 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.08,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 80%",
+                  toggleActions: "play none none none"
+                }
+              }
+            );
+          }
+        });
       });
     }, containerRef);
 
@@ -192,9 +222,9 @@ export default function ServicesPage() {
       <Navbar />
 
       {/* =========================================================================
-          HERO — Minimalist, calm, luxury architecture photography
+          HERO — Responsive Hero with fixed mobile navbar clearance
           ========================================================================= */}
-      <section className="relative h-screen w-full flex flex-col justify-between pt-24 pb-16 md:pt-28 md:pb-20 border-b border-brand-gold/15 overflow-hidden">
+      <section className="relative min-h-[90vh] lg:h-screen w-full flex flex-col justify-between pt-28 pb-12 sm:pb-16 lg:pt-28 lg:pb-20 border-b border-brand-gold/15 overflow-hidden">
         {/* Full-screen Background Photography */}
         <Image
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000"
@@ -207,30 +237,30 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-brand-black/85 backdrop-blur-[1px] z-10" />
 
         {/* Top-Left Breadcrumb */}
-        <div className="relative z-20 w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 pt-4">
+        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 pt-2 sm:pt-4">
           <Breadcrumb items={[{ label: "Services" }]} />
         </div>
 
         {/* Hero Copy */}
-        <div className="relative z-20 w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 my-auto py-12">
+        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 my-auto py-8 sm:py-12">
           <div className="max-w-4xl">
-            <span className="st-reveal text-[10px] font-sans font-bold tracking-[0.3em] text-brand-gold uppercase mb-6 block">
+            <span className="st-reveal text-[10px] sm:text-xs font-sans font-bold tracking-[0.25em] sm:tracking-[0.3em] text-brand-gold uppercase mb-4 sm:mb-6 block">
               Institutional Stewardship
             </span>
 
-            <h1 className="st-reveal font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white mb-8 leading-[1.08]">
+            <h1 className="st-reveal font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-white mb-6 sm:mb-8 leading-[1.1]">
               Institutional-Grade <br className="hidden sm:inline" />
               <span className="text-brand-gold italic">Services</span>
             </h1>
 
-            <p className="st-reveal text-brand-cream/80 text-base sm:text-xl font-sans font-light leading-relaxed max-w-xl mb-10">
+            <p className="st-reveal text-brand-cream/80 text-sm sm:text-lg lg:text-xl font-sans font-light leading-relaxed max-w-xl mb-8 sm:mb-10">
               Uncompromising operational oversight designed to preserve structural integrity, elevate tenant experiences, and maximize yield across Abu Dhabi.
             </p>
 
             <div className="st-reveal">
               <Link
                 href="/#contact"
-                className="inline-flex items-center gap-4 px-8 py-4 bg-brand-gold hover:bg-brand-gold-dark text-brand-black text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-xl group"
+                className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3.5 sm:py-4 bg-brand-gold hover:bg-brand-gold-dark text-brand-black text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-xl group"
               >
                 <span>Consult an Advisor</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -241,20 +271,20 @@ export default function ServicesPage() {
       </section>
 
       {/* =========================================================================
-          EDITORIAL INTRODUCTION — Minimal, powerful statement, large whitespace
+          EDITORIAL INTRODUCTION — Responsive typography & spacing
           ========================================================================= */}
-      <section className="py-32 sm:py-44 lg:py-52 bg-brand-cream border-b border-brand-gold/15">
-        <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
-          <div className="max-w-4xl mx-auto text-center md:text-left">
-            <span className="st-reveal text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-8 block">
+      <section className="py-20 sm:py-32 lg:py-48 bg-brand-cream border-b border-brand-gold/15">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32">
+          <div className="max-w-4xl mx-auto text-left">
+            <span className="st-reveal text-[10px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase mb-6 block">
               Operational Scope
             </span>
 
-            <h2 className="st-reveal font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-brand-black leading-tight mb-10">
+            <h2 className="st-reveal font-serif text-2xl sm:text-4xl lg:text-6xl font-normal tracking-tight text-brand-black leading-tight sm:leading-snug mb-8 sm:mb-10">
               &ldquo;We protect investments with the discipline of engineering and the care of hospitality.&rdquo;
             </h2>
 
-            <p className="st-reveal text-brand-charcoal-light text-base sm:text-lg font-sans font-light leading-relaxed max-w-2xl mb-12">
+            <p className="st-reveal text-brand-charcoal-light text-xs sm:text-base lg:text-lg font-sans font-light leading-relaxed max-w-2xl mb-8 sm:mb-12">
               We do not believe in reactive maintenance or standardized checklists. Every asset entrusted to Asset Homes Property Management LLC receives a customized operational framework engineered around its physical architecture, tenant profile, and financial objectives.
             </p>
 
@@ -264,7 +294,7 @@ export default function ServicesPage() {
       </section>
 
       {/* =========================================================================
-          GSAP SCROLLTRIGGER STACKED LIGHT-THEMED SERVICE SPREADS
+          GSAP SCROLLTRIGGER STACKED SERVICE SPREADS (RESPONSIVE FOR MOBILE & DESKTOP)
           ========================================================================= */}
       <div ref={stackWrapperRef} className="relative w-full">
         {services.map((service, idx) => {
@@ -275,30 +305,30 @@ export default function ServicesPage() {
             <div
               key={service.id}
               id={service.id}
-              className={`service-card relative h-screen w-full overflow-hidden ${bgThemeClass} border-t border-brand-gold/25 shadow-2xl`}
+              className={`service-card relative min-h-screen lg:h-screen w-full overflow-hidden ${bgThemeClass} border-t border-brand-gold/25 shadow-2xl flex flex-col justify-between`}
               style={{ zIndex: idx + 1 }}
             >
-              {/* Inner wrapper for depth scaling animation */}
-              <div className={`service-inner-wrapper h-full w-full flex flex-col justify-between relative ${bgThemeClass} text-brand-black p-6 sm:p-12 lg:p-16`}>
+              {/* Inner wrapper for responsive height and GSAP scaling */}
+              <div className={`service-inner-wrapper min-h-full w-full flex flex-col justify-between relative ${bgThemeClass} text-brand-black p-4 sm:p-8 lg:p-14`}>
                 
                 {/* Top Label & Progress Header */}
-                <div className="relative z-20 w-full flex justify-between items-center border-b border-brand-gold/25 pb-4">
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm font-serif font-bold text-brand-gold">
+                <div className="relative z-20 w-full flex justify-between items-center border-b border-brand-gold/25 pb-3 sm:pb-4 mb-4 sm:mb-6 lg:mb-0">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <span className="text-xs sm:text-sm font-serif font-bold text-brand-gold">
                       0{idx + 1}
                     </span>
-                    <span className="text-[10px] font-sans font-bold tracking-[0.3em] text-brand-gold uppercase">
+                    <span className="text-[9px] sm:text-[10px] font-sans font-bold tracking-[0.2em] sm:tracking-[0.3em] text-brand-gold uppercase">
                       Portfolio Stewardship &bull; 0{idx + 1}
                     </span>
                   </div>
-                  <span className="text-[10px] font-sans text-brand-charcoal-light tracking-widest uppercase hidden sm:inline">
+                  <span className="text-[9px] sm:text-[10px] font-sans text-brand-charcoal-light tracking-widest uppercase hidden sm:inline">
                     Asset Homes LLC
                   </span>
                 </div>
 
                 {/* Main Split-Screen Service Spread Container */}
-                <div className="relative z-20 w-full my-auto py-6">
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+                <div className="relative z-20 w-full my-auto py-2 sm:py-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-14 items-center">
                     
                     {/* Architectural Feature Image Container */}
                     <div
@@ -306,7 +336,7 @@ export default function ServicesPage() {
                         isEven ? "lg:order-1" : "lg:order-2"
                       }`}
                     >
-                      <div className="relative aspect-[4/3] w-full overflow-hidden border border-brand-gold/30 shadow-xl group">
+                      <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden border border-brand-gold/30 shadow-xl group">
                         <Image
                           src={service.image}
                           alt={service.title}
@@ -319,16 +349,16 @@ export default function ServicesPage() {
 
                     {/* Editorial Content Column */}
                     <div
-                      className={`lg:col-span-6 space-y-6 ${
+                      className={`lg:col-span-6 space-y-4 sm:space-y-6 ${
                         isEven ? "lg:order-2" : "lg:order-1"
                       }`}
                     >
                       <div>
-                        <span className="service-text-item text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-3">
+                        <span className="service-text-item text-[9px] sm:text-[10px] font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase block mb-2 sm:mb-3">
                           {service.subtitle}
                         </span>
 
-                        <h2 className="service-text-item font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black leading-tight mb-4">
+                        <h2 className="service-text-item font-serif text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black leading-tight mb-3 sm:mb-4">
                           {service.title}
                         </h2>
                       </div>
@@ -338,19 +368,19 @@ export default function ServicesPage() {
                       </p>
 
                       {/* Clean Minimal Bullet Details */}
-                      <div className="service-text-item grid grid-cols-1 sm:grid-cols-2 gap-3 py-4 border-y border-brand-gold/20">
+                      <div className="service-text-item grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 py-3 sm:py-4 border-y border-brand-gold/20">
                         {service.details.map((detail) => (
-                          <div key={detail} className="flex items-start gap-2 text-xs font-sans text-brand-charcoal leading-snug">
+                          <div key={detail} className="flex items-start gap-2 text-[11px] sm:text-xs font-sans text-brand-charcoal leading-snug">
                             <span className="text-brand-gold font-bold">&mdash;</span>
                             <span>{detail}</span>
                           </div>
                         ))}
                       </div>
 
-                      <div className="service-text-item pt-2">
+                      <div className="service-text-item pt-1 sm:pt-2">
                         <Link
                           href="/#contact"
-                          className="inline-flex items-center gap-3 px-8 py-4 bg-brand-gold hover:bg-brand-black hover:text-brand-cream text-brand-black text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-md group"
+                          className="inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-brand-gold hover:bg-brand-black hover:text-brand-cream text-brand-black text-[11px] sm:text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-md group"
                         >
                           <span>Enquire About Service</span>
                           <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -361,8 +391,8 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                {/* Bottom Footer Bar within Pinned Viewport */}
-                <div className="relative z-20 w-full flex justify-between items-center text-[10px] font-sans text-brand-charcoal-light tracking-widest uppercase border-t border-brand-gold/20 pt-4">
+                {/* Bottom Footer Bar within Viewport */}
+                <div className="relative z-20 w-full flex justify-between items-center text-[9px] sm:text-[10px] font-sans text-brand-charcoal-light tracking-widest uppercase border-t border-brand-gold/20 pt-3 sm:pt-4 mt-4 sm:mt-6 lg:mt-0">
                   <span>0{idx + 1} / 04</span>
                   <span>Scroll for next offering</span>
                 </div>
@@ -374,27 +404,27 @@ export default function ServicesPage() {
       </div>
 
       {/* =========================================================================
-          FINAL CTA — Large dark cinematic documentary ending scene
+          FINAL CTA — Responsive dark cinematic ending section
           ========================================================================= */}
-      <section className="relative z-50 bg-brand-black text-brand-cream py-32 sm:py-44 border-t border-brand-gold/15 overflow-hidden">
-        <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 text-center relative z-10">
+      <section className="relative z-50 bg-brand-black text-brand-cream py-20 sm:py-32 lg:py-44 border-t border-brand-gold/15 overflow-hidden">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 text-center relative z-10">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
-            <span className="st-reveal text-[10px] font-sans font-bold tracking-[0.3em] text-brand-gold uppercase mb-6 block">
+            <span className="st-reveal text-[10px] sm:text-xs font-sans font-bold tracking-[0.25em] sm:tracking-[0.3em] text-brand-gold uppercase mb-4 sm:mb-6 block">
               Bespoke Portfolio Consultation
             </span>
 
-            <h2 className="st-reveal font-serif text-4xl sm:text-6xl font-normal tracking-tight text-white mb-8 leading-tight">
+            <h2 className="st-reveal font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-6 sm:mb-8 leading-tight">
               Ready to Secure Your Portfolio&apos;s <span className="text-brand-gold italic">Legacy</span>?
             </h2>
 
-            <p className="st-reveal text-brand-cream/75 text-base sm:text-lg font-sans font-light leading-relaxed mb-12 max-w-xl">
+            <p className="st-reveal text-brand-cream/75 text-xs sm:text-base lg:text-lg font-sans font-light leading-relaxed mb-8 sm:mb-12 max-w-xl">
               Engage Abu Dhabi&apos;s premier boutique real estate stewardship team. Receive a customized operational plan tailored to your property portfolio.
             </p>
 
             <div className="st-reveal">
               <Link
                 href="/#contact"
-                className="inline-flex items-center gap-4 px-10 py-5 bg-brand-gold hover:bg-brand-gold-dark text-brand-black text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-2xl group"
+                className="inline-flex items-center gap-3 sm:gap-4 px-8 sm:px-10 py-4 sm:py-5 bg-brand-gold hover:bg-brand-gold-dark text-brand-black text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-2xl group"
               >
                 <span>Consult an Advisory Partner</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

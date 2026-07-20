@@ -24,18 +24,17 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
+    { name: "Home", href: "/", isHash: false },
     { name: "About Us", href: "/about", isHash: false },
+    { name: "Services", href: "/services", isHash: false },
+    { name: "Gallery", href: "/gallery", isHash: false },
     { name: "Portfolio", href: "/#portfolio", isHash: true },
-    { name: "Services", href: "/#services", isHash: true },
-    { name: "Heritage", href: "/#heritage", isHash: true },
-    { name: "Methodology", href: "/#methodology", isHash: true },
   ];
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isHash: boolean = true) => {
     if (isHash && pathname === "/") {
       e.preventDefault();
       const targetId = href.startsWith("/") ? href.substring(1) : href;
-      // Scroll using Lenis with offset for sticky header
       lenis?.scrollTo(targetId, {
         offset: -80,
         duration: 1.2,
@@ -52,7 +51,8 @@ export default function Navbar() {
 
       // Scroll Progress bar
       if (progress) {
-        gsap.fromTo(progress,
+        gsap.fromTo(
+          progress,
           { scaleX: 0 },
           {
             scaleX: 1,
@@ -127,17 +127,27 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleScrollTo(e, link.href, link.isHash)}
-              className="relative text-sm font-sans font-medium tracking-wide text-brand-charcoal hover:text-brand-gold transition-colors duration-300 group py-2"
-            >
-              {link.name}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-brand-gold transition-all duration-300 group-hover:w-full" />
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = !link.isHash && pathname === link.href;
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleScrollTo(e, link.href, link.isHash)}
+                className={`relative text-sm font-sans font-medium tracking-wide transition-colors duration-300 group py-2 ${
+                  isActive ? "text-brand-gold font-semibold" : "text-brand-charcoal hover:text-brand-gold"
+                }`}
+              >
+                {link.name}
+                <span
+                  className={`absolute bottom-0 left-0 h-[1.5px] bg-brand-gold transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Desktop CTA Button */}
@@ -174,19 +184,25 @@ export default function Navbar() {
             className="md:hidden absolute top-full left-0 w-full border-b border-brand-gold/15 bg-brand-beige overflow-hidden"
           >
             <div className="flex flex-col space-y-4 px-6 py-6 sm:px-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    setIsOpen(false);
-                    handleScrollTo(e, link.href, link.isHash);
-                  }}
-                  className="text-base font-sans font-medium tracking-wide text-brand-charcoal hover:text-brand-gold transition-colors duration-300"
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = !link.isHash && pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => {
+                      setIsOpen(false);
+                      handleScrollTo(e, link.href, link.isHash);
+                    }}
+                    className={`text-base font-sans font-medium tracking-wide transition-colors duration-300 ${
+                      isActive ? "text-brand-gold font-semibold" : "text-brand-charcoal hover:text-brand-gold"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
               <div className="pt-4 border-t border-brand-gold/10">
                 <Link
                   href="/#contact"
@@ -207,4 +223,3 @@ export default function Navbar() {
     </header>
   );
 }
-
