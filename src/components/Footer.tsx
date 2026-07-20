@@ -17,10 +17,10 @@ export default function Footer() {
   const lenis = useLenis();
   const pathname = usePathname();
 
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isHash: boolean = true) => {
-    if (isHash && pathname === "/") {
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isHash: boolean = false) => {
+    if (isHash && href.startsWith("/#") && pathname === "/") {
       e.preventDefault();
-      const targetId = href.startsWith("/") ? href.substring(1) : href;
+      const targetId = href.substring(2);
       lenis?.scrollTo(targetId, {
         offset: -80,
         duration: 1.2,
@@ -29,10 +29,12 @@ export default function Footer() {
   };
 
   const quickLinks = [
-    { name: "Our Portfolio", href: "/gallery", isHash: true },
-    { name: "Services", href: "/services", isHash: true },
-    { name: "Our Heritage", href: "/#heritage", isHash: true },
-    { name: "Methodology", href: "/#methodology", isHash: true },
+    { name: "Home", href: "/", isHash: false },
+    { name: "About Us", href: "/about", isHash: false },
+    { name: "Vision", href: "/vision", isHash: false },
+    { name: "Services", href: "/services", isHash: false },
+    { name: "Gallery", href: "/gallery", isHash: false },
+    { name: "Contact", href: "/contact", isHash: false },
   ];
 
   const ctaBannerRef = useRef<HTMLDivElement>(null);
@@ -126,11 +128,11 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Navigation Links */}
-          <div>
+          <div className="lg:border-l lg:border-brand-gold/20 lg:pl-8 xl:pl-10">
             <h3 className="text-xs font-sans font-bold tracking-widest text-brand-gold uppercase mb-6">
               Quick Links
             </h3>
-            <ul className="space-y-4">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3.5">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -146,7 +148,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Contact */}
-          <div>
+          <div className="lg:border-l lg:border-brand-gold/20 lg:pl-8 xl:pl-10">
             <h3 className="text-xs font-sans font-bold tracking-widest text-brand-gold uppercase mb-6">
               Abu Dhabi Office
             </h3>
@@ -154,17 +156,17 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4.5 h-4.5 text-brand-gold shrink-0 mt-0.5" />
                 <span className="text-xs sm:text-sm font-sans font-light leading-relaxed">
-                  Level 14, West Corniche Tower,<br />
-                  Al Bateen, Abu Dhabi, UAE
+                  Al Maryah Tower, Suite 2401,<br />
+                  Al Maryah Island, Abu Dhabi, UAE
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-brand-gold shrink-0" />
                 <a
-                  href="tel:+97121234567"
+                  href="tel:+971280027738"
                   className="text-xs sm:text-sm font-sans font-light hover:text-brand-gold transition-colors duration-300"
                 >
-                  +971 (0) 2 123 4567
+                  +971 (0)2 800 27738
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -180,7 +182,7 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Compliance */}
-          <div>
+          <div className="lg:border-l lg:border-brand-gold/20 lg:pl-8 xl:pl-10">
             <h3 className="text-xs font-sans font-bold tracking-widest text-brand-gold uppercase mb-6">
               Certifications
             </h3>
