@@ -148,12 +148,12 @@ export default function GalleryPage() {
         <div className="absolute inset-0 bg-brand-black/88 backdrop-blur-[2px] z-10" />
 
         {/* Top-Left Breadcrumb */}
-        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 pt-2 sm:pt-4">
+        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 pt-2 sm:pt-4">
           <Breadcrumb items={[{ label: "Gallery" }]} />
         </div>
 
         {/* Hero Copy */}
-        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 my-auto py-6 sm:py-10 lg:py-12">
+        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 my-auto py-6 sm:py-10 lg:py-12">
           <div className="max-w-4xl text-center md:text-left">
             <span className="gt-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.3em] text-brand-gold uppercase mb-3 sm:mb-6 block">
               {heroData.eyebrow}
@@ -185,7 +185,7 @@ export default function GalleryPage() {
           EDITORIAL INTRODUCTION — Quote & Narrative
           ========================================================================= */}
       <section className="py-12 sm:py-20 lg:py-36 bg-brand-cream border-b border-brand-gold/15">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="max-w-4xl mx-auto text-center">
             <span className="gt-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase mb-4 sm:mb-6 block">
               {introData.eyebrow}
@@ -208,7 +208,7 @@ export default function GalleryPage() {
           EDITORIAL GALLERY GRID — Clean Unfiltered Portfolio Showcase
           ========================================================================= */}
       <section id="gallery-grid" className="py-12 sm:py-20 lg:py-28 bg-brand-beige border-b border-brand-gold/15">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           
           {/* Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
@@ -271,7 +271,7 @@ export default function GalleryPage() {
           SIGNATURE SPOTLIGHT SECTION — Large Architectural Feature
           ========================================================================= */}
       <section ref={spotlightSectionRef} className="py-14 sm:py-20 lg:py-32 bg-brand-cream border-b border-brand-gold/15 overflow-hidden">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
             
             {/* Left Column: Image with clipPath reveal */}
@@ -326,7 +326,7 @@ export default function GalleryPage() {
           CINEMATIC CLOSING CTA — Matching About Us & Services Page
           ========================================================================= */}
       <section className="relative z-50 bg-brand-black text-brand-cream py-14 sm:py-24 lg:py-44 border-t border-brand-gold/15 overflow-hidden">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 text-center relative z-10">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 text-center relative z-10">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             <span className="gt-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.3em] text-brand-gold uppercase mb-3 sm:mb-6 block">
               {ctaData.eyebrow}

@@ -141,7 +141,7 @@ export default function Navbar() {
         style={{ transform: "scaleX(0)" }}
       />
 
-      <div className="w-full flex items-center justify-between px-6 sm:px-10 lg:px-14 xl:px-32">
+      <div className="w-full flex items-center justify-between px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* Brand Logo Wrapper */}
         <div ref={logoRef} className="origin-left">
           <Link href="/" className="flex items-center">

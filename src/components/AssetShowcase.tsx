@@ -142,7 +142,7 @@ export default function AssetShowcase() {
 
   return (
     <section ref={sectionRef} id="portfolio" className="bg-brand-cream py-20 sm:py-24 lg:py-32 overflow-hidden">
-      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
+      <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
         <div className="max-w-2xl mb-12 sm:mb-16">

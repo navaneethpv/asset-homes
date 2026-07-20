@@ -84,7 +84,7 @@ export default function Footer() {
         <div className="absolute inset-0 bg-brand-black/85 backdrop-blur-[2px] z-10" />
 
         {/* Content Container (Grid layout prevents baseline clipping and guarantees correct spacing) */}
-        <div className="relative z-20 w-full px-6 sm:px-12 lg:px-20 xl:px-32 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        <div className="relative z-20 w-full px-4 sm:px-8 lg:px-12 xl:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           <div className="lg:col-span-8">
             <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
               ADVISORY & INTAKE
@@ -109,7 +109,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Links & Info Grid */}
-      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 py-16 lg:py-20">
+      <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           
           {/* Column 1: Branding */}
@@ -207,7 +207,7 @@ export default function Footer() {
 
       {/* Bottom Legal bar */}
       <div className="border-t border-brand-cream/5 py-8">
-        <div className="w-full max-w-none px-6 sm:px-10 lg:px-14 xl:px-32 pr-16 sm:pr-24 lg:pr-28 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sans font-light text-brand-cream/40 flex-wrap">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 pr-16 sm:pr-24 lg:pr-28 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sans font-light text-brand-cream/40 flex-wrap">
           <p>© {new Date().getFullYear()} Asset Homes Property Management LLC. All rights reserved.</p>
           <div className="flex flex-wrap gap-4 sm:gap-6">
             <Link href="/#contact" onClick={(e) => handleScrollTo(e, "/#contact", true)} className="hover:text-brand-gold transition-colors duration-300">Privacy Policy</Link>

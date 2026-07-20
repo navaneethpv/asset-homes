@@ -69,7 +69,7 @@ export default function ServicesGrid() {
       id="services"
       className="bg-brand-cream py-20 sm:py-24 lg:py-32 overflow-hidden"
     >
-      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
+      <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* Header Content */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <span className="services-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block opacity-0">

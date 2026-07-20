@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ShieldCheck, Eye, Compass, ArrowRight } from "lucide-react";
+import { ShieldCheck, Eye, Compass, ArrowRight, CheckCircle2 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,42 +13,48 @@ if (typeof window !== "undefined") {
 interface Step {
   num: string;
   title: string;
+  subtitle: string;
   description: string;
   image: string;
 }
 
 export default function OperationalRoadmap() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
 
   const steps: Step[] = [
     {
       num: "01",
       title: "Onboarding & Audit",
+      subtitle: "Full Asset Inspection",
       description: "Thorough assessment of structural integrity, tenant contracts, MEP systems, and financial ledgers.",
       image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=800",
     },
     {
       num: "02",
       title: "Strategy & Valuation",
+      subtitle: "Yield Framework",
       description: "Establishing rent models, marketing strategy, and budget projections to optimize cash flow yields.",
       image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800",
     },
     {
       num: "03",
       title: "System Integration",
+      subtitle: "Digital Onboarding",
       description: "Deploying portal accounts for tenants and automated financial accounting integrations for the owner.",
       image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
     },
     {
       num: "04",
       title: "Active Stewardship",
+      subtitle: "24/7 Operations",
       description: "Preventative facilities maintenance, 24/7 concierge operations, and active occupancy management.",
       image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
     },
     {
       num: "05",
       title: "Yield Optimization",
-      description: "Quarterly review of utility spend, tenancy retention rates, and local market cap-rate trends to grow yields.",
+      subtitle: "Continuous Growth",
+      description: "Quarterly review of utility spend, tenancy retention rates, and local market cap-rate trends.",
       image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
     },
   ];
@@ -72,14 +78,12 @@ export default function OperationalRoadmap() {
   ];
 
   const sectionRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const section = sectionRef.current;
-      const track = trackRef.current;
 
-      if (section && track) {
+      if (section) {
         // Entrance Header
         gsap.timeline({
           scrollTrigger: {
@@ -98,7 +102,24 @@ export default function OperationalRoadmap() {
           "-=0.4"
         );
 
-        // Core Pillars Stagger Reveal
+        // Step Cards Stagger Reveal
+        gsap.fromTo(".step-card",
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.12,
+            scrollTrigger: {
+              trigger: ".steps-grid",
+              start: "top 85%",
+              toggleActions: "play none none none",
+            }
+          }
+        );
+
+        // Pillars Stagger Reveal
         gsap.fromTo(".pillar-item",
           { opacity: 0, y: 30 },
           {
@@ -114,80 +135,6 @@ export default function OperationalRoadmap() {
             }
           }
         );
-
-        const mm = gsap.matchMedia();
-
-        // DESKTOP: Horizontal Pinned Expanding Slides
-        mm.add("(min-width: 1024px)", () => {
-          const cards = gsap.utils.toArray(".roadmap-card");
-          const totalWidth = track.scrollWidth;
-          const viewportWidth = window.innerWidth;
-          
-          // Move track leftward so all cards scroll across
-          const xTranslation = -(totalWidth - viewportWidth + 120);
-
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: section,
-              start: "top top",
-              end: `+=${totalWidth}`,
-              pin: true,
-              scrub: 0.5,
-              invalidateOnRefresh: true,
-            }
-          });
-
-          // Horizontal slide of the card track
-          tl.to(track, {
-            x: xTranslation,
-            ease: "none",
-          }, 0);
-
-          // Card width transitions timeline distribution
-          const cardDuration = 1 / (cards.length - 1);
-
-          // Initial state callback
-          tl.call(() => setActiveIndex(0), undefined, 0);
-
-          for (let i = 0; i < cards.length - 1; i++) {
-            const startTime = i * cardDuration;
-            const midTime = startTime + cardDuration * 0.5;
-
-            // Collapse card i
-            tl.to(`.roadmap-card-${i}`, { width: "240px", duration: cardDuration, ease: "power2.inOut" }, startTime)
-              .to(`.roadmap-card-desc-${i}`, { opacity: 0, duration: cardDuration * 0.4, ease: "power2.inOut" }, startTime)
-              .to(`.roadmap-card-overlay-${i}`, { opacity: 0.75, duration: cardDuration, ease: "power2.inOut" }, startTime);
-
-            // Expand card i+1
-            tl.to(`.roadmap-card-${i+1}`, { width: "560px", duration: cardDuration, ease: "power2.inOut" }, startTime)
-              .to(`.roadmap-card-desc-${i+1}`, { opacity: 1, duration: cardDuration * 0.4, ease: "power2.inOut" }, startTime + cardDuration * 0.5)
-              .to(`.roadmap-card-overlay-${i+1}`, { opacity: 0.35, duration: cardDuration, ease: "power2.inOut" }, startTime);
-
-            // Update active index state for bottom dashes indicator
-            tl.call(() => setActiveIndex(i + 1), undefined, midTime);
-            // Reverse callback for scrolling up
-            tl.call(() => setActiveIndex(i), undefined, startTime);
-          }
-        });
-
-        // MOBILE & TABLET: Simple vertical staggers
-        mm.add("(max-width: 1023px)", () => {
-          gsap.fromTo(".roadmap-mobile-card",
-            { opacity: 0, y: 35 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              ease: "power3.out",
-              stagger: 0.12,
-              scrollTrigger: {
-                trigger: ".roadmap-mobile-grid",
-                start: "top 85%",
-                toggleActions: "play none none none",
-              }
-            }
-          );
-        });
       }
     }, sectionRef);
 
@@ -198,148 +145,127 @@ export default function OperationalRoadmap() {
     <section 
       ref={sectionRef} 
       id="methodology" 
-      className="bg-brand-beige py-20 lg:py-0 lg:h-screen flex flex-col justify-center overflow-hidden"
+      className="bg-brand-beige py-20 sm:py-24 lg:py-32 scroll-mt-24 overflow-hidden"
     >
-      <div className="w-full max-w-none flex flex-col h-full lg:justify-between py-12 lg:py-16">
+      <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
-        <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-32 mb-6 shrink-0">
+        <div className="max-w-3xl mb-12 sm:mb-16">
           <span className="roadmap-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-3 block opacity-0">
             Our Methodology
           </span>
-          <h2 className="roadmap-heading font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-brand-black leading-tight opacity-0">
+          <h2 className="roadmap-heading font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-black leading-tight mb-6 opacity-0">
             A Seamless Journey to <span className="text-brand-gold italic">Optimization</span>
           </h2>
+          <p className="text-brand-charcoal-light text-sm sm:text-base font-sans leading-relaxed font-normal">
+            A structured operational execution model engineered to protect capital, elevate tenant satisfaction, and maximize long-term asset yields across Abu Dhabi.
+          </p>
         </div>
 
-        {/* DESKTOP TIMELINE: Pinned track */}
-        <div className="hidden lg:block w-full overflow-hidden select-none mb-6">
-          <div ref={trackRef} className="flex gap-6 px-6 sm:px-12 lg:px-20 xl:px-32 w-max">
-            {steps.map((step, idx) => (
-              <div
-                key={step.num}
-                className={`roadmap-card roadmap-card-${idx} relative h-[400px] shrink-0 overflow-hidden bg-brand-cream border border-brand-gold/15 group/card transition-colors duration-500`}
-                style={{ width: idx === 0 ? "560px" : "240px" }}
-              >
-                {/* Background image panel */}
-                <Image
-                  src={step.image}
-                  alt={step.title}
-                  fill
-                  className="object-cover transition-transform duration-4000 ease-out group-hover/card:scale-105"
-                  sizes="560px"
-                />
-                
-                {/* Visual filter overlay */}
-                <div
-                  className={`roadmap-card-overlay-${idx} absolute inset-0 bg-brand-black/90 z-10 transition-opacity duration-500`}
-                  style={{ opacity: idx === 0 ? 0.35 : 0.75 }}
-                />
-
-                {/* Massive serif outline watermark */}
-                <span className="absolute right-6 top-2 font-serif text-[110px] font-bold text-white/5 select-none leading-none z-10 tracking-tight">
-                  {step.num}
-                </span>
-
-                {/* Fixed-width content container (doesn't squish during width animation) */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-between text-brand-cream z-20 w-[480px]">
-                  <div>
-                    <span className="text-[9px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-3">
-                      {step.num} / Stage
-                    </span>
-                    <h3 className="font-serif text-xl font-medium tracking-tight text-white mb-2 group-hover/card:text-brand-gold transition-colors duration-300">
-                      {step.title}
-                    </h3>
-                  </div>
-
-                  <div
-                    className={`roadmap-card-desc-${idx} transition-opacity duration-300`}
-                    style={{ opacity: idx === 0 ? 1 : 0 }}
-                  >
-                    <p className="text-xs sm:text-sm font-sans font-light text-brand-cream/85 leading-relaxed pr-8">
-                      {step.description}
-                    </p>
-                  </div>
-                  
-                  {/* Micro Hint for collapsed cards */}
-                  {idx !== activeIndex && (
-                    <div className="flex items-center gap-2 text-brand-gold/60 text-[9px] font-sans tracking-wider uppercase group-hover/card:text-brand-gold transition-colors duration-300">
-                      <span>View details</span>
-                      <ArrowRight className="w-3 h-3 transform group-hover/card:translate-x-1 transition-transform duration-300" />
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Dynamic Progress Dashes (Desktop only) */}
-        <div className="hidden lg:flex justify-center gap-8 mb-8 shrink-0">
+        {/* 5-Step Methodology Grid */}
+        <div className="steps-grid grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16 sm:mb-20">
           {steps.map((step, idx) => (
-            <div key={step.num} className="flex flex-col items-center">
-              <div 
-                className={`h-[2px] transition-all duration-500 rounded-full ${
-                  activeIndex === idx ? "w-16 bg-brand-gold" : "w-6 bg-brand-gold/25"
-                }`} 
-              />
-              <span className={`text-[9px] font-sans font-bold tracking-widest mt-2 transition-colors duration-300 ${
-                activeIndex === idx ? "text-brand-gold" : "text-brand-charcoal-light/40"
-              }`}>
-                {step.num}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* MOBILE TIMELINE: Stacked cards */}
-        <div className="roadmap-mobile-grid lg:hidden px-6 sm:px-12 mb-16 space-y-8">
-          {steps.map((step) => (
             <div
               key={step.num}
-              className="roadmap-mobile-card relative h-[260px] overflow-hidden bg-brand-black border border-brand-gold/15 flex flex-col justify-between p-6 shadow-md"
+              onClick={() => setActiveStep(idx)}
+              onMouseEnter={() => setActiveStep(idx)}
+              className={`step-card group relative bg-brand-cream border transition-all duration-500 rounded-sm overflow-hidden flex flex-col justify-between cursor-pointer p-6 shadow-xs ${
+                activeStep === idx
+                  ? "border-brand-gold shadow-lg -translate-y-1 bg-white"
+                  : "border-brand-gold/15 hover:border-brand-gold/40 hover:shadow-md"
+              }`}
             >
-              <Image
-                src={step.image}
-                alt={step.title}
-                fill
-                className="object-cover opacity-45"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="relative z-10">
-                <span className="text-[9px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-2">
-                  {step.num} / Stage
+              {/* Step Header */}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className={`font-serif text-3xl font-semibold tracking-tight transition-colors duration-300 ${
+                    activeStep === idx ? "text-brand-gold" : "text-brand-gold/60 group-hover:text-brand-gold"
+                  }`}>
+                    {step.num}
+                  </span>
+                  <span className="text-[9px] font-sans font-bold tracking-widest text-brand-charcoal-light/50 uppercase">
+                    Stage {step.num}
+                  </span>
+                </div>
+
+                {/* Connecting Line */}
+                <div className="w-full h-0.5 bg-brand-gold/15 mb-4 overflow-hidden">
+                  <div 
+                    className={`h-full bg-brand-gold transition-all duration-500 ${
+                      activeStep === idx ? "w-full" : "w-0 group-hover:w-1/2"
+                    }`}
+                  />
+                </div>
+
+                {/* Image Banner */}
+                <div className="relative aspect-16/10 w-full overflow-hidden rounded-xs mb-5 bg-brand-beige">
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 20vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-black/40 to-transparent" />
+                </div>
+
+                {/* Text Content */}
+                <span className="text-[9px] font-sans font-bold tracking-wider text-brand-gold uppercase block mb-1">
+                  {step.subtitle}
                 </span>
-                <h3 className="font-serif text-xl font-medium text-white">
+                <h3 className="font-serif text-lg font-semibold text-brand-black mb-2 leading-snug group-hover:text-brand-gold transition-colors duration-300">
                   {step.title}
                 </h3>
+                <p className="text-xs font-sans font-light text-brand-charcoal-light leading-relaxed">
+                  {step.description}
+                </p>
               </div>
-              <p className="relative z-10 text-xs font-sans font-light text-brand-cream/80 leading-relaxed">
-                {step.description}
-              </p>
+
+              {/* Card Footer Indicator */}
+              <div className="mt-6 pt-4 border-t border-brand-gold/10 flex items-center justify-between text-[9px] font-sans font-bold uppercase tracking-wider text-brand-gold">
+                <span>{activeStep === idx ? "Active Stage" : "Explore Stage"}</span>
+                <ArrowRight className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                  activeStep === idx ? "translate-x-1 text-brand-gold" : "text-brand-gold/40 group-hover:translate-x-1 group-hover:text-brand-gold"
+                }`} />
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Three Columns Core Pillars */}
-        <div className="pillars-container w-full px-6 sm:px-12 lg:px-20 xl:px-32 border-t border-brand-gold/15 pt-8 shrink-0">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Core Pillars Grid */}
+        <div className="pillars-container border-t border-brand-gold/15 pt-12 sm:pt-16">
+          <div className="mb-8">
+            <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase block mb-2">
+              Operational Principles
+            </span>
+            <h3 className="font-serif text-2xl font-medium text-brand-black">
+              Built on Institutional Rigor & Integrity
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {pillars.map((pillar) => {
               const Icon = pillar.icon;
               return (
                 <div
                   key={pillar.title}
-                  className="pillar-item flex flex-col items-start"
+                  className="pillar-item bg-brand-cream/80 border border-brand-gold/15 p-6 rounded-sm hover:border-brand-gold/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
                 >
-                  <div className="p-2.5 bg-brand-gold/10 text-brand-gold rounded-sm mb-3">
-                    <Icon className="w-5 h-5 stroke-[1.5]" />
+                  <div>
+                    <div className="p-3 bg-brand-gold/10 text-brand-gold rounded-sm mb-4 w-fit border border-brand-gold/20">
+                      <Icon className="w-5 h-5 stroke-[1.5]" />
+                    </div>
+                    <h4 className="font-serif text-lg font-semibold text-brand-black mb-2">
+                      {pillar.title}
+                    </h4>
+                    <p className="text-xs font-sans leading-relaxed font-light text-brand-charcoal-light">
+                      {pillar.description}
+                    </p>
                   </div>
-                  <h4 className="font-serif text-base font-semibold text-brand-black mb-1.5">
-                    {pillar.title}
-                  </h4>
-                  <p className="text-brand-charcoal-light text-xs font-sans leading-relaxed font-light">
-                    {pillar.description}
-                  </p>
+                  <div className="mt-4 pt-3 border-t border-brand-gold/10 flex items-center gap-1.5 text-[9px] font-sans font-semibold tracking-wider text-brand-gold uppercase">
+                    <CheckCircle2 className="w-3 h-3 text-brand-gold" />
+                    <span>Verified Standard</span>
+                  </div>
                 </div>
               );
             })}

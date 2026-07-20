@@ -167,7 +167,7 @@ export default function WhyChooseUs() {
 
   return (
     <section ref={containerRef} id="why-choose-us" className="bg-brand-beige py-24 sm:py-20">
-      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
+      <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* Main Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <span className="text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">

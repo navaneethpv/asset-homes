@@ -71,7 +71,7 @@ export default function TrustLegacy() {
 
   return (
     <section ref={sectionRef} id="heritage" className="bg-brand-beige py-20 sm:py-24 lg:py-32 overflow-hidden">
-      <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
+      <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column (Editorial text block) */}

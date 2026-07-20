@@ -375,7 +375,7 @@ export default function AboutPage() {
         {/* Dark Cinematic Overlay */}
         <div className="absolute inset-0 bg-brand-black/92 backdrop-blur-[3px] z-10" />
 
-        <div ref={heroTextRef} className="relative z-20 w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
+        <div ref={heroTextRef} className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           {/* Top Left Breadcrumb */}
           <div className="hero-reveal mb-4 flex justify-start">
             <Breadcrumb items={[{ label: "About Us" }]} />
@@ -397,7 +397,7 @@ export default function AboutPage() {
 
       {/* Editorial Intro Section (Split layout matching TrustLegacy) */}
       <section ref={introSectionRef} className="bg-brand-beige py-20 sm:py-24 lg:py-32 overflow-hidden">
-        <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
             
             {/* Left Column - Editorial text */}
@@ -441,7 +441,7 @@ export default function AboutPage() {
 
       {/* Pillars of Stewardship (Premium Asymmetrical Sticky Layout) */}
       <section ref={pillarsSectionRef} className="py-24 sm:py-32 bg-brand-cream border-t border-brand-gold/15">
-        <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
             
             {/* Left Sticky Column for Section Title */}
@@ -499,7 +499,7 @@ export default function AboutPage() {
 
       {/* Milestones of Excellence */}
       <section ref={timelineSectionRef} className="bg-brand-beige py-24 sm:py-32 border-t border-brand-gold/15">
-        <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           
           <div className="max-w-2xl mb-16 md:mb-24">
             <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block">
@@ -544,7 +544,7 @@ export default function AboutPage() {
         ref={storySectionRef}
         className="min-h-screen lg:h-[110vh] flex flex-col justify-center bg-[#F8F5F0] py-24 lg:py-0 relative overflow-hidden z-10 border-t border-brand-gold/15"
       >
-        <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           
           {/* Left Column - Large Architectural Photography */}
           <div className="lg:col-span-7 flex flex-col">

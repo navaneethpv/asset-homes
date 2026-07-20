@@ -180,12 +180,12 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-brand-black/85 backdrop-blur-[1px] z-10" />
 
         {/* Top-Left Breadcrumb */}
-        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 pt-2 sm:pt-4">
+        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 pt-2 sm:pt-4">
           <Breadcrumb items={[{ label: "Services" }]} />
         </div>
 
         {/* Hero Copy */}
-        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 my-auto py-8 sm:py-12">
+        <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 my-auto py-8 sm:py-12">
           <div className="max-w-4xl">
             <span className="st-reveal text-[10px] sm:text-xs font-sans font-bold tracking-[0.25em] sm:tracking-[0.3em] text-brand-gold uppercase mb-4 sm:mb-6 block">
               {heroData.eyebrow}
@@ -217,7 +217,7 @@ export default function ServicesPage() {
           EDITORIAL INTRODUCTION — Responsive typography & spacing
           ========================================================================= */}
       <section className="py-20 sm:py-32 lg:py-48 bg-brand-cream border-b border-brand-gold/15">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="max-w-4xl mx-auto text-left">
             <span className="st-reveal text-[10px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase mb-6 block">
               {introData.eyebrow}
@@ -352,7 +352,7 @@ export default function ServicesPage() {
           FINAL CTA — Responsive dark cinematic ending section
           ========================================================================= */}
       <section className="relative z-50 bg-brand-black text-brand-cream py-20 sm:py-32 lg:py-44 border-t border-brand-gold/15 overflow-hidden">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 text-center relative z-10">
+        <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 text-center relative z-10">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             <span className="st-reveal text-[10px] sm:text-xs font-sans font-bold tracking-[0.25em] sm:tracking-[0.3em] text-brand-gold uppercase mb-4 sm:mb-6 block">
               {ctaData.eyebrow}
