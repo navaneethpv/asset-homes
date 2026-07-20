@@ -75,7 +75,7 @@ export default function ServicesGrid() {
           <span className="services-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block opacity-0">
             Our Services
           </span>
-          <h2 className="services-heading font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black mb-6 leading-tight opacity-0">
+          <h2 className="services-heading font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-black mb-6 leading-tight opacity-0">
             Comprehensive Property Management{" "}
             <span className="text-brand-gold italic">Solutions</span>
           </h2>

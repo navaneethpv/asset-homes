@@ -149,7 +149,7 @@ export default function AssetShowcase() {
           <span className="portfolio-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 block opacity-0">
             Portfolio Showcase
           </span>
-          <h2 className="portfolio-heading font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black leading-tight opacity-0">
+          <h2 className="portfolio-heading font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-black leading-tight opacity-0">
             Assets Under <span className="text-brand-gold italic">Stewardship</span>
           </h2>
         </div>

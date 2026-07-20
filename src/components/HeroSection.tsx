@@ -146,7 +146,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="hero" className="relative bg-brand-cream pt-10 pb-20 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-32 overflow-hidden">
+    <section ref={sectionRef} id="hero" className="relative bg-brand-cream pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 overflow-hidden">
       {/* Background Parallax Layer */}
       <div ref={bgRef} className="absolute inset-0 bg-[#F6F2E8]/40 pointer-events-none z-0" />
       
@@ -156,19 +156,19 @@ export default function HeroSection() {
       <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 relative z-10">
         
         {/* Main Grid: Left content, Right Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left Column (Text & CTAs) */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <span className="hero-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 opacity-0 block">
+            <span className="hero-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-3 opacity-0 block">
               Property Management Services
             </span>
             
-            <h1 ref={headlineRef} className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-brand-black leading-[1.1] mb-6 flex flex-wrap gap-x-2 gap-y-1">
+            <h1 ref={headlineRef} className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-black leading-[1.15] mb-5">
               {splitText("Professional Property Management for Exceptional Investments")}
             </h1>
             
-            <p ref={paragraphRef} className="text-brand-charcoal-light text-base sm:text-lg font-sans font-normal leading-relaxed max-w-xl mb-8 opacity-0">
+            <p ref={paragraphRef} className="text-brand-charcoal-light text-sm sm:text-base lg:text-lg font-sans font-normal leading-relaxed max-w-xl mb-6 opacity-0">
               Asset Homes offers bespoke management strategies for luxury residential and premium commercial portfolios in Abu Dhabi. We bridge institutional rigor with personalized care to optimize yields and maintain architectural integrity.
             </p>
             
@@ -190,10 +190,10 @@ export default function HeroSection() {
           </div>
 
           {/* Right Column (Hero Image) */}
-          <div className="lg:col-span-5 relative w-full h-[450px] sm:h-[550px] lg:h-[600px]">
+          <div className="lg:col-span-5 relative w-full h-[380px] sm:h-[460px] lg:h-[500px] xl:h-[560px]">
             <div
               ref={imageWrapperRef}
-              className="relative w-full h-full overflow-hidden shadow-2xl opacity-0"
+              className="relative w-full h-full overflow-hidden shadow-2xl rounded-sm border border-brand-gold/20 opacity-0"
             >
               <Image
                 ref={imageRef}
@@ -237,7 +237,7 @@ export default function HeroSection() {
 // Simple text split utility
 const splitText = (text: string) => {
   return text.split(" ").map((word, i) => (
-    <span key={i} className="inline-block overflow-hidden py-0.5">
+    <span key={i} className="inline-block overflow-hidden py-0.5 mr-2 sm:mr-3">
       <span className="hero-word inline-block transform translate-y-[110%] font-serif">
         {word}
       </span>

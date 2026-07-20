@@ -128,11 +128,11 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Navigation Links */}
-          <div className="lg:border-l lg:border-brand-gold/20 lg:pl-8 xl:pl-10">
+          <div className="lg:border-l lg:border-brand-gold/20 lg:pl-5 xl:pl-8">
             <h3 className="text-xs font-sans font-bold tracking-widest text-brand-gold uppercase mb-6">
               Quick Links
             </h3>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-3.5">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -148,7 +148,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Contact */}
-          <div className="lg:border-l lg:border-brand-gold/20 lg:pl-8 xl:pl-10">
+          <div className="lg:border-l lg:border-brand-gold/20 lg:pl-5 xl:pl-8">
             <h3 className="text-xs font-sans font-bold tracking-widest text-brand-gold uppercase mb-6">
               Abu Dhabi Office
             </h3>
@@ -182,7 +182,7 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Compliance */}
-          <div className="lg:border-l lg:border-brand-gold/20 lg:pl-8 xl:pl-10">
+          <div className="lg:border-l lg:border-brand-gold/20 lg:pl-5 xl:pl-8">
             <h3 className="text-xs font-sans font-bold tracking-widest text-brand-gold uppercase mb-6">
               Certifications
             </h3>
@@ -207,9 +207,9 @@ export default function Footer() {
 
       {/* Bottom Legal bar */}
       <div className="border-t border-brand-cream/5 py-8">
-        <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans font-light text-brand-cream/40">
+        <div className="w-full max-w-none px-6 sm:px-10 lg:px-14 xl:px-32 pr-16 sm:pr-24 lg:pr-28 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sans font-light text-brand-cream/40 flex-wrap">
           <p>© {new Date().getFullYear()} Asset Homes Property Management LLC. All rights reserved.</p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-4 sm:gap-6">
             <Link href="/#contact" onClick={(e) => handleScrollTo(e, "/#contact", true)} className="hover:text-brand-gold transition-colors duration-300">Privacy Policy</Link>
             <Link href="/#contact" onClick={(e) => handleScrollTo(e, "/#contact", true)} className="hover:text-brand-gold transition-colors duration-300">Terms of Service</Link>
             <Link href="/#contact" onClick={(e) => handleScrollTo(e, "/#contact", true)} className="hover:text-brand-gold transition-colors duration-300">Regulatory Disclosures</Link>

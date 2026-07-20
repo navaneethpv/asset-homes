@@ -80,7 +80,7 @@ export default function TrustLegacy() {
               Our Heritage
             </span>
             
-            <h2 className="text-reveal font-serif text-3xl sm:text-4xl lg:text-7xl font-medium tracking-tight text-brand-black leading-tight mb-6 opacity-0">
+            <h2 className="text-reveal font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-brand-black leading-tight mb-6 opacity-0">
               A Legacy of <span className="text-brand-gold italic">Trust</span> in the Heart of Abu Dhabi
             </h2>
             
@@ -101,7 +101,7 @@ export default function TrustLegacy() {
           <div className="lg:col-span-6 order-1 lg:order-2">
             <div 
               ref={imageWrapperRef}
-              className="relative w-full aspect-16/10 sm:aspect-video lg:aspect-16/10 overflow-hidden shadow-xl opacity-0"
+              className="relative w-full aspect-16/10 sm:aspect-video lg:aspect-16/10 overflow-hidden shadow-xl rounded-sm border border-brand-gold/20 opacity-0"
             >
               <Image
                 ref={imageRef}

@@ -27,37 +27,6 @@ export default function Home() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Global Section Transitions: focus fading on scroll
-      const sections = gsap.utils.toArray<HTMLElement>("section, footer");
-      sections.forEach((sec: HTMLElement) => {
-        // One-time smooth fade-out (opacity 92%) when section leaves focus
-        gsap.to(sec, {
-          opacity: 0.92,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sec,
-            start: "bottom 85%",
-            toggleActions: "play reverse play reverse",
-          }
-        });
-
-        // One-time smooth focus-gain (opacity 100%) when section enters focus
-        gsap.fromTo(sec,
-          { opacity: 0.92 },
-          {
-            opacity: 1,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: sec,
-              start: "top 95%",
-              toggleActions: "play reverse play reverse",
-            }
-          }
-        );
-      });
-
       // Why Choose Us Hook Animations
       const section = whyChooseSectionRef.current;
       const imageWrapper = whyChooseImageWrapperRef.current;
