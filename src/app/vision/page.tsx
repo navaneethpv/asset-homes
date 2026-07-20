@@ -149,7 +149,7 @@ export default function VisionPage() {
           ========================================================================= */}
       <section
         ref={heroSectionRef}
-        className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-[90vh] w-full flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-12 lg:pt-28 lg:pb-20 border-b border-brand-gold/15 overflow-hidden"
+        className="relative min-h-[50vh] sm:min-h-[60vh] lg:h-[65vh] w-full flex flex-col justify-between pt-20 pb-6 sm:pt-24 sm:pb-10 lg:pt-24 lg:pb-14 border-b border-brand-gold/15 overflow-hidden"
       >
         {/* Background Photography */}
         <Image
@@ -175,12 +175,12 @@ export default function VisionPage() {
               {heroData.eyebrow}
             </span>
 
-            <h1 className="v-reveal font-serif text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-normal tracking-tight text-white mb-4 sm:mb-6 lg:mb-8 leading-[1.15] sm:leading-[1.1]">
+            <h1 className="v-reveal font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-white mb-3 sm:mb-4 lg:mb-6 leading-[1.15] sm:leading-[1.1]">
               {heroData.titleLine1} <br className="hidden sm:inline" />
               <span className="text-brand-gold italic">{heroData.titleHighlight}</span>
             </h1>
 
-            <p className="v-reveal text-brand-cream/80 text-xs sm:text-base lg:text-xl font-sans font-light leading-relaxed max-w-2xl mb-6 sm:mb-10 mx-auto md:mx-0">
+            <p className="v-reveal text-brand-cream/80 text-xs sm:text-sm lg:text-base font-sans font-light leading-relaxed max-w-xl mb-4 sm:mb-6 mx-auto md:mx-0">
               {heroData.description}
             </p>
 
@@ -200,7 +200,7 @@ export default function VisionPage() {
       {/* =========================================================================
           MANIFESTO — Purpose & Core Philosophy
           ========================================================================= */}
-      <section id="manifesto" className="py-14 sm:py-24 lg:py-36 bg-brand-cream border-b border-brand-gold/15 overflow-hidden">
+      <section id="manifesto" className="py-10 sm:py-16 lg:py-20 bg-brand-cream border-b border-brand-gold/15 overflow-hidden">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
             
@@ -210,7 +210,7 @@ export default function VisionPage() {
                 {manifestoData.eyebrow}
               </span>
 
-              <h2 className="v-reveal font-serif text-xl sm:text-3xl lg:text-5xl font-normal tracking-tight text-brand-black leading-snug">
+              <h2 className="v-reveal font-serif text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-brand-black leading-snug">
                 {manifestoData.title}
               </h2>
 
@@ -252,47 +252,40 @@ export default function VisionPage() {
       {/* =========================================================================
           STRATEGIC PILLARS — 4 Core Pillars of Vision
           ========================================================================= */}
-      <section className="py-14 sm:py-24 lg:py-32 bg-brand-beige border-b border-brand-gold/15">
+      <section className="py-10 sm:py-16 lg:py-20 bg-brand-beige border-b border-brand-gold/15">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           
-          <div className="max-w-3xl mb-10 sm:mb-16">
-            <span className="v-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase mb-3 sm:mb-4 block">
+          <div className="max-w-3xl mb-8 sm:mb-12">
+            <span className="v-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase mb-2 sm:mb-3 block">
               Operational Tenets
             </span>
-            <h2 className="v-reveal font-serif text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-brand-black leading-tight">
+            <h2 className="v-reveal font-serif text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-brand-black leading-tight">
               The Four Pillars of <span className="text-brand-gold italic">Future Stewardship</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {visionPillars.map((pillar) => {
               const IconComponent = iconMap[pillar.iconName as keyof typeof iconMap] || Cpu;
-
               return (
                 <div
                   key={pillar.id}
-                  className="v-reveal relative group bg-brand-cream p-6 sm:p-8 border border-brand-gold/20 hover:border-brand-gold/40 shadow-sm hover:shadow-xl transition-all duration-500 rounded-tr-[20px] sm:rounded-tr-[28px] overflow-hidden flex flex-col justify-between"
+                  className="v-reveal relative group bg-brand-cream p-5 sm:p-6 border border-brand-gold/20 hover:border-brand-gold/40 shadow-sm hover:shadow-xl transition-all duration-500 rounded-tr-[16px] sm:rounded-tr-[20px] overflow-hidden flex flex-col justify-between"
                 >
-                  {/* Faint Watermark Number */}
-                  <div className="absolute top-2 right-4 font-serif text-5xl sm:text-7xl font-bold text-brand-gold/10 pointer-events-none select-none">
+                  <div className="absolute top-2 right-4 font-serif text-4xl sm:text-5xl font-bold text-brand-gold/10 pointer-events-none select-none">
                     {pillar.number}
                   </div>
-
                   <div>
-                    {/* Icon container */}
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-brand-gold/15 border border-brand-gold/30 text-brand-gold flex items-center justify-center mb-5 sm:mb-6">
-                      <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-brand-gold/15 border border-brand-gold/30 text-brand-gold flex items-center justify-center mb-4">
+                      <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-
-                    <span className="text-[8px] sm:text-[9px] font-sans font-bold tracking-[0.2em] text-brand-gold uppercase block mb-1.5">
+                    <span className="text-[8px] sm:text-[9px] font-sans font-bold tracking-[0.2em] text-brand-gold uppercase block mb-1">
                       {pillar.subtitle}
                     </span>
-
-                    <h3 className="font-serif text-lg sm:text-2xl font-medium text-brand-black mb-3 group-hover:text-brand-gold transition-colors duration-300">
+                    <h3 className="font-serif text-base sm:text-lg font-medium text-brand-black mb-2 group-hover:text-brand-gold transition-colors duration-300">
                       {pillar.title}
                     </h3>
-
-                    <p className="text-xs sm:text-sm font-sans font-light text-brand-charcoal-light leading-relaxed">
+                    <p className="text-xs font-sans font-light text-brand-charcoal-light leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>
@@ -307,14 +300,14 @@ export default function VisionPage() {
       {/* =========================================================================
           HORIZON 2030 ROADMAP — Milestones to 2030
           ========================================================================= */}
-      <section className="py-14 sm:py-24 lg:py-32 bg-brand-cream border-b border-brand-gold/15">
+      <section className="py-10 sm:py-16 lg:py-20 bg-brand-cream border-b border-brand-gold/15">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           
-          <div className="max-w-3xl mb-10 sm:mb-16">
-            <span className="v-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase mb-3 sm:mb-4 block">
+          <div className="max-w-3xl mb-8 sm:mb-12">
+            <span className="v-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase mb-2 sm:mb-3 block">
               Strategic Timeline
             </span>
-            <h2 className="v-reveal font-serif text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-brand-black leading-tight">
+            <h2 className="v-reveal font-serif text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-brand-black leading-tight">
               Horizon <span className="text-brand-gold italic">2030 Milestones</span>
             </h2>
           </div>
@@ -353,7 +346,7 @@ export default function VisionPage() {
       {/* =========================================================================
           SIGNATURE SPOTLIGHT SECTION — Architectural Foresight
           ========================================================================= */}
-      <section ref={spotlightSectionRef} className="py-14 sm:py-20 lg:py-32 bg-brand-cream border-b border-brand-gold/15 overflow-hidden">
+      <section ref={spotlightSectionRef} className="py-10 sm:py-16 lg:py-20 bg-brand-cream border-b border-brand-gold/15 overflow-hidden">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
             
@@ -381,7 +374,7 @@ export default function VisionPage() {
                 {spotlightData.eyebrow}
               </span>
 
-              <h2 className="v-reveal font-serif text-2xl sm:text-3xl lg:text-5xl font-medium tracking-tight text-brand-black leading-tight">
+              <h2 className="v-reveal font-serif text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-brand-black leading-tight">
                 {spotlightData.titleLine1} <br />
                 <span className="text-brand-gold italic">{spotlightData.titleHighlight}</span>
               </h2>
@@ -408,14 +401,14 @@ export default function VisionPage() {
       {/* =========================================================================
           CINEMATIC CLOSING CTA — Matching Other Pages
           ========================================================================= */}
-      <section className="relative z-50 bg-brand-black text-brand-cream py-14 sm:py-24 lg:py-44 border-t border-brand-gold/15 overflow-hidden">
+      <section className="relative z-50 bg-brand-black text-brand-cream py-12 sm:py-16 lg:py-24 border-t border-brand-gold/15 overflow-hidden">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 text-center relative z-10">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             <span className="v-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.3em] text-brand-gold uppercase mb-3 sm:mb-6 block">
               {ctaData.eyebrow}
             </span>
 
-            <h2 className="v-reveal font-serif text-2xl sm:text-4xl lg:text-6xl font-normal tracking-tight text-white mb-4 sm:mb-8 leading-tight">
+            <h2 className="v-reveal font-serif text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-white mb-3 sm:mb-5 leading-tight">
               {ctaData.titlePrefix} <span className="text-brand-gold italic">{ctaData.titleHighlight}</span>
             </h2>
 

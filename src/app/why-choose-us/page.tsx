@@ -13,7 +13,7 @@ export default function WhyChooseUsPage() {
 
       <main className="grow">
         {/* Hero Header Banner with Architectural Background Image */}
-        <section className="relative pt-28 pb-20 md:pt-32 md:pb-28 border-b border-brand-gold/15 overflow-hidden">
+        <section className="relative pt-20 pb-10 md:pt-24 md:pb-14 border-b border-brand-gold/15 overflow-hidden">
           {/* Background Image */}
           <Image
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600"
@@ -37,11 +37,11 @@ export default function WhyChooseUsPage() {
                 Our Operational Standards
               </span>
 
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white mb-6 max-w-4xl mx-auto leading-tight">
+              <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-white mb-4 max-w-3xl mx-auto leading-tight">
                 Why Property Owners <span className="text-brand-gold italic">Choose</span> Asset Homes
               </h1>
 
-              <p className="text-brand-cream/90 text-base sm:text-lg font-sans leading-relaxed max-w-2xl mx-auto font-light">
+              <p className="text-brand-cream/85 text-xs sm:text-sm font-sans leading-relaxed max-w-xl mx-auto font-light">
                 We combine deep local expertise, 100% transparent management, and proactive engineering-grade property care to protect your investment across Abu Dhabi.
               </p>
             </div>

@@ -133,7 +133,7 @@ export default function GalleryPage() {
           ========================================================================= */}
       <section
         ref={heroSectionRef}
-        className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-[90vh] w-full flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-12 lg:pt-28 lg:pb-20 border-b border-brand-gold/15 overflow-hidden"
+        className="relative min-h-[50vh] sm:min-h-[60vh] lg:h-[65vh] w-full flex flex-col justify-between pt-20 pb-6 sm:pt-24 sm:pb-10 lg:pt-24 lg:pb-14 border-b border-brand-gold/15 overflow-hidden"
       >
         {/* Full-screen Background Photography */}
         <Image
@@ -159,7 +159,7 @@ export default function GalleryPage() {
               {heroData.eyebrow}
             </span>
 
-            <h1 className="gt-reveal font-serif text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-normal tracking-tight text-white mb-4 sm:mb-6 lg:mb-8 leading-[1.15] sm:leading-[1.1]">
+            <h1 className="gt-reveal font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-white mb-3 sm:mb-4 lg:mb-6 leading-[1.15] sm:leading-[1.1]">
               {heroData.titleLine1} <br className="hidden sm:inline" />
               <span className="text-brand-gold italic">{heroData.titleHighlight}</span>
             </h1>
@@ -184,14 +184,14 @@ export default function GalleryPage() {
       {/* =========================================================================
           EDITORIAL INTRODUCTION — Quote & Narrative
           ========================================================================= */}
-      <section className="py-12 sm:py-20 lg:py-36 bg-brand-cream border-b border-brand-gold/15">
+      <section className="py-8 sm:py-12 lg:py-16 bg-brand-cream border-b border-brand-gold/15">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="max-w-4xl mx-auto text-center">
             <span className="gt-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase mb-4 sm:mb-6 block">
               {introData.eyebrow}
             </span>
 
-            <h2 className="gt-reveal font-serif text-xl sm:text-3xl lg:text-5xl font-normal tracking-tight text-brand-black leading-snug mb-5 sm:mb-8">
+            <h2 className="gt-reveal font-serif text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-brand-black leading-snug mb-3 sm:mb-5">
               {introData.quote}
             </h2>
 
@@ -207,11 +207,11 @@ export default function GalleryPage() {
       {/* =========================================================================
           EDITORIAL GALLERY GRID — Clean Unfiltered Portfolio Showcase
           ========================================================================= */}
-      <section id="gallery-grid" className="py-12 sm:py-20 lg:py-28 bg-brand-beige border-b border-brand-gold/15">
+      <section id="gallery-grid" className="py-8 sm:py-14 lg:py-18 bg-brand-beige border-b border-brand-gold/15">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {galleryData.map((prop) => (
               <div
                 key={prop.id}
@@ -233,13 +233,13 @@ export default function GalleryPage() {
                 </div>
 
                 {/* Card Body */}
-                <div className="p-5 sm:p-6 lg:p-8 flex flex-col grow justify-between">
+                <div className="p-4 sm:p-5 lg:p-6 flex flex-col grow justify-between">
                   <div>
                     <span className="text-[8px] sm:text-[9px] font-sans font-bold tracking-[0.15em] sm:tracking-[0.2em] text-brand-gold uppercase block mb-1 sm:mb-1.5">
                       {prop.location}
                     </span>
 
-                    <h3 className="font-serif text-lg sm:text-xl lg:text-2xl font-medium text-brand-black mb-2 sm:mb-3 group-hover:text-brand-gold transition-colors duration-300">
+                    <h3 className="font-serif text-base sm:text-lg lg:text-xl font-medium text-brand-black mb-1.5 sm:mb-2 group-hover:text-brand-gold transition-colors duration-300">
                       {prop.name}
                     </h3>
 
@@ -270,7 +270,7 @@ export default function GalleryPage() {
       {/* =========================================================================
           SIGNATURE SPOTLIGHT SECTION — Large Architectural Feature
           ========================================================================= */}
-      <section ref={spotlightSectionRef} className="py-14 sm:py-20 lg:py-32 bg-brand-cream border-b border-brand-gold/15 overflow-hidden">
+      <section ref={spotlightSectionRef} className="py-10 sm:py-16 lg:py-20 bg-brand-cream border-b border-brand-gold/15 overflow-hidden">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
             
@@ -298,7 +298,7 @@ export default function GalleryPage() {
                 {spotlightData.eyebrow}
               </span>
 
-              <h2 className="gt-reveal font-serif text-2xl sm:text-3xl lg:text-5xl font-medium tracking-tight text-brand-black leading-tight">
+              <h2 className="gt-reveal font-serif text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-brand-black leading-tight">
                 {spotlightData.titleLine1} <br />
                 <span className="text-brand-gold italic">{spotlightData.titleHighlight}</span>
               </h2>
@@ -325,14 +325,14 @@ export default function GalleryPage() {
       {/* =========================================================================
           CINEMATIC CLOSING CTA — Matching About Us & Services Page
           ========================================================================= */}
-      <section className="relative z-50 bg-brand-black text-brand-cream py-14 sm:py-24 lg:py-44 border-t border-brand-gold/15 overflow-hidden">
+      <section className="relative z-50 bg-brand-black text-brand-cream py-12 sm:py-16 lg:py-24 border-t border-brand-gold/15 overflow-hidden">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16 text-center relative z-10">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             <span className="gt-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.3em] text-brand-gold uppercase mb-3 sm:mb-6 block">
               {ctaData.eyebrow}
             </span>
 
-            <h2 className="gt-reveal font-serif text-2xl sm:text-4xl lg:text-6xl font-normal tracking-tight text-white mb-4 sm:mb-8 leading-tight">
+            <h2 className="gt-reveal font-serif text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-white mb-3 sm:mb-5 leading-tight">
               {ctaData.titlePrefix} <span className="text-brand-gold italic">{ctaData.titleHighlight}</span>
             </h2>
 

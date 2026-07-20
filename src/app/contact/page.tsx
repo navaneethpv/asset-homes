@@ -123,7 +123,7 @@ export default function ContactPage() {
           ========================================================================= */}
       <section
         ref={heroSectionRef}
-        className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-[90vh] w-full flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-12 lg:pt-28 lg:pb-20 border-b border-brand-gold/15 overflow-hidden"
+        className="relative min-h-[50vh] sm:min-h-[60vh] lg:h-[65vh] w-full flex flex-col justify-between pt-20 pb-6 sm:pt-24 sm:pb-10 lg:pt-24 lg:pb-14 border-b border-brand-gold/15 overflow-hidden"
       >
         {/* Full-screen Background Photography */}
         <Image
@@ -149,7 +149,7 @@ export default function ContactPage() {
               {heroData.eyebrow}
             </span>
 
-            <h1 className="c-reveal font-serif text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-normal tracking-tight text-white mb-4 sm:mb-6 lg:mb-8 leading-[1.15] sm:leading-[1.1]">
+            <h1 className="c-reveal font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-white mb-3 sm:mb-4 lg:mb-6 leading-[1.15] sm:leading-[1.1]">
               {heroData.titleLine1} <br className="hidden sm:inline" />
               <span className="text-brand-gold italic">{heroData.titleHighlight}</span>
             </h1>
@@ -174,7 +174,7 @@ export default function ContactPage() {
       {/* =========================================================================
           CONTACT DETAILS CARDS — Telephone, Email, Address, 24/7 Support
           ========================================================================= */}
-      <section className="py-12 sm:py-20 lg:py-28 bg-brand-cream border-b border-brand-gold/15">
+      <section className="py-10 sm:py-14 lg:py-18 bg-brand-cream border-b border-brand-gold/15">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -184,7 +184,7 @@ export default function ContactPage() {
               return (
                 <div
                   key={item.id}
-                  className="c-reveal group bg-brand-beige/70 p-6 sm:p-8 border border-brand-gold/20 hover:border-brand-gold/50 shadow-sm hover:shadow-xl transition-all duration-500 rounded-tr-[20px] sm:rounded-tr-[28px] flex flex-col justify-between"
+                  className="c-reveal group bg-brand-beige/70 p-5 sm:p-6 border border-brand-gold/20 hover:border-brand-gold/50 shadow-sm hover:shadow-xl transition-all duration-500 rounded-tr-[16px] sm:rounded-tr-[20px] flex flex-col justify-between"
                 >
                   <div>
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-brand-gold/15 border border-brand-gold/30 text-brand-gold flex items-center justify-center mb-5">
@@ -195,7 +195,7 @@ export default function ContactPage() {
                       {item.subtitle}
                     </span>
 
-                    <h3 className="font-serif text-lg sm:text-xl font-medium text-brand-black mb-2 group-hover:text-brand-gold transition-colors duration-300">
+                    <h3 className="font-serif text-base sm:text-lg font-medium text-brand-black mb-1.5 group-hover:text-brand-gold transition-colors duration-300">
                       {item.title}
                     </h3>
 
@@ -218,7 +218,7 @@ export default function ContactPage() {
       {/* =========================================================================
           INQUIRY INTAKE FORM — Luxury Form Component
           ========================================================================= */}
-      <section id="inquiry-form" className="py-14 sm:py-24 lg:py-32 bg-brand-cream border-b border-brand-gold/15">
+      <section id="inquiry-form" className="py-10 sm:py-16 lg:py-20 bg-brand-cream border-b border-brand-gold/15">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
@@ -228,7 +228,7 @@ export default function ContactPage() {
                 Direct Intake
               </span>
 
-              <h2 className="c-reveal font-serif text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-brand-black leading-tight">
+              <h2 className="c-reveal font-serif text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-brand-black leading-tight">
                 Submit Your <br />
                 <span className="text-brand-gold italic">Property Prospectus</span>
               </h2>
@@ -382,7 +382,7 @@ export default function ContactPage() {
       {/* =========================================================================
           OUR LOCATIONS & GOOGLE MAP — Clean Bottom Map Section
           ========================================================================= */}
-      <section className="py-14 sm:py-24 lg:py-32 bg-brand-beige border-b border-brand-gold/15">
+      <section className="py-10 sm:py-16 lg:py-20 bg-brand-beige border-b border-brand-gold/15">
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-12 xl:px-16">
           
           {/* Section Heading */}
@@ -390,7 +390,7 @@ export default function ContactPage() {
             <span className="c-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase mb-3 sm:mb-4 block">
               Headquarters &amp; Hubs
             </span>
-            <h2 className="c-reveal font-serif text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-brand-black leading-tight">
+            <h2 className="c-reveal font-serif text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight text-brand-black leading-tight">
               Our Physical <span className="text-brand-gold italic">Locations</span>
             </h2>
           </div>
@@ -398,7 +398,7 @@ export default function ContactPage() {
 
 
           {/* Clean Map Frame Container */}
-          <div className="c-reveal relative w-full h-[380px] sm:h-[480px] lg:h-[540px] bg-brand-cream border border-brand-gold/30 shadow-xl rounded-tr-[24px] sm:rounded-tr-[36px] overflow-hidden">
+          <div className="c-reveal relative w-full h-[300px] sm:h-[380px] lg:h-[440px] bg-brand-cream border border-brand-gold/30 shadow-xl rounded-tr-[20px] sm:rounded-tr-[28px] overflow-hidden">
             
             {/* Standard Full-Color Google Map */}
             <iframe
