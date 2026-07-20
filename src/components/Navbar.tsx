@@ -29,6 +29,7 @@ export default function Navbar() {
     { name: "Vision", href: "/vision", isHash: false },
     { name: "Services", href: "/services", isHash: false },
     { name: "Gallery", href: "/gallery", isHash: false },
+    { name: "Contact", href: "/contact", isHash: false },
   ];
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isHash: boolean = true) => {

@@ -29,8 +29,8 @@ export default function Footer() {
   };
 
   const quickLinks = [
-    { name: "Our Portfolio", href: "/#portfolio", isHash: true },
-    { name: "Services", href: "/#services", isHash: true },
+    { name: "Our Portfolio", href: "/gallery", isHash: true },
+    { name: "Services", href: "/services", isHash: true },
     { name: "Our Heritage", href: "/#heritage", isHash: true },
     { name: "Methodology", href: "/#methodology", isHash: true },
   ];
@@ -96,7 +96,7 @@ export default function Footer() {
           </div>
           <div className="lg:col-span-4 flex justify-start lg:justify-end">
             <Link
-              href="mailto:advisory@assethomes.ae"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand-black hover:bg-brand-gold hover:text-brand-black text-[10px] font-sans font-bold tracking-widest uppercase transition-all duration-300 border border-white hover:border-brand-gold shadow-none"
             >
               Schedule Consultation
