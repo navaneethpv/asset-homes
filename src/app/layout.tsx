@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const lora = Lora({
   variable: "--font-lora",
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <LenisProvider>
           {children}
+          <ScrollToTop />
         </LenisProvider>
       </body>
     </html>

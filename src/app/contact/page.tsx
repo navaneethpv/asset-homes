@@ -442,36 +442,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* =========================================================================
-          CINEMATIC CLOSING CTA — Matching All Pages
-          ========================================================================= */}
-      <section className="relative z-50 bg-brand-black text-brand-cream py-14 sm:py-24 lg:py-44 border-t border-brand-gold/15 overflow-hidden">
-        <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 text-center relative z-10">
-          <div className="max-w-3xl mx-auto flex flex-col items-center">
-            <span className="c-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.3em] text-brand-gold uppercase mb-3 sm:mb-6 block">
-              Emergency Technical Support
-            </span>
 
-            <h2 className="c-reveal font-serif text-2xl sm:text-4xl lg:text-6xl font-normal tracking-tight text-white mb-4 sm:mb-8 leading-tight">
-              24/7 MEP Operations <span className="text-brand-gold italic">Dispatch</span>
-            </h2>
-
-            <p className="c-reveal text-brand-cream/75 text-xs sm:text-base lg:text-lg font-sans font-light leading-relaxed mb-6 sm:mb-10 lg:mb-12 max-w-xl">
-              For urgent building emergencies, plumbing leaks, or HVAC electrical dispatches, call our rapid response center directly.
-            </p>
-
-            <div className="c-reveal">
-              <a
-                href="tel:+971280027738"
-                className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-10 py-3.5 sm:py-5 bg-brand-gold hover:bg-brand-gold-dark text-brand-black text-[10px] sm:text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-2xl group"
-              >
-                <span>Call Emergency Dispatch</span>
-                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
