@@ -81,9 +81,9 @@ export default function GalleryPage() {
       <Navbar />
 
       {/* Header Banner */}
-      <section className="pt-32 pb-12 md:pt-40 md:pb-20 border-b border-brand-gold/15">
+      <section className="pt-24 pb-12 md:pt-28 md:pb-20 border-b border-brand-gold/15">
         <div className="w-full max-w-none px-6 sm:px-12 lg:px-20 xl:px-32 text-center md:text-left">
-          <div className="mb-6 flex justify-start">
+          <div className="mb-4 flex justify-start">
             <Breadcrumb items={[{ label: "Gallery" }]} />
           </div>
 
