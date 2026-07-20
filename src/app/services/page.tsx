@@ -167,7 +167,7 @@ export default function ServicesPage() {
       {/* =========================================================================
           HERO — Responsive Hero with fixed mobile navbar clearance
           ========================================================================= */}
-      <section className="relative min-h-[90vh] lg:h-screen w-full flex flex-col justify-between pt-28 pb-12 sm:pb-16 lg:pt-28 lg:pb-20 border-b border-brand-gold/15 overflow-hidden">
+      <section className="relative min-h-[600px] sm:min-h-[680px] lg:min-h-[750px] w-full flex flex-col justify-between pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 border-b border-brand-gold/15 overflow-hidden">
         {/* Full-screen Background Photography */}
         <Image
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000"
@@ -186,7 +186,7 @@ export default function ServicesPage() {
 
         {/* Hero Copy */}
         <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 my-auto py-8 sm:py-12">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center">
             <span className="st-reveal text-[10px] sm:text-xs font-sans font-bold tracking-[0.25em] sm:tracking-[0.3em] text-brand-gold uppercase mb-4 sm:mb-6 block">
               {heroData.eyebrow}
             </span>
@@ -196,11 +196,11 @@ export default function ServicesPage() {
               <span className="text-brand-gold italic">{heroData.titleHighlight}</span>
             </h1>
 
-            <p className="st-reveal text-brand-cream/80 text-sm sm:text-lg lg:text-xl font-sans font-light leading-relaxed max-w-xl mb-8 sm:mb-10">
+            <p className="st-reveal text-brand-cream/80 text-sm sm:text-lg lg:text-xl font-sans font-light leading-relaxed max-w-xl mb-8 sm:mb-10 mx-auto">
               {heroData.description}
             </p>
 
-            <div className="st-reveal">
+            <div className="st-reveal flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/#contact"
                 className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3.5 sm:py-4 bg-brand-gold hover:bg-brand-gold-dark text-brand-black text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-xl group"
@@ -252,7 +252,7 @@ export default function ServicesPage() {
               style={{ zIndex: idx + 1 }}
             >
               {/* Inner wrapper for responsive height and GSAP scaling */}
-              <div className={`service-inner-wrapper min-h-full w-full flex flex-col justify-between relative ${bgThemeClass} text-brand-black p-4 sm:p-8 lg:p-14`}>
+              <div className={`service-inner-wrapper min-h-full w-full max-w-7xl mx-auto flex flex-col justify-between relative ${bgThemeClass} text-brand-black px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 lg:py-14`}>
                 
                 {/* Top Label & Progress Header */}
                 <div className="relative z-20 w-full flex justify-between items-center border-b border-brand-gold/25 pb-3 sm:pb-4 mb-4 sm:mb-6 lg:mb-0">

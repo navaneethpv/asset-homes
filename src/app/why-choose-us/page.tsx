@@ -13,7 +13,7 @@ export default function WhyChooseUsPage() {
 
       <main className="grow">
         {/* Hero Header Banner with Architectural Background Image */}
-        <section className="relative pt-20 pb-10 md:pt-24 md:pb-14 border-b border-brand-gold/15 overflow-hidden">
+        <section className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 border-b border-brand-gold/15 overflow-hidden">
           {/* Background Image */}
           <Image
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600"

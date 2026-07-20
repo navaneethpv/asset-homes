@@ -149,7 +149,7 @@ export default function VisionPage() {
           ========================================================================= */}
       <section
         ref={heroSectionRef}
-        className="relative min-h-[50vh] sm:min-h-[60vh] lg:h-[65vh] w-full flex flex-col justify-between pt-20 pb-6 sm:pt-24 sm:pb-10 lg:pt-24 lg:pb-14 border-b border-brand-gold/15 overflow-hidden"
+        className="relative min-h-[550px] sm:min-h-[600px] lg:min-h-[680px] w-full flex flex-col justify-between pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 border-b border-brand-gold/15 overflow-hidden"
       >
         {/* Background Photography */}
         <Image
@@ -170,7 +170,7 @@ export default function VisionPage() {
 
         {/* Hero Copy */}
         <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 my-auto py-6 sm:py-10 lg:py-12">
-          <div className="max-w-4xl text-center md:text-left">
+          <div className="max-w-4xl mx-auto text-center">
             <span className="v-reveal text-[9px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.3em] text-brand-gold uppercase mb-3 sm:mb-6 block">
               {heroData.eyebrow}
             </span>
@@ -180,11 +180,11 @@ export default function VisionPage() {
               <span className="text-brand-gold italic">{heroData.titleHighlight}</span>
             </h1>
 
-            <p className="v-reveal text-brand-cream/80 text-xs sm:text-sm lg:text-base font-sans font-light leading-relaxed max-w-xl mb-4 sm:mb-6 mx-auto md:mx-0">
+            <p className="v-reveal text-brand-cream/80 text-xs sm:text-sm lg:text-base font-sans font-light leading-relaxed max-w-xl mb-4 sm:mb-6 mx-auto">
               {heroData.description}
             </p>
 
-            <div className="v-reveal flex flex-wrap items-center justify-center md:justify-start gap-4">
+            <div className="v-reveal flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#manifesto"
                 className="inline-flex items-center gap-2.5 sm:gap-3 px-5 py-3 sm:px-8 sm:py-4 bg-brand-gold hover:bg-brand-gold-dark text-brand-black text-[10px] sm:text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-xl group"
