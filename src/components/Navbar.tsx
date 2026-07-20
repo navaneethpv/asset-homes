@@ -155,8 +155,8 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             ref={ctaRef}
-            href="/#contact"
-            onClick={(e) => handleScrollTo(e, "/#contact", true)}
+            href="/contact"
+            onClick={(e) => handleScrollTo(e, "/contact", false)}
             className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-brand-black text-brand-cream hover:bg-brand-gold hover:text-brand-black text-xs font-sans font-semibold tracking-wider uppercase transition-all duration-300"
           >
             Schedule Consultation
@@ -182,7 +182,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden absolute top-full left-0 w-full border-b border-brand-gold/15 bg-brand-beige overflow-hidden"
+            className="md:hidden absolute top-full left-0 w-full border-b border-brand-gold/20 bg-brand-cream shadow-2xl overflow-hidden z-50"
           >
             <div className="flex flex-col space-y-4 px-6 py-6 sm:px-8">
               {navLinks.map((link) => {
@@ -206,10 +206,10 @@ export default function Navbar() {
               })}
               <div className="pt-4 border-t border-brand-gold/10">
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   onClick={(e) => {
                     setIsOpen(false);
-                    handleScrollTo(e, "/#contact", true);
+                    handleScrollTo(e, "/contact", false);
                   }}
                   className="flex items-center justify-center gap-2 w-full py-3 bg-brand-black text-brand-cream hover:bg-brand-gold hover:text-brand-black text-sm font-sans font-semibold tracking-wider uppercase transition-all duration-300"
                 >
