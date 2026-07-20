@@ -9,6 +9,12 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  servicesData,
+  heroData,
+  introData,
+  ctaData
+} from "@/data/servicesData";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,69 +23,6 @@ if (typeof window !== "undefined") {
 export default function ServicesPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const stackWrapperRef = useRef<HTMLDivElement>(null);
-
-  const services = [
-    {
-      id: "service-01",
-      number: "01",
-      title: "Asset Operations & Leasing",
-      subtitle: "TENANCY LIFECYCLE & OCCUPANCY STEWARDSHIP",
-      description:
-        "Comprehensive lifecycle management designed to maximize occupancy and secure premium lease terms. We oversee tenancy agreements, coordinate renewals, manage move-in/move-out workflows, and handle municipal documentation with complete precision.",
-      details: [
-        "Tenancy contract lifecycle execution & renewals",
-        "Rigorous tenant background screening & vetting",
-        "Ejari registration & municipal compliance",
-        "Bespoke marketing & vacant asset positioning"
-      ],
-      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=2000"
-    },
-    {
-      id: "service-02",
-      number: "02",
-      title: "Technical & MEP Engineering",
-      subtitle: "24/7 PREVENTATIVE & CORRECTIVE OVERSIZED CARE",
-      description:
-        "Preventative and corrective building services executed by certified engineering specialists. We maintain mechanical, electrical, plumbing, and HVAC systems to maximize energy efficiency, structural longevity, and resident comfort.",
-      details: [
-        "24/7 emergency response engineering dispatch",
-        "Comprehensive HVAC, chiller plant & MEP servicing",
-        "Energy audits & consumption optimization",
-        "Estidama green building rating compliance"
-      ],
-      image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&q=80&w=2000"
-    },
-    {
-      id: "service-03",
-      number: "03",
-      title: "Financial Stewardship & Yields",
-      subtitle: "AUDIT-READY LEDGERS & ESCROW TRANSPARENCY",
-      description:
-        "Meticulous accounting structures engineered to track, protect, and optimize your asset's financial performance. We handle rental collection, utility audits, vendor accounts payable, and supply quarterly audit-ready cash-flow ledgers.",
-      details: [
-        "Rent collection & escrow account management",
-        "Real-time owner dashboard & ledger tracking",
-        "Detailed operating budget & CapEx forecasts",
-        "Utility bill audit & VAT tax compliance"
-      ],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000"
-    },
-    {
-      id: "service-04",
-      number: "04",
-      title: "Bespoke Tenant Concierge",
-      subtitle: "HOSPITALITY-GRADE LIVING & HIGH RESIDENT RETENTION",
-      description:
-        "Delivering a hospitality-focused living experience that keeps resident turnover exceptionally low. Our dedicated helpdesk and mobile portal streamline service request dispatch, tenant onboarding, and communication.",
-      details: [
-        "Dedicated digital tenant portal & mobile access",
-        "Rapid request dispatch protocols & tracking",
-        "Seamless move-in onboarding assistance",
-        "Premium multi-lingual concierge desk staff"
-      ],
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=2000"
-    }
-  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -245,16 +188,16 @@ export default function ServicesPage() {
         <div className="relative z-20 w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 my-auto py-8 sm:py-12">
           <div className="max-w-4xl">
             <span className="st-reveal text-[10px] sm:text-xs font-sans font-bold tracking-[0.25em] sm:tracking-[0.3em] text-brand-gold uppercase mb-4 sm:mb-6 block">
-              Institutional Stewardship
+              {heroData.eyebrow}
             </span>
 
             <h1 className="st-reveal font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-white mb-6 sm:mb-8 leading-[1.1]">
-              Institutional-Grade <br className="hidden sm:inline" />
-              <span className="text-brand-gold italic">Services</span>
+              {heroData.titleLine1} <br className="hidden sm:inline" />
+              <span className="text-brand-gold italic">{heroData.titleHighlight}</span>
             </h1>
 
             <p className="st-reveal text-brand-cream/80 text-sm sm:text-lg lg:text-xl font-sans font-light leading-relaxed max-w-xl mb-8 sm:mb-10">
-              Uncompromising operational oversight designed to preserve structural integrity, elevate tenant experiences, and maximize yield across Abu Dhabi.
+              {heroData.description}
             </p>
 
             <div className="st-reveal">
@@ -262,7 +205,7 @@ export default function ServicesPage() {
                 href="/#contact"
                 className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3.5 sm:py-4 bg-brand-gold hover:bg-brand-gold-dark text-brand-black text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-xl group"
               >
-                <span>Consult an Advisor</span>
+                <span>{heroData.ctaText}</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
@@ -277,15 +220,15 @@ export default function ServicesPage() {
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32">
           <div className="max-w-4xl mx-auto text-left">
             <span className="st-reveal text-[10px] sm:text-xs font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold uppercase mb-6 block">
-              Operational Scope
+              {introData.eyebrow}
             </span>
 
             <h2 className="st-reveal font-serif text-2xl sm:text-4xl lg:text-6xl font-normal tracking-tight text-brand-black leading-tight sm:leading-snug mb-8 sm:mb-10">
-              &ldquo;We protect investments with the discipline of engineering and the care of hospitality.&rdquo;
+              {introData.quote}
             </h2>
 
             <p className="st-reveal text-brand-charcoal-light text-xs sm:text-base lg:text-lg font-sans font-light leading-relaxed max-w-2xl mb-8 sm:mb-12">
-              We do not believe in reactive maintenance or standardized checklists. Every asset entrusted to Asset Homes Property Management LLC receives a customized operational framework engineered around its physical architecture, tenant profile, and financial objectives.
+              {introData.description}
             </p>
 
             <div className="st-reveal h-px w-full max-w-xl bg-brand-gold/25" />
@@ -297,7 +240,7 @@ export default function ServicesPage() {
           GSAP SCROLLTRIGGER STACKED SERVICE SPREADS (RESPONSIVE FOR MOBILE & DESKTOP)
           ========================================================================= */}
       <div ref={stackWrapperRef} className="relative w-full">
-        {services.map((service, idx) => {
+        {servicesData.map((service, idx) => {
           const isEven = idx % 2 === 0;
           const bgThemeClass = isEven ? "bg-brand-cream" : "bg-brand-beige";
 
@@ -315,10 +258,10 @@ export default function ServicesPage() {
                 <div className="relative z-20 w-full flex justify-between items-center border-b border-brand-gold/25 pb-3 sm:pb-4 mb-4 sm:mb-6 lg:mb-0">
                   <div className="flex items-center gap-3 sm:gap-4">
                     <span className="text-xs sm:text-sm font-serif font-bold text-brand-gold">
-                      0{idx + 1}
+                      {service.number}
                     </span>
                     <span className="text-[9px] sm:text-[10px] font-sans font-bold tracking-[0.2em] sm:tracking-[0.3em] text-brand-gold uppercase">
-                      Portfolio Stewardship &bull; 0{idx + 1}
+                      Portfolio Stewardship &bull; {service.number}
                     </span>
                   </div>
                   <span className="text-[9px] sm:text-[10px] font-sans text-brand-charcoal-light tracking-widest uppercase hidden sm:inline">
@@ -393,7 +336,9 @@ export default function ServicesPage() {
 
                 {/* Bottom Footer Bar within Viewport */}
                 <div className="relative z-20 w-full flex justify-between items-center text-[9px] sm:text-[10px] font-sans text-brand-charcoal-light tracking-widest uppercase border-t border-brand-gold/20 pt-3 sm:pt-4 mt-4 sm:mt-6 lg:mt-0">
-                  <span>0{idx + 1} / 04</span>
+                  <span>
+                    {service.number} / {String(servicesData.length).padStart(2, "0")}
+                  </span>
                   <span>Scroll for next offering</span>
                 </div>
 
@@ -410,15 +355,15 @@ export default function ServicesPage() {
         <div className="w-full max-w-none px-4 sm:px-8 lg:px-20 xl:px-32 text-center relative z-10">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             <span className="st-reveal text-[10px] sm:text-xs font-sans font-bold tracking-[0.25em] sm:tracking-[0.3em] text-brand-gold uppercase mb-4 sm:mb-6 block">
-              Bespoke Portfolio Consultation
+              {ctaData.eyebrow}
             </span>
 
             <h2 className="st-reveal font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-6 sm:mb-8 leading-tight">
-              Ready to Secure Your Portfolio&apos;s <span className="text-brand-gold italic">Legacy</span>?
+              {ctaData.titlePrefix} <span className="text-brand-gold italic">{ctaData.titleHighlight}</span>?
             </h2>
 
             <p className="st-reveal text-brand-cream/75 text-xs sm:text-base lg:text-lg font-sans font-light leading-relaxed mb-8 sm:mb-12 max-w-xl">
-              Engage Abu Dhabi&apos;s premier boutique real estate stewardship team. Receive a customized operational plan tailored to your property portfolio.
+              {ctaData.description}
             </p>
 
             <div className="st-reveal">
@@ -426,7 +371,7 @@ export default function ServicesPage() {
                 href="/#contact"
                 className="inline-flex items-center gap-3 sm:gap-4 px-8 sm:px-10 py-4 sm:py-5 bg-brand-gold hover:bg-brand-gold-dark text-brand-black text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-2xl group"
               >
-                <span>Consult an Advisory Partner</span>
+                <span>{ctaData.buttonText}</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
