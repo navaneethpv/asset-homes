@@ -274,13 +274,12 @@ export default function AboutPage() {
     {
       name: "Midlaj",
       role: "Office Manager",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
-      bio: "Directing daily office operations, communication channels, and client services."
+      image: "/teams/midlaj.png",
     },
     {
       name: "Haneefa Mundodan",
       role: "Administrative Manager",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+      image: "/teams/haneefa.png",
     },
     {
       name: "Abdul Rasak",
@@ -527,7 +526,7 @@ export default function AboutPage() {
               <div key={leader.name} className="team-member-reveal group flex flex-col">
                 {/* Photo */}
                 <div
-                  className="relative aspect-16/10 w-full overflow-hidden bg-brand-beige mb-4 rounded-tr-[16px] shadow-sm border border-brand-gold/10"
+                  className="relative aspect-3/4 w-full overflow-hidden bg-brand-beige mb-4 rounded-tr-[16px] shadow-md border border-brand-gold/40 group-hover:border-brand-gold transition-colors duration-500"
                 >
                   <Image
                     src={leader.image}
