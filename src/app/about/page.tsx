@@ -521,24 +521,24 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div ref={teamGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div ref={teamGridRef} className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {leaders.map((leader) => (
-              <div key={leader.name} className="team-member-reveal group flex flex-col">
+              <div key={leader.name} className="team-member-reveal group flex flex-col items-start">
                 {/* Photo */}
                 <div
-                  className="relative aspect-3/4 w-full overflow-hidden bg-brand-beige mb-4 rounded-tr-[16px] shadow-md border border-brand-gold/40 group-hover:border-brand-gold transition-colors duration-500"
+                  className="relative aspect-4/5 w-full overflow-hidden bg-brand-beige mb-3 rounded-tr-[12px] shadow-xs border border-brand-gold/30 group-hover:border-brand-gold transition-colors duration-300"
                 >
                   <Image
                     src={leader.image}
                     alt={leader.name}
                     fill
-                    className="object-cover object-top rounded-tr-[16px] transition-transform duration-700 ease-out group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 30vw"
+                    className="object-cover object-top rounded-tr-[12px] transition-transform duration-500 ease-out group-hover:scale-103"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px"
                   />
                 </div>
                 <div>
-                  <h3 className="font-serif text-base font-medium text-brand-black mb-0.5">{leader.name}</h3>
-                  <p className="text-[9px] font-sans font-bold tracking-wider text-brand-gold uppercase mb-2">{leader.role}</p>
+                  <h3 className="font-serif text-sm sm:text-base font-medium text-brand-black leading-snug">{leader.name}</h3>
+                  <p className="text-[9px] font-sans font-bold tracking-wider text-brand-gold uppercase mt-0.5">{leader.role}</p>
                 </div>
               </div>
             ))}
