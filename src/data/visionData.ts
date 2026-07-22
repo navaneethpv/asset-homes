@@ -100,7 +100,7 @@ export const visionPillars: VisionPillar[] = [
     title: "Long-Term Capital Appreciation",
     subtitle: "Yield Maximization Strategy",
     description:
-      "Transforming property management into an active wealth generator by elevating tenant retention, boosting property valuations, and maintaining premier market positioning.",
+      "Aligning property management with asset protection by supporting tenant retention, maintaining property valuations, and securing market positioning.",
     iconName: "TrendingUp",
   },
 ];

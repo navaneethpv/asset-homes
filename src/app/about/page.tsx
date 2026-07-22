@@ -517,7 +517,7 @@ export default function AboutPage() {
               Leadership
             </span>
             <h2 className="team-title-reveal font-serif text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-brand-black leading-tight">
-              The <span className="text-brand-gold italic">Custodians</span> of Your Investment
+              The People Behind <span className="text-brand-gold italic">Asset Homes</span>
             </h2>
           </div>
 

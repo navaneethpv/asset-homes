@@ -158,7 +158,7 @@ export default function OperationalRoadmap() {
             A Seamless Journey to <span className="text-brand-gold italic">Optimization</span>
           </h2>
           <p className="text-brand-charcoal-light text-sm sm:text-base font-sans leading-relaxed font-normal">
-            A structured operational execution model engineered to protect capital, elevate tenant satisfaction, and maximize long-term asset yields across Abu Dhabi.
+            A structured operational execution model engineered to protect capital, ensure tenant satisfaction, and maximize long-term asset yields across Abu Dhabi.
           </p>
         </div>
 
