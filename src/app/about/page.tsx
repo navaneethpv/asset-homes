@@ -532,7 +532,9 @@ export default function AboutPage() {
                     src={leader.image}
                     alt={leader.name}
                     fill
-                    className="object-cover object-top rounded-tr-[12px] transition-transform duration-500 ease-out group-hover:scale-103"
+                    draggable={false}
+                    onContextMenu={(e) => e.preventDefault()}
+                    className="object-cover object-top rounded-tr-[12px] transition-transform duration-500 ease-out group-hover:scale-103 select-none pointer-events-none"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px"
                   />
                 </div>

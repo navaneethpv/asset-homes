@@ -7,6 +7,7 @@ import TrustLegacy from "@/components/TrustLegacy";
 import ServicesGrid from "@/components/ServicesGrid";
 import AssetShowcase from "@/components/AssetShowcase";
 import OperationalRoadmap from "@/components/OperationalRoadmap";
+import TeamCarousel from "@/components/TeamCarousel";
 import Testimonial from "@/components/Testimonial";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -184,7 +185,10 @@ export default function Home() {
         {/* 6. Operational Roadmap & Methodology */}
         <OperationalRoadmap />
 
-        {/* 7. Client Testimonial */}
+        {/* 7. Leadership Team Carousel */}
+        <TeamCarousel />
+
+        {/* 8. Client Testimonial */}
         <Testimonial />
       </main>
 
