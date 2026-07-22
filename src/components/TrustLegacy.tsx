@@ -77,22 +77,22 @@ export default function TrustLegacy() {
           {/* Left Column (Editorial text block) */}
           <div ref={textContainerRef} className="lg:col-span-6 flex flex-col justify-center order-2 lg:order-1">
             <span className="text-reveal text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 opacity-0 block">
-              Our Heritage
+              15 Years of Experience
             </span>
             
             <h2 className="text-reveal font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-brand-black leading-tight mb-5 opacity-0">
-              A Legacy of <span className="text-brand-gold italic">Trust</span> in the Heart of Abu Dhabi
+              Fifteen Years of <span className="text-brand-gold italic">Service &amp; Protection</span>
             </h2>
             
             <div className="space-y-4 text-brand-charcoal-light text-sm font-sans font-normal leading-relaxed">
               <p className="text-reveal opacity-0">
-                Founded on the principles of transparency and architectural preservation, Asset Homes Property Management LLC has established itself as the trusted partner for local and institutional real estate owners across the United Arab Emirates.
+                With 15 years of experience in the real estate market, Asset Homes Property Management LLC delivers dedicated management and protection for property assets across Abu Dhabi and Al Ain.
               </p>
               <p className="text-reveal opacity-0">
-                We recognize that property is more than bricks and mortar; it is a critical asset class that requires strategic oversight. From Al Reem Island to Saadiyat Beach, our deep understanding of the Abu Dhabi regulatory landscape and tenant demography allows us to curate bespoke management plans that unlock maximum value.
+                We focus on managing, protecting, and maximizing the potential of property assets, working collaboratively with real estate professionals to deliver exceptional service and exceed expectations at every step.
               </p>
               <p className="text-reveal border-l-2 border-brand-gold pl-4 italic text-brand-charcoal opacity-0">
-                &quot;Our mission is to safeguard and elevate your real estate wealth, ensuring that every asset performs to its maximum potential under our meticulous stewardship.&quot;
+                &quot;Our mission is to bring property and infrastructure management into the 21st Century by aligning the interests of the company and client through service, asset protection, and value maximization.&quot;
               </p>
             </div>
           </div>

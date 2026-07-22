@@ -140,26 +140,26 @@ export default function Home() {
                 </h2>
                 
                 <p className="why-reveal text-brand-charcoal-light text-sm sm:text-base font-sans font-light leading-relaxed">
-                  From engineering-grade asset preservation to 100% financial transparency, discover the distinct operational philosophy that protects and optimizes ultra-high-net-worth real estate portfolios across Abu Dhabi.
+                  We align company and client interests through dedicated service, asset protection, and value maximization—delivering exceptional service and quality living across Abu Dhabi and Al Ain.
                 </p>
 
                 {/* Key feature micro-bullets */}
                 <div className="why-reveal grid grid-cols-1 sm:grid-cols-2 gap-4 py-3 border-y border-brand-gold/20 text-xs font-sans text-brand-charcoal font-medium">
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0" />
-                    <span>Engineering-Grade Oversight</span>
+                    <span>Exceptional Service &amp; Client Delight</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0" />
-                    <span>100% Financial Transparency</span>
+                    <span>Exceeding Tenant Expectations</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0" />
-                    <span>Estidama Green Compliance</span>
+                    <span>Protecting &amp; Maximizing Asset Potential</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0" />
-                    <span>Dedicated Portfolio Advisory</span>
+                    <span>Quality Living From a Caring Team</span>
                   </div>
                 </div>
 

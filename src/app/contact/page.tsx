@@ -294,7 +294,7 @@ export default function ContactPage() {
                           required
                           value={formData.fullName}
                           onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                          placeholder="e.g. Tariq Al-Mansoori"
+                          placeholder="e.g. Property Owner"
                           className="w-full px-4 py-3 bg-brand-cream border border-brand-gold/20 focus:border-brand-gold focus:outline-none text-xs sm:text-sm font-sans text-brand-black placeholder:text-brand-charcoal-light/50 transition-colors"
                         />
                       </div>

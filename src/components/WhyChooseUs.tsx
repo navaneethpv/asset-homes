@@ -195,10 +195,10 @@ export default function WhyChooseUs() {
                 </div>
                 
                 <h3 className="text-element font-serif text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-brand-black mb-6 leading-tight">
-                  Local Expertise & Meticulous Care
+                  Delivering Exceptional Service
                 </h3>
                 <p className="text-element text-brand-charcoal-light text-sm sm:text-base font-sans leading-relaxed mb-8">
-                  Our team possesses deep local knowledge of Abu Dhabi&apos;s premier communities—from Al Reem to Saadiyat. We provide proactive asset management that prevents issues before they arise, ensuring your property is maintained to the highest standards.
+                  We aim to delight and surprise our clients by providing exceptional service, clear oversight, and attentive property care across all transactions.
                 </p>
                 
                 <div className="text-element">
@@ -240,10 +240,10 @@ export default function WhyChooseUs() {
                 </div>
                 
                 <h3 className="text-element font-serif text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-brand-black mb-6 leading-tight">
-                  Transparent & Detailed Operations
+                  Exceeding Tenant Expectations
                 </h3>
                 <p className="text-element text-brand-charcoal-light text-sm sm:text-base font-sans leading-relaxed mb-8">
-                  We believe in absolute transparency. Owners receive regular updates, detailed financial reporting, and clear communication on tenant relations and maintenance, giving you complete visibility and control over your investment.
+                  We strive to exceed tenant expectations at every step of every transaction, fostering resident satisfaction and building reliable, long-term relationships.
                 </p>
                 
                 <div className="text-element">
@@ -285,10 +285,10 @@ export default function WhyChooseUs() {
                 </div>
                 
                 <h3 className="text-element font-serif text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-brand-black mb-6 leading-tight">
-                  Proactive Maintenance & Optimization
+                  Protecting &amp; Maximizing Asset Potential
                 </h3>
                 <p className="text-element text-brand-charcoal-light text-sm sm:text-base font-sans leading-relaxed mb-8">
-                  Routine inspections, preventive maintenance, and rapid response to maintenance requests help preserve your property&apos;s long-term value while reducing unexpected expenses.
+                  We focus on managing, protecting, and maximizing the potential of property assets, aligning our services directly with owner goals and asset longevity.
                 </p>
                 
                 <div className="text-element">
@@ -330,10 +330,10 @@ export default function WhyChooseUs() {
                 </div>
                 
                 <h3 className="text-element-main font-serif text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-brand-black mb-6 leading-tight">
-                  Elevated Tenant & Owner Experiences
+                  Quality Living From a Team That Cares
                 </h3>
                 <p className="text-element-main text-brand-charcoal-light text-sm sm:text-base font-sans leading-relaxed mb-8">
-                  By combining high-end hospitality practices with efficient operations, we deliver an exceptional experience that keeps quality tenants happy and ensures steady rental yields.
+                  We deliver quality living with dedicated support, giving people the power to share and make communities more open, connected, and well-managed.
                 </p>
                 
                 <div className="cta-element">

@@ -237,57 +237,65 @@ export default function AboutPage() {
   const pillars = [
     {
       icon: Shield,
-      title: "Meticulous Stewardship",
-      description: "We approach property management with an engineering-first mentality. From predictive HVAC servicing to proactive facade inspections, we protect the structural and aesthetic integrity of your assets."
+      title: "Exceptional Service",
+      description: "We aim to delight and surprise our clients, delivering exceptional service and exceeding tenant expectations at every step of every transaction."
     },
     {
       icon: Eye,
-      title: "Absolute Transparency",
-      description: "Our operations run on trust. Real estate wealth requires clear oversight, which is why we provide full-ledger accounting, regular digital reports, and direct channels for developer and owner audits."
+      title: "Asset & Infrastructure Protection",
+      description: "We focus on managing, protecting, and maximizing the potential of property and infrastructure assets into the 21st Century."
     },
     {
       icon: Award,
-      title: "Regulatory Precision",
-      description: "Fully compliant with the Abu Dhabi Municipality (ADM) and Estidama standards. We ensure all certifications, contractor licenses, and tenancy contracts align with the UAE's evolving legal frameworks."
+      title: "Collaborative Expertise",
+      description: "Backed by 15 years of experience in the real estate market, working collaboratively with professionals to ensure quality living."
     }
   ];
 
   const milestones = [
     {
-      year: "2021",
-      title: "Founding & Vision",
-      description: "Established in Abu Dhabi to bridge the gap between traditional leasing services and premium, institutional-grade asset preservation."
+      year: "15 Years",
+      title: "Proven Market Presence",
+      description: "Fifteen years of dedicated real estate and property management experience across Abu Dhabi and Al Ain."
     },
     {
-      year: "2023",
-      title: "Portfolio Expansion",
-      description: "Selected as the preferred management partner for high-occupancy developments across Al Reem Island and Yas Marina."
-    },
-    {
-      year: "2025",
-      title: "Sustainability Integration",
-      description: "Transitioned 100% of managed assets to Estidama-compliant operations, saving average building utility costs by 18%."
+      year: "21st Century",
+      title: "Aligned Management Mission",
+      description: "Aligning company and client interests through continuous service, asset protection, and value maximization."
     }
   ];
 
   const leaders = [
     {
-      name: "Tariq Al Mansoori",
-      role: "Founder & Managing Director",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
-      bio: "Over 18 years of real estate management experience in the Gulf region, specializing in institutional asset optimization and municipal compliance."
+      name: "Abdul Salam Mundodan Muhammed Koya",
+      role: "Managing Director",
+      image: "/teams/abdul-salam-mundodan.png",
     },
     {
-      name: "Sarah Jenkins",
-      role: "Head of Operations",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
-      bio: "An MEP engineer by training, Sarah oversees our technical dispatch center and coordinates asset lifecycle strategies."
-    },
-    {
-      name: "Faisal Al Hashimi",
-      role: "Director of Client Services",
+      name: "Midlaj",
+      role: "Office Manager",
       image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
-      bio: "Faisal leads our advisory intake team, ensuring bespoke onboarding and customized concierge offerings for property owners."
+      bio: "Directing daily office operations, communication channels, and client services."
+    },
+    {
+      name: "Haneefa Mundodan",
+      role: "Administrative Manager",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+    },
+    {
+      name: "Abdul Rasak",
+      role: "HR Manager",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600",
+    },
+    {
+      name: "Muhammed Saleem",
+      role: "Accounts Manager",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
+    },
+    {
+      name: "Fayis Thekkumpurathu",
+      role: "Supervisor",
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
     }
   ];
 
@@ -314,13 +322,13 @@ export default function AboutPage() {
           </div>
           <div className="text-center flex flex-col items-center">
             <span className="hero-reveal text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-3 block">
-              Who We Are
+              Asset Homes Property Management LLC
             </span>
             <h1 className="hero-reveal font-serif text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-white mb-3 max-w-2xl mx-auto leading-tight">
-              The Standard of Real Estate <span className="text-brand-gold italic">Stewardship</span>
+              Bringing Management Into The <span className="text-brand-gold italic">21st Century</span>
             </h1>
             <p className="hero-reveal text-brand-cream/80 text-xs sm:text-sm font-sans leading-relaxed max-w-md mx-auto font-normal">
-              Asset Homes Property Management LLC is dedicated to preserving, managing, and optimizing premium real estate assets across Abu Dhabi.
+              With 15 years of experience, we protect property assets and deliver quality living across Abu Dhabi and Al Ain.
             </p>
           </div>
         </div>
@@ -334,17 +342,17 @@ export default function AboutPage() {
             {/* Left – text */}
             <div ref={introTextRef} className="lg:col-span-6 flex flex-col justify-center order-2 lg:order-1">
               <span className="intro-reveal text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-3 block">
-                Our Purpose
+                Our Mission &amp; Purpose
               </span>
               <h2 className="intro-reveal font-serif text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-brand-black leading-tight mb-4">
-                Protecting Wealth Through <span className="text-brand-gold italic">Precision Operations</span>
+                Aligning Interests Through <span className="text-brand-gold italic">Service &amp; Protection</span>
               </h2>
               <div className="intro-reveal space-y-3 text-brand-charcoal-light text-xs sm:text-sm font-sans font-light leading-relaxed">
                 <p>
-                  At Asset Homes, we believe that real estate assets require more than simple tenant oversight—they demand active, high-fidelity operations. We manage each property as a critical investment, preserving structural integrity while driving operational excellence.
+                  Our mission is to bring property and infrastructure management into the 21st Century by aligning the interests of the company and client through service and asset protection as well as ensuring the maximization of the asset value.
                 </p>
                 <p>
-                  From Al Bateen to Yas Island, we integrate local municipal insights with predictive building services. Our methodology ensures that your property conforms to the highest standards of energy efficiency, tenant satisfaction, and long-term asset appreciation.
+                  We aim to delight and surprise our clients, exceed tenant expectations at every step of every transaction, and provide quality living from a team that cares.
                 </p>
               </div>
             </div>
@@ -532,7 +540,6 @@ export default function AboutPage() {
                 <div>
                   <h3 className="font-serif text-base font-medium text-brand-black mb-0.5">{leader.name}</h3>
                   <p className="text-[9px] font-sans font-bold tracking-wider text-brand-gold uppercase mb-2">{leader.role}</p>
-                  <p className="text-xs font-sans font-light text-brand-charcoal-light leading-relaxed">{leader.bio}</p>
                 </div>
               </div>
             ))}

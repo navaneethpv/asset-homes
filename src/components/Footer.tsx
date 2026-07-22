@@ -121,9 +121,9 @@ export default function Footer() {
               height={90}
               className="h-16 md:h-25 w-auto object-contain mb-6"
               priority
-            />
+            />         
             <p className="text-xs sm:text-sm font-sans text-center font-light text-brand-cream/60 leading-relaxed">
-              Premium, institutional-grade property lifecycle operations for real estate investors and developers across Abu Dhabi.
+              Property and infrastructure management across Abu Dhabi and Al Ain. Protecting asset value and delivering quality service for 15 years.
             </p>
           </div>
 
@@ -150,54 +150,54 @@ export default function Footer() {
           {/* Column 3: Contact */}
           <div className="lg:border-l lg:border-brand-gold/20 lg:pl-5 xl:pl-8">
             <h3 className="text-xs font-sans font-bold tracking-widest text-brand-gold uppercase mb-6">
-              Abu Dhabi Office
+              Main Office
             </h3>
             <ul className="space-y-4 text-brand-cream/70">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4.5 h-4.5 text-brand-gold shrink-0 mt-0.5" />
                 <span className="text-xs sm:text-sm font-sans font-light leading-relaxed">
-                  Al Maryah Tower, Suite 2401,<br />
-                  Al Maryah Island, Abu Dhabi, UAE
+                  137th St, Plot No. 263, Central District,<br />
+                  Al Kuwaitat, Al Ain, Abu Dhabi, UAE
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-brand-gold shrink-0" />
                 <a
-                  href="tel:+971280027738"
+                  href="tel:037636611"
                   className="text-xs sm:text-sm font-sans font-light hover:text-brand-gold transition-colors duration-300"
                 >
-                  +971 (0)2 800 27738
+                  037636611 / +971 507 308064
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-brand-gold shrink-0" />
                 <a
-                  href="mailto:advisory@assethomes.ae"
+                  href="mailto:assethomesalain@gmail.com"
                   className="text-xs sm:text-sm font-sans font-light hover:text-brand-gold transition-colors duration-300"
                 >
-                  advisory@assethomes.ae
+                  assethomesalain@gmail.com
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Compliance */}
+          {/* Column 4: Standards */}
           <div className="lg:border-l lg:border-brand-gold/20 lg:pl-5 xl:pl-8">
             <h3 className="text-xs font-sans font-bold tracking-widest text-brand-gold uppercase mb-6">
-              Certifications
+              Special Features
             </h3>
             <ul className="space-y-4 text-brand-cream/70 text-xs sm:text-sm">
               <li className="flex flex-col border-l border-brand-gold/20 pl-3">
-                <span className="font-semibold text-brand-cream">ADM Registered</span>
-                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">Abu Dhabi Municipality Compliance</span>
+                <span className="font-semibold text-brand-cream">15 Years of Experience</span>
+                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">Proven Track Record in UAE Real Estate</span>
               </li>
               <li className="flex flex-col border-l border-brand-gold/20 pl-3">
-                <span className="font-semibold text-brand-cream">ADDC Certified</span>
-                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">Water & Energy Efficiency Standard</span>
+                <span className="font-semibold text-brand-cream">Exceptional Service</span>
+                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">Dedicated Property & Infrastructure Care</span>
               </li>
               <li className="flex flex-col border-l border-brand-gold/20 pl-3">
-                <span className="font-semibold text-brand-cream">ESTIDAMA compliant</span>
-                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">Sustainable Operations Framework</span>
+                <span className="font-semibold text-brand-cream">Industry Collaboration</span>
+                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">Working with Real Estate Professionals</span>
               </li>
             </ul>
           </div>

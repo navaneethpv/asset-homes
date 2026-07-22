@@ -13,10 +13,10 @@ if (typeof window !== "undefined") {
 
 export default function HeroSection() {
   const stats = [
-    { value: "AED 5B+", label: "Assets Under Management" },
-    { value: "98%", label: "Client Retention Rate" },
-    { value: "15k+", label: "Premium Units Managed" },
-    { value: "24/7", label: "Dedicated Concierge Support" },
+    { value: "15+", label: "Years of Experience" },
+    { value: "100%", label: "Asset Protection Alignment" },
+    { value: "UAE", label: "Abu Dhabi & Al Ain Presence" },
+    { value: "21st Century", label: "Property & Infrastructure Management" },
   ];
 
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -161,15 +161,15 @@ export default function HeroSection() {
           {/* Left Column (Text & CTAs) */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <span className="hero-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-3 opacity-0 block">
-              Property Management Services
+              Asset Homes Property Management LLC
             </span>
             
             <h1 ref={headlineRef} className="font-serif text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-brand-black leading-[1.15] mb-4">
-              {splitText("Professional Property Management for Exceptional Investments")}
+              {splitText("Your Premier Real Estate Professional")}
             </h1>
             
             <p ref={paragraphRef} className="text-brand-charcoal-light text-sm sm:text-sm lg:text-base font-sans font-normal leading-relaxed max-w-xl mb-5 opacity-0">
-              Asset Homes offers bespoke management strategies for luxury residential and premium commercial portfolios in Abu Dhabi. We bridge institutional rigor with personalized care to optimize yields and maintain architectural integrity.
+              Our mission is to bring property and infrastructure management into the 21st Century by aligning the interests of company and client through attentive service, asset protection, and maximizing property value.
             </p>
             
             <div ref={buttonContainerRef} className="flex flex-wrap gap-4 opacity-0">
