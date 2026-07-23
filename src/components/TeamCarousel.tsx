@@ -39,7 +39,7 @@ export const leaders: TeamMember[] = [
   },
   {
     name: "Muhammed Abdul Rahman Sadak",
-    role: "HR Manager",
+    role: "Accounts manager",
     image: "/teams/muhammed-abdul-rahman-sadak.png",
   },
   {
