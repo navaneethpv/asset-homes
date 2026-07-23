@@ -24,8 +24,6 @@ export default function Navbar() {
   const lenis = useLenis();
   const pathname = usePathname();
 
-  const isSubpage = pathname !== "/";
-
   const navLinks = [
     { name: "Home", href: "/", isHash: false },
     { name: "About Us", href: "/about", isHash: false },
@@ -97,8 +95,8 @@ export default function Navbar() {
           }
         })
         .to(header, {
-          backgroundColor: "rgba(244, 240, 230, 0.95)", // Solid brand ivory/cream color
-          borderColor: "rgba(197, 160, 89, 0.2)", // Brand gold border
+          backgroundColor: "rgba(11, 12, 14, 0.92)", // Dark velvet onyx header
+          borderColor: "rgba(197, 160, 89, 0.25)", // Brand gold border
           backdropFilter: "blur(12px)",
           height: "72px",
           duration: 0.5,
@@ -108,8 +106,8 @@ export default function Navbar() {
           duration: 0.5,
         }, 0)
         .to(cta, {
-          backgroundColor: "#c5a059", // Brand Gold
-          color: "#0f0f0f", // Brand Black
+          backgroundColor: "#C59E4E", // Brand Gold
+          color: "#0B0C0E", // Brand Black
           duration: 0.5,
         }, 0);
       }
@@ -118,16 +116,14 @@ export default function Navbar() {
     return () => ctx.revert();
   }, []);
 
-  // Contrast link color logic based on scroll position and subpage context
+  // Contrast link color logic for luxury dark navbar
   const getLinkColorClass = (isActive: boolean) => {
     if (isActive) return "text-brand-gold font-semibold";
-    if (isScrolled) return "text-brand-black hover:text-brand-gold";
-    if (isSubpage) return "text-brand-cream/90 hover:text-brand-gold";
-    return "text-brand-charcoal hover:text-brand-gold";
+    return "text-brand-cream/90 hover:text-brand-gold";
   };
 
-  const logoFilterClass = isSubpage && !isScrolled ? "brightness-0 invert" : "brightness-0";
-  const mobileBtnColorClass = isSubpage && !isScrolled ? "text-brand-cream hover:text-brand-gold" : "text-brand-charcoal hover:text-brand-gold";
+  const logoFilterClass = "brightness-0 invert";
+  const mobileBtnColorClass = "text-brand-cream hover:text-brand-gold";
 
   return (
     <header 
@@ -185,7 +181,7 @@ export default function Navbar() {
             ref={ctaRef}
             href="/contact"
             onClick={(e) => handleScrollTo(e, "/contact", false)}
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-brand-black text-brand-cream hover:bg-brand-gold hover:text-brand-black text-xs font-sans font-semibold tracking-wider uppercase transition-all duration-300"
+            className="inline-flex items-center text-black/90  gap-1.5 px-5 py-2.5 bg-brand-gold hover:bg-brand-gold hover:text-brand-black text-xs font-sans font-semibold tracking-wider uppercase transition-all duration-300"
           >
             Schedule Consultation
             <ArrowUpRight className="w-3.5 h-3.5" />

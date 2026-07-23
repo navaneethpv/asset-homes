@@ -2,12 +2,24 @@
 
 import { ReactLenis, type LenisRef } from "lenis/react";
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "lenis/dist/lenis.css";
 
 export default function LenisProvider({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<LenisRef>(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // Scroll to top on route change
+    if (lenisRef.current?.lenis) {
+      lenisRef.current.lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+    ScrollTrigger.refresh();
+  }, [pathname]);
 
   useEffect(() => {
     // Register ScrollTrigger plugin for GSAP

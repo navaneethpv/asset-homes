@@ -20,14 +20,10 @@ export default function HeroSection() {
   ];
 
   const sectionRef = useRef<HTMLDivElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
-  const decorRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
   const buttonContainerRef = useRef<HTMLDivElement>(null);
-  const imageWrapperRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -54,91 +50,27 @@ export default function HeroSection() {
         { opacity: 1, y: 0, duration: 0.8 },
         "-=0.7"
       )
-      .fromTo(imageWrapperRef.current,
-        { opacity: 0, scale: 0.98 },
-        { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" },
-        "-=1.2"
-      )
       .fromTo(".stat-item",
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
-        "-=1"
+        "-=0.8"
       );
 
-      // 2. SCROLL TRIGGER PARALLAX (Only on desktop)
+      // 2. SCROLL TRIGGER PARALLAX (Desktop)
       const mm = gsap.matchMedia();
       mm.add("(min-width: 1024px)", () => {
-        // Headline Parallax (0.02 speed -> yPercent: 4)
-        gsap.to(headlineRef.current, {
-          yPercent: 4,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.5,
-          }
-        });
-
-        // Paragraph Parallax
-        gsap.to(paragraphRef.current, {
-          yPercent: 3,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.5,
-          }
-        });
-
-        // Buttons Parallax (0.01 speed -> yPercent: 2)
-        gsap.to(buttonContainerRef.current, {
-          yPercent: 2,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.5,
-          }
-        });
-
-        // Background Parallax (0.08 speed -> yPercent: 12)
-        gsap.to(bgRef.current, {
-          yPercent: 12,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.5,
-          }
-        });
-
-        // Foreground Image Parallax (0.15 speed -> yPercent: 20)
-        gsap.to(imageWrapperRef.current, {
-          yPercent: -15,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.5,
-          }
-        });
-
-        // Floating Decorative Elements (0.05 speed -> yPercent: 10)
-        gsap.to(decorRef.current, {
-          yPercent: 10,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.5,
-          }
-        });
+        if (imageRef.current && sectionRef.current) {
+          gsap.to(imageRef.current, {
+            yPercent: 12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top top",
+              end: "bottom top",
+              scrub: 0.5,
+            }
+          });
+        }
       });
     }, sectionRef);
 
@@ -146,89 +78,85 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="hero" className="relative bg-brand-cream pt-24 pb-10 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 overflow-hidden">
-      {/* Background Parallax Layer */}
-      <div ref={bgRef} className="absolute inset-0 bg-[#F6F2E8]/40 pointer-events-none z-0" />
-      
-      {/* Floating Decorative Elements */}
-      <div ref={decorRef} className="absolute top-[20%] right-[10%] w-[100px] h-[100px] border border-brand-gold/15 rounded-full pointer-events-none z-0 hidden lg:block" />
+    <section
+      ref={sectionRef}
+      id="hero"
+      className="relative min-h-[680px] sm:min-h-[720px] lg:min-h-[820px] w-full flex flex-col justify-between pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 border-b border-brand-gold/20 overflow-hidden bg-brand-black"
+    >
+      {/* Background Photography */}
+      <Image
+        ref={imageRef}
+        src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=2000"
+        alt="Abu Dhabi luxury architecture and skyline"
+        fill
+        priority
+        className="object-cover object-center pointer-events-none z-0 scale-[1.05]"
+        sizes="100vw"
+      />
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
-        
-        {/* Main Grid: Left content, Right Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          
-          {/* Left Column (Text & CTAs) */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
-            <span className="hero-eyebrow text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-3 opacity-0 block">
-              Asset Homes Property Management LLC
-            </span>
-            
-            <h1 ref={headlineRef} className="font-serif text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-brand-black leading-[1.15] mb-4">
-              {splitText("Your Premier Real Estate Professional")}
-            </h1>
-            
-            <p ref={paragraphRef} className="text-brand-charcoal-light text-sm sm:text-sm lg:text-base font-sans font-normal leading-relaxed max-w-xl mb-5 opacity-0">
-              Our mission is to bring property and infrastructure management into the 21st Century by aligning the interests of company and client through attentive service, asset protection, and maximizing property value.
-            </p>
-            
-            <div ref={buttonContainerRef} className="flex flex-wrap gap-4 opacity-0">
-              <Link
-                href="#services"
-                className="inline-flex items-center justify-center px-7 py-3.5 bg-brand-black text-brand-cream hover:bg-brand-gold hover:text-brand-black text-xs font-sans font-semibold tracking-wider uppercase transition-all duration-300 shadow-sm"
-              >
-                Our Services
-              </Link>
-              <Link
-                href="#portfolio"
-                className="inline-flex items-center justify-center gap-1.5 px-7 py-3.5 border border-brand-black text-brand-black hover:bg-brand-black hover:text-brand-cream text-xs font-sans font-semibold tracking-wider uppercase transition-all duration-300 group/btn"
-              >
-                <span>Explore Portfolio</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
-              </Link>
-            </div>
-          </div>
+      {/* Dark Base Overlay */}
+      <div className="absolute inset-0 bg-brand-black/85 backdrop-blur-[1.5px] z-10" />
 
-          {/* Right Column (Hero Image) */}
-          <div className="lg:col-span-5 relative w-full h-[300px] sm:h-[380px] lg:h-[420px] xl:h-[480px]">
-            <div
-              ref={imageWrapperRef}
-              className="relative w-full h-full overflow-hidden shadow-2xl rounded-sm border border-brand-gold/20 opacity-0"
-            >
-              <Image
-                ref={imageRef}
-                src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=1200"
-                alt="Abu Dhabi skyline dusk architecture"
-                fill
-                priority
-                className="object-cover transform hover:scale-103 transition-transform duration-2000 ease-out will-change-transform"
-                sizes="(max-width: 768px) 100vw, 40vw"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-brand-black/20 via-transparent to-transparent pointer-events-none" />
-            </div>
-          </div>
+      {/* Yellow / Gold Warm Tint Accent Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-black/90 via-brand-gold/25 to-brand-black/95 z-10 pointer-events-none" />
 
+      {/* Main Centered Content */}
+      <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 my-auto text-center flex flex-col items-center">
+        <span className="hero-eyebrow text-xs sm:text-sm font-sans font-bold tracking-[0.3em] text-brand-gold uppercase mb-4 opacity-0 block">
+          Asset Homes Property Management LLC
+        </span>
+
+        <h1
+          ref={headlineRef}
+          className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.12] mb-6 max-w-4xl"
+        >
+          {splitText("Your Premier Real Estate Professional")}
+        </h1>
+
+        <p
+          ref={paragraphRef}
+          className="text-brand-cream/85 text-sm sm:text-base lg:text-lg font-sans font-light leading-relaxed max-w-2xl mb-8 mx-auto opacity-0"
+        >
+          Our mission is to bring property and infrastructure management into the 21st Century by aligning the interests of company and client through attentive service, asset protection, and maximizing property value.
+        </p>
+
+        <div
+          ref={buttonContainerRef}
+          className="flex flex-wrap items-center justify-center gap-4 mb-12 opacity-0"
+        >
+          <Link
+            href="/services"
+            className="inline-flex items-center justify-center px-8 py-4 bg-brand-gold text-brand-black hover:bg-brand-gold-dark text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 shadow-xl"
+          >
+            Our Services
+          </Link>
+          <Link
+            href="/gallery"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-brand-cream/40 text-brand-cream hover:border-brand-gold hover:text-brand-gold text-xs font-sans font-bold tracking-widest uppercase transition-all duration-300 group/btn"
+          >
+            <span>Explore Portfolio</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+          </Link>
         </div>
 
-        {/* Stats strip */}
-        <div className="mt-10 lg:mt-12 border-t border-brand-gold/15 pt-6 sm:pt-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Centered Stats Strip */}
+        <div className="w-full border-t border-brand-gold/25 pt-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="stat-item flex flex-col border-l border-brand-gold/20 pl-4 sm:pl-6 opacity-0"
+                className="stat-item flex flex-col items-center opacity-0 px-2"
               >
-                <span className="font-serif text-2xl sm:text-3xl font-semibold text-brand-gold tracking-tight mb-1">
+                <span className="font-serif text-2xl sm:text-4xl font-semibold text-brand-gold tracking-tight mb-1">
                   {stat.value}
                 </span>
-                <span className="text-[10px] sm:text-xs font-sans font-semibold tracking-wider text-brand-charcoal-light uppercase">
+                <span className="text-[10px] sm:text-xs font-sans font-semibold tracking-wider text-brand-cream/70 uppercase">
                   {stat.label}
                 </span>
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

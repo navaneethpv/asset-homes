@@ -397,7 +397,7 @@ export default function AboutPage() {
     },
     {
       name: "Muhammed Abdul Rahman Sadak",
-      role: "HR Manager",
+      role: "Accounts manager",
       image: "/teams/muhammed-abdul-rahman-sadak.png",
     },
     {
