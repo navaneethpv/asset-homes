@@ -516,9 +516,9 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div ref={teamGridRef} className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
+          <div ref={teamGridRef} className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-4xl mx-auto">
             {leaders.map((leader) => (
-              <div key={leader.name} className="team-member-reveal group flex flex-col items-start">
+              <div key={leader.name} className="team-member-reveal group flex flex-col items-start w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)]">
                 {/* Photo */}
                 <div
                   className="relative aspect-4/5 w-full overflow-hidden bg-brand-beige mb-3 rounded-tr-[12px] shadow-xs border border-brand-gold/30 group-hover:border-brand-gold transition-colors duration-300"
