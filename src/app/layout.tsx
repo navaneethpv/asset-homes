@@ -21,6 +21,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Asset Homes Property Management LLC | Abu Dhabi, UAE",
   description: "Institutional-grade and bespoke property management services for exceptional investments in Abu Dhabi, United Arab Emirates.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
