@@ -35,17 +35,12 @@ export const leaders: TeamMember[] = [
   {
     name: "Abdul Rasak",
     role: "HR Manager",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600",
-  },
-  {
-    name: "Muhammed Saleem",
-    role: "Accounts Manager",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
+    image: "/teams/abdul-rasak.png",
   },
   {
     name: "Fayis Thekkumpurathu",
     role: "Supervisor",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
+    image: "/teams/fayis.png",
   },
 ];
 
