@@ -38,6 +38,11 @@ export const leaders: TeamMember[] = [
     image: "/teams/abdul-rasak.png",
   },
   {
+    name: "Muhammed Abdul Rahman Sadak",
+    role: "HR Manager",
+    image: "/teams/muhammed-abdul-rahman-sadak.png",
+  },
+  {
     name: "Fayis Thekkumpurathu",
     role: "Supervisor",
     image: "/teams/fayis.png",
@@ -112,7 +117,7 @@ export default function TeamCarousel() {
               start: "top 75%",
               toggleActions: "play none none none",
             },
-          }
+          },
         );
       }
     }, sectionRef);
@@ -160,7 +165,8 @@ export default function TeamCarousel() {
               Leadership &amp; Execution
             </span>
             <h2 className="team-carousel-reveal font-serif text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-brand-black leading-tight">
-              The People Behind <span className="text-brand-gold italic">Asset Homes</span>
+              The People Behind{" "}
+              <span className="text-brand-gold italic">Asset Homes</span>
             </h2>
           </div>
 
