@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, User } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -272,16 +271,8 @@ export default function Testimonial() {
 
                   {/* Author Footer Block */}
                   <div className="border-t border-brand-gold/15 pt-4 mt-auto flex items-center gap-3.5">
-                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-brand-gold/30 shrink-0 bg-brand-beige">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        fill
-                        draggable={false}
-                        onContextMenu={(e) => e.preventDefault()}
-                        className="object-cover pointer-events-none select-none"
-                        sizes="50px"
-                      />
+                    <div className="w-11 h-11 rounded-full border border-brand-gold/40 bg-brand-beige flex items-center justify-center shrink-0 text-brand-gold shadow-xs">
+                      <User className="w-5 h-5 text-brand-gold" />
                     </div>
                     <div className="flex flex-col overflow-hidden">
                       <cite className="not-italic font-serif text-sm sm:text-base font-semibold text-brand-black leading-snug truncate">
