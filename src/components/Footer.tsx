@@ -180,6 +180,15 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
+                <Smartphone className="w-4 h-4 text-brand-gold shrink-0" />
+                <a
+                  href="tel:+971544263739"
+                  className="text-xs sm:text-sm font-sans font-light hover:text-brand-gold transition-colors duration-300"
+                >
+                  +971 54 426 3739
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-brand-gold shrink-0" />
                 <a
                   href="mailto:assethomesalain@gmail.com"
