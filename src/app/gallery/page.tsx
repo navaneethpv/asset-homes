@@ -237,7 +237,6 @@ export default function GalleryPage() {
                     </h3>
                   </div>
                 </div>
-                </div>
               </div>
             ))}
           </div>
