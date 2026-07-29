@@ -227,29 +227,29 @@ export default function GalleryPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Category Badge */}
-                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-brand-black/85 backdrop-blur-xs text-brand-gold text-[8px] sm:text-[9px] font-sans font-bold tracking-widest uppercase px-2.5 py-1 sm:px-3 sm:py-1.5 border border-brand-gold/30 shadow-md">
+                  {/* <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-brand-black/85 backdrop-blur-xs text-brand-gold text-[8px] sm:text-[9px] font-sans font-bold tracking-widest uppercase px-2.5 py-1 sm:px-3 sm:py-1.5 border border-brand-gold/30 shadow-md">
                     {prop.category}
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Card Body */}
                 <div className="p-4 sm:p-5 lg:p-6 flex flex-col grow justify-between">
                   <div>
-                    <span className="text-[8px] sm:text-[9px] font-sans font-bold tracking-[0.15em] sm:tracking-[0.2em] text-brand-gold uppercase block mb-1 sm:mb-1.5">
+                    {/* <span className="text-[8px] sm:text-[9px] font-sans font-bold tracking-[0.15em] sm:tracking-[0.2em] text-brand-gold uppercase block mb-1 sm:mb-1.5">
                       {prop.location}
-                    </span>
+                    </span> */}
 
                     <h3 className="font-serif text-base sm:text-lg lg:text-xl font-medium text-brand-black mb-1.5 sm:mb-2 group-hover:text-brand-gold transition-colors duration-300">
                       {prop.name}
                     </h3>
 
-                    <p className="text-xs sm:text-sm font-sans font-light text-brand-charcoal-light leading-relaxed mb-4 sm:mb-6">
+                    {/* <p className="text-xs sm:text-sm font-sans font-light text-brand-charcoal-light leading-relaxed mb-4 sm:mb-6">
                       {prop.description}
-                    </p>
+                    </p> */}
                   </div>
 
                   {/* Feature micro-specs */}
-                  <div className="pt-3 sm:pt-4 border-t border-brand-gold/15 flex flex-wrap gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-sans text-brand-charcoal font-medium">
+                  {/* <div className="pt-3 sm:pt-4 border-t border-brand-gold/15 flex flex-wrap gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-sans text-brand-charcoal font-medium">
                     {prop.specs.map((spec) => (
                       <span
                         key={spec}
@@ -258,7 +258,7 @@ export default function GalleryPage() {
                         {spec}
                       </span>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}
