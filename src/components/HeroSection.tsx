@@ -145,8 +145,8 @@ export default function HeroSection() {
               {activeSlide.eyebrow}
             </span>
             {activeSlide.since ? (
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/30 backdrop-blur-sm text-xs font-sans font-semibold tracking-[0.25em] text-brand-gold uppercase mb-4 shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/30 backdrop-blur-sm text-xs font-sans font-semibold tracking-[0.25em] text-white uppercase mb-4 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-white " />
                 {activeSlide.since}
               </span>
             ) : null}

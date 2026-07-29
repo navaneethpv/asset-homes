@@ -37,7 +37,7 @@ export const officeLocations: OfficeLocation[] = [
   {
     city: "Asset Homes Headquarters",
     area: "Central District, Al Ain",
-    address: "137th Street, Plot Number 263, Central District, Al Kuwaitat, Al Ain, Abu Dhabi, UAE",
+    address: "Building Number 34, Floor M 1, 101, Al Kuwaitat, Al Ain, Abu Dhabi, UAE",
     coordinates: "24.2194° N, 55.7600° E",
     lat: 24.2194,
     lng: 55.7600,
@@ -68,8 +68,8 @@ export const contactInfoItems: ContactInfoItem[] = [
     id: "address",
     title: "Main Office Location",
     subtitle: "Al Kuwaitat, Al Ain",
-    value: "137th Street, Plot No. 263",
-    detail: "Central District, Al Ain, Abu Dhabi, UAE",
+    value: "Building Number 34, Floor M 1, 101",
+    detail: "Al Kuwaitat, Al Ain, Abu Dhabi, UAE",
     iconName: "MapPin",
   },
   {
