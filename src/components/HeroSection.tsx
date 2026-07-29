@@ -16,6 +16,10 @@ interface HeroSlide {
   id: number;
   eyebrow: string;
   headline: string;
+<<<<<<< HEAD
+=======
+  since?: string;
+>>>>>>> origin/feat
   description: string;
   image: string;
   primaryCtaText: string;
@@ -29,8 +33,16 @@ const slides: HeroSlide[] = [
     id: 1,
     eyebrow: "Asset Homes Property Management LLC",
     headline: "Your Premier Real Estate Professional",
+<<<<<<< HEAD
     description: "Our mission is to bring property and infrastructure management into the 21st Century by aligning the interests of company and client through attentive service, asset protection, and maximizing property value.",
     image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=2000",
+=======
+    since: "since 2010",
+    description:
+      "Our mission is to bring property and infrastructure management into the 21st Century by aligning the interests of company and client through attentive service, asset protection, and maximizing property value.",
+    image:
+      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=2000",
+>>>>>>> origin/feat
     primaryCtaText: "Our Services",
     primaryCtaHref: "/services",
     secondaryCtaText: "Explore Portfolio",
@@ -40,8 +52,15 @@ const slides: HeroSlide[] = [
     id: 2,
     eyebrow: "15 Years of Proven Excellence",
     headline: "Protecting & Maximizing Property Value",
+<<<<<<< HEAD
     description: "Delivering exceptional service and exceeding tenant expectations at every step of the transaction to preserve asset value across Abu Dhabi and Al Ain.",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000",
+=======
+    description:
+      "Delivering exceptional service and exceeding tenant expectations at every step of the transaction to preserve asset value across Abu Dhabi and Al Ain.",
+    image:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000",
+>>>>>>> origin/feat
     primaryCtaText: "About Company",
     primaryCtaHref: "/about",
     secondaryCtaText: "Contact Us",
@@ -51,8 +70,15 @@ const slides: HeroSlide[] = [
     id: 3,
     eyebrow: "21st Century Infrastructure Care",
     headline: "Institutional-Grade Property Management",
+<<<<<<< HEAD
     description: "Creating a positive impact in the real estate market while working collaboratively with industry professionals to provide quality living from a team that cares.",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=2000",
+=======
+    description:
+      "Creating a positive impact in the real estate market while working collaboratively with industry professionals to provide quality living from a team that cares.",
+    image:
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=2000",
+>>>>>>> origin/feat
     primaryCtaText: "Our Vision",
     primaryCtaHref: "/vision",
     secondaryCtaText: "Schedule Consultation",
@@ -136,6 +162,15 @@ export default function HeroSection() {
             <span className="text-xs sm:text-sm font-sans font-bold tracking-[0.3em] text-brand-gold uppercase mb-4 block">
               {activeSlide.eyebrow}
             </span>
+<<<<<<< HEAD
+=======
+            {activeSlide.since ? (
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/30 backdrop-blur-sm text-xs font-sans font-semibold tracking-[0.25em] text-white uppercase mb-4 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-white " />
+                {activeSlide.since}
+              </span>
+            ) : null}
+>>>>>>> origin/feat
 
             <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.12] mb-6 max-w-4xl">
               {activeSlide.headline}
@@ -213,4 +248,7 @@ export default function HeroSection() {
     </section>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/feat

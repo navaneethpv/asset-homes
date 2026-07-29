@@ -63,8 +63,12 @@ export const spotlightData: GallerySpotlightData = {
   description:
     "We believe exceptional real estate architecture deserves an equally exceptional operational framework. Our portfolio management extends far beyond routine checklists—protecting aesthetic elegance and technical longevity.",
   buttonText: "Explore Operational Services",
+<<<<<<< HEAD
   image:
     "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1600",
+=======
+  image: "/gallery/image.png",
+>>>>>>> origin/feat
 };
 
 export const ctaData: GalleryCtaData = {
@@ -79,66 +83,108 @@ export const ctaData: GalleryCtaData = {
 export const galleryData: GalleryProperty[] = [
   {
     id: "corniche",
+<<<<<<< HEAD
     name: "The Corniche Tower",
     category: "Waterfront",
     location: "Al Bateen, Abu Dhabi",
     image:
       "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=800",
+=======
+    name: "Al Ain Muwaiji",
+    category: "Waterfront",
+    location: "Al Bateen, Abu Dhabi",
+    image: "/gallery/image1.jpeg",
+>>>>>>> origin/feat
     description:
       "A landmark 65-story skyscraper with bespoke glass cladding and five-star waterfront facilities.",
     specs: ["65 Storeys", "Bespoke Glass Facade", "Estidama Pearl 3"],
   },
   {
     id: "yas-marina",
+<<<<<<< HEAD
     name: "Yas Marina Residences",
     category: "Waterfront",
     location: "Yas Island, Abu Dhabi",
     image:
       "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
+=======
+    name: "Al Ain Sanayya",
+    category: "Waterfront",
+    location: "Al Ain, Abu Dhabi",
+    image: "/gallery/image2.jpeg",
+>>>>>>> origin/feat
     description:
       "Luxury marina-front living spaces with automated operations and premium preventative upkeep.",
     specs: ["Private Berth Access", "Smart HVAC Systems", "24/7 Concierge"],
   },
   {
     id: "saadiyat-villas",
+<<<<<<< HEAD
     name: "Saadiyat Beach Estates",
     category: "Residential",
     location: "Saadiyat Island, Abu Dhabi",
     image:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+=======
+    name: "Al Ain Muwaiji",
+    category: "Residential",
+    location: "Saadiyat Island, Abu Dhabi",
+    image: "/gallery/image3.jpeg",
+>>>>>>> origin/feat
     description:
       "Ultra-exclusive private beachfront residences managed with strict architectural audit routines.",
     specs: ["Beachfront Villas", "Solar Micro-Grids", "Private Security"],
   },
   {
     id: "capital-plaza",
+<<<<<<< HEAD
     name: "Capital Plaza Commercial",
     category: "Commercial",
     location: "Downtown, Abu Dhabi",
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
+=======
+    name: "Al Ain Khabeesi",
+    category: "Commercial",
+    location: "Al Ain, Abu Dhabi",
+    image: "/gallery/image4.png",
+>>>>>>> origin/feat
     description:
       "High-volume institutional corporate spaces supported by MEP operations and predictive servicing.",
     specs: ["Grade-A Offices", "Predictive MEP", "Full Ledger Sync"],
   },
   {
     id: "reem-island",
+<<<<<<< HEAD
     name: "Al Reem Heights",
     category: "Residential",
     location: "Al Reem Island, Abu Dhabi",
     image:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
+=======
+    name: "Al Ain Khabeesi",
+    category: "Residential",
+    location: "Al Ain, Abu Dhabi",
+    image: "/gallery/image5.png",
+>>>>>>> origin/feat
     description:
       "Premium high-rise residential apartments operating on full-ledger accounting integrations.",
     specs: ["Sky Gardens", "Audit Escrow", "Hospitality Desk"],
   },
   {
     id: "gate-district",
+<<<<<<< HEAD
     name: "The Gate Business Hub",
     category: "Commercial",
     location: "Al Maryah Island, Abu Dhabi",
     image:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800",
+=======
+    name: "Al Ain Khabeesi",
+    category: "Commercial",
+    location: "Al Maryah Island, Abu Dhabi",
+    image: "/gallery/image6.png",
+>>>>>>> origin/feat
     description:
       "Sophisticated corporate business suites featuring smart energy tracking and Estidama certifications.",
     specs: ["Financial District", "Estidama Certified", "MEP Automation"],
