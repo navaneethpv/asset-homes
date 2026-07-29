@@ -37,19 +37,11 @@ export const officeLocations: OfficeLocation[] = [
   {
     city: "Asset Homes Headquarters",
     area: "Central District, Al Ain",
-<<<<<<< HEAD
-    address: "137th Street, Plot Number 263, Central District, Al Kuwaitat, Al Ain, Abu Dhabi, UAE",
-    coordinates: "24.2194° N, 55.7600° E",
-    lat: 24.2194,
-    lng: 55.7600,
-    phone: "037636611 / +971 507 308064",
-=======
     address: "Building Number 34, Floor M 1, 101, Al Kuwaitat, Al Ain, Abu Dhabi, UAE",
     coordinates: "24.2194° N, 55.7600° E",
     lat: 24.2194,
     lng: 55.7600,
     phone: "03 763 6611 / +971 50 730 8064 / +971 54 426 3739",
->>>>>>> origin/feat
     email: "assethomesalain@gmail.com",
     hours: "Saturday – Thursday: 08:00 – 18:00 GST",
   },
@@ -60,11 +52,7 @@ export const contactInfoItems: ContactInfoItem[] = [
     id: "phone",
     title: "Telephone Desk",
     subtitle: "Direct Lines",
-<<<<<<< HEAD
-    value: "037636611 / +971 507 308064",
-=======
     value: "03 763 6611 / +971 50 730 8064 / +971 54 426 3739",
->>>>>>> origin/feat
     detail: "Immediate support and property management inquiries",
     iconName: "Phone",
   },
@@ -80,13 +68,8 @@ export const contactInfoItems: ContactInfoItem[] = [
     id: "address",
     title: "Main Office Location",
     subtitle: "Al Kuwaitat, Al Ain",
-<<<<<<< HEAD
-    value: "137th Street, Plot No. 263",
-    detail: "Central District, Al Ain, Abu Dhabi, UAE",
-=======
     value: "Building Number 34, Floor M 1, 101",
     detail: "Al Kuwaitat, Al Ain, Abu Dhabi, UAE",
->>>>>>> origin/feat
     iconName: "MapPin",
   },
   {

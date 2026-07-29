@@ -76,11 +76,6 @@ export default function TrustLegacy() {
           
           {/* Left Column (Editorial text block) */}
           <div ref={textContainerRef} className="lg:col-span-6 flex flex-col justify-center order-2 lg:order-1">
-<<<<<<< HEAD
-            <span className="text-reveal text-xs font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-4 opacity-0 block">
-              15 Years of Experience
-            </span>
-=======
             <div className="text-reveal opacity-0 mb-4 flex items-center gap-3">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-xs font-sans font-semibold tracking-[0.2em] text-brand-gold uppercase shadow-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
@@ -90,7 +85,6 @@ export default function TrustLegacy() {
                 • 15 Years of Experience
               </span>
             </div>
->>>>>>> origin/feat
             
             <h2 className="text-reveal font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-brand-black leading-tight mb-5 opacity-0">
               Fifteen Years of <span className="text-brand-gold italic">Service &amp; Protection</span>

@@ -435,15 +435,12 @@ export default function AboutPage() {
             <Breadcrumb items={[{ label: "About Us" }]} />
           </div>
           <div className="text-center flex flex-col items-center">
-<<<<<<< HEAD
-=======
             <div className="hero-reveal mb-3 flex items-center justify-center gap-2">
               <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-xs font-sans font-semibold tracking-[0.2em] text-brand-gold uppercase shadow-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
                 Since 2010
               </span>
             </div>
->>>>>>> origin/feat
             <span className="hero-reveal text-[10px] font-sans font-bold tracking-[0.25em] text-brand-gold uppercase mb-3 block">
               Asset Homes Property Management LLC
             </span>
@@ -452,11 +449,7 @@ export default function AboutPage() {
               <span className="text-brand-gold italic">21st Century</span>
             </h1>
             <p className="hero-reveal text-brand-cream/80 text-xs sm:text-sm font-sans leading-relaxed max-w-md mx-auto font-normal">
-<<<<<<< HEAD
-              With 15 years of experience, we protect property assets and
-=======
               Established in 2010 with 15 years of experience, we protect property assets and
->>>>>>> origin/feat
               deliver quality living across Abu Dhabi and Al Ain.
             </p>
           </div>

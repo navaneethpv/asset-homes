@@ -227,64 +227,16 @@ export default function GalleryPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Category Badge */}
-<<<<<<< HEAD
-                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-brand-black/85 backdrop-blur-xs text-brand-gold text-[8px] sm:text-[9px] font-sans font-bold tracking-widest uppercase px-2.5 py-1 sm:px-3 sm:py-1.5 border border-brand-gold/30 shadow-md">
-                    {prop.category}
-                  </div>
-=======
-                  {/* <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-brand-black/85 backdrop-blur-xs text-brand-gold text-[8px] sm:text-[9px] font-sans font-bold tracking-widest uppercase px-2.5 py-1 sm:px-3 sm:py-1.5 border border-brand-gold/30 shadow-md">
-                    {prop.category}
-                  </div> */}
->>>>>>> origin/feat
                 </div>
 
                 {/* Card Body */}
                 <div className="p-4 sm:p-5 lg:p-6 flex flex-col grow justify-between">
                   <div>
-<<<<<<< HEAD
-                    <span className="text-[8px] sm:text-[9px] font-sans font-bold tracking-[0.15em] sm:tracking-[0.2em] text-brand-gold uppercase block mb-1 sm:mb-1.5">
-                      {prop.location}
-                    </span>
-=======
-                    {/* <span className="text-[8px] sm:text-[9px] font-sans font-bold tracking-[0.15em] sm:tracking-[0.2em] text-brand-gold uppercase block mb-1 sm:mb-1.5">
-                      {prop.location}
-                    </span> */}
->>>>>>> origin/feat
-
-                    <h3 className="font-serif text-base sm:text-lg lg:text-xl font-medium text-brand-black mb-1.5 sm:mb-2 group-hover:text-brand-gold transition-colors duration-300">
+                    <h3 className="font-serif text-base sm:text-lg lg:text-xl font-medium text-brand-black mb-1.5 sm:mb-2 group-hover:text-brand-gold transition-colors duration-300 text-center">
                       {prop.name}
                     </h3>
-
-<<<<<<< HEAD
-                    <p className="text-xs sm:text-sm font-sans font-light text-brand-charcoal-light leading-relaxed mb-4 sm:mb-6">
-                      {prop.description}
-                    </p>
                   </div>
-
-                  {/* Feature micro-specs */}
-                  <div className="pt-3 sm:pt-4 border-t border-brand-gold/15 flex flex-wrap gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-sans text-brand-charcoal font-medium">
-=======
-                    {/* <p className="text-xs sm:text-sm font-sans font-light text-brand-charcoal-light leading-relaxed mb-4 sm:mb-6">
-                      {prop.description}
-                    </p> */}
-                  </div>
-
-                  {/* Feature micro-specs */}
-                  {/* <div className="pt-3 sm:pt-4 border-t border-brand-gold/15 flex flex-wrap gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-sans text-brand-charcoal font-medium">
->>>>>>> origin/feat
-                    {prop.specs.map((spec) => (
-                      <span
-                        key={spec}
-                        className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-brand-beige/80 border border-brand-gold/20 text-brand-charcoal"
-                      >
-                        {spec}
-                      </span>
-                    ))}
-<<<<<<< HEAD
-                  </div>
-=======
-                  </div> */}
->>>>>>> origin/feat
+                </div>
                 </div>
               </div>
             ))}

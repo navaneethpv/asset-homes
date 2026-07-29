@@ -4,11 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-<<<<<<< HEAD
-import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
-=======
 import { ArrowUpRight, Phone, Smartphone, Mail, MapPin } from "lucide-react";
->>>>>>> origin/feat
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLenis } from "lenis/react";
@@ -160,12 +156,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4.5 h-4.5 text-brand-gold shrink-0 mt-0.5" />
                 <span className="text-xs sm:text-sm font-sans font-light leading-relaxed">
-<<<<<<< HEAD
-                  137th St, Plot No. 263, Central District,<br />
-=======
-                  {/* 137th St, Plot No. 263, Central District, */}
                   Building Number 34, Floor M 1, 101,<br />
->>>>>>> origin/feat
                   Al Kuwaitat, Al Ain, Abu Dhabi, UAE
                 </span>
               </li>
@@ -175,9 +166,6 @@ export default function Footer() {
                   href="tel:037636611"
                   className="text-xs sm:text-sm font-sans font-light hover:text-brand-gold transition-colors duration-300"
                 >
-<<<<<<< HEAD
-                  037636611 / +971 507 308064
-=======
                   03 763 6611
                 </a>
               </li>
@@ -197,7 +185,6 @@ export default function Footer() {
                   className="text-xs sm:text-sm font-sans font-light hover:text-brand-gold transition-colors duration-300"
                 >
                   +971 54 426 3739
->>>>>>> origin/feat
                 </a>
               </li>
               <li className="flex items-center gap-3">
