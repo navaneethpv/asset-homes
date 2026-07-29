@@ -17,7 +17,11 @@ export default function Footer() {
   const lenis = useLenis();
   const pathname = usePathname();
 
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isHash: boolean = false) => {
+  const handleScrollTo = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    isHash: boolean = false,
+  ) => {
     if (isHash && href.startsWith("/#") && pathname === "/") {
       e.preventDefault();
       const targetId = href.substring(2);
@@ -43,7 +47,8 @@ export default function Footer() {
     const ctx = gsap.context(() => {
       const banner = ctaBannerRef.current;
       if (banner) {
-        gsap.fromTo(banner,
+        gsap.fromTo(
+          banner,
           { scale: 0.94, opacity: 0, borderRadius: "16px" },
           {
             scale: 1,
@@ -56,8 +61,8 @@ export default function Footer() {
               start: "top 92%",
               end: "top 65%",
               scrub: 0.5,
-            }
-          }
+            },
+          },
         );
       }
     });
@@ -65,10 +70,12 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer id="contact" className="bg-brand-black text-brand-cream border-t border-brand-gold/10 overflow-hidden">
-      
+    <footer
+      id="contact"
+      className="bg-brand-black text-brand-cream border-t border-brand-gold/10 overflow-hidden"
+    >
       {/* Top CTA Banner with Background Image */}
-      <div 
+      <div
         ref={ctaBannerRef}
         className="relative w-full max-w-none py-24 sm:py-32 overflow-hidden border-b border-brand-cream/10 group origin-center opacity-0"
       >
@@ -90,10 +97,12 @@ export default function Footer() {
               ADVISORY & INTAKE
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-6 leading-tight">
-              Let’s Protect Your <span className="text-brand-gold italic">Investment</span>
+              Let’s Protect Your{" "}
+              <span className="text-brand-gold italic">Investment</span>
             </h2>
             <p className="text-brand-cream/80 text-sm sm:text-base font-sans font-light leading-relaxed">
-              Connect with our property advisors in Abu Dhabi to schedule a comprehensive portfolio review or discuss custom management plans.
+              Connect with our property advisors in Abu Dhabi to schedule a
+              comprehensive portfolio review or discuss custom management plans.
             </p>
           </div>
           <div className="lg:col-span-4 flex justify-start lg:justify-end">
@@ -111,7 +120,6 @@ export default function Footer() {
       {/* Main Footer Links & Info Grid */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-          
           {/* Column 1: Branding */}
           <div className="flex flex-col">
             <Image
@@ -121,9 +129,11 @@ export default function Footer() {
               height={90}
               className="h-16 md:h-25 w-auto object-contain mb-6"
               priority
-            />         
+            />
             <p className="text-xs sm:text-sm font-sans text-center font-light text-brand-cream/60 leading-relaxed">
-              Property and infrastructure management across Abu Dhabi and Al Ain. Protecting asset value and delivering quality service for 15 years.
+              Property and infrastructure management across Abu Dhabi and Al
+              Ain. Protecting asset value and delivering quality service for 15
+              years.
             </p>
           </div>
 
@@ -156,8 +166,8 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4.5 h-4.5 text-brand-gold shrink-0 mt-0.5" />
                 <span className="text-xs sm:text-sm font-sans font-light leading-relaxed">
-                  {/* 137th St, Plot No. 263, Central District, */}
-                  Building Number 34, Floor M 1, 101,<br />
+                  137th St, Building Number 34, Floor M 1, 101, Central
+                  District
                   Al Kuwaitat, Al Ain, Abu Dhabi, UAE
                 </span>
               </li>
@@ -207,36 +217,66 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4 text-brand-cream/70 text-xs sm:text-sm">
               <li className="flex flex-col border-l border-brand-gold/20 pl-3">
-                <span className="font-semibold text-brand-cream">15 Years of Experience</span>
-                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">Proven Track Record in UAE Real Estate</span>
+                <span className="font-semibold text-brand-cream">
+                  15 Years of Experience
+                </span>
+                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">
+                  Proven Track Record in UAE Real Estate
+                </span>
               </li>
               <li className="flex flex-col border-l border-brand-gold/20 pl-3">
-                <span className="font-semibold text-brand-cream">Exceptional Service</span>
-                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">Dedicated Property & Infrastructure Care</span>
+                <span className="font-semibold text-brand-cream">
+                  Exceptional Service
+                </span>
+                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">
+                  Dedicated Property & Infrastructure Care
+                </span>
               </li>
               <li className="flex flex-col border-l border-brand-gold/20 pl-3">
-                <span className="font-semibold text-brand-cream">Industry Collaboration</span>
-                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">Working with Real Estate Professionals</span>
+                <span className="font-semibold text-brand-cream">
+                  Industry Collaboration
+                </span>
+                <span className="text-[10px] text-brand-cream/50 font-sans tracking-wide">
+                  Working with Real Estate Professionals
+                </span>
               </li>
             </ul>
           </div>
-
         </div>
       </div>
 
       {/* Bottom Legal bar */}
       <div className="border-t border-brand-cream/5 py-8">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 pr-16 sm:pr-24 lg:pr-28 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sans font-light text-brand-cream/40 flex-wrap">
-          <p>© {new Date().getFullYear()} Asset Homes Property Management LLC. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Asset Homes Property Management LLC.
+            All rights reserved.
+          </p>
           <div className="flex flex-wrap gap-4 sm:gap-6">
-            <Link href="/#contact" onClick={(e) => handleScrollTo(e, "/#contact", true)} className="hover:text-brand-gold transition-colors duration-300">Privacy Policy</Link>
-            <Link href="/#contact" onClick={(e) => handleScrollTo(e, "/#contact", true)} className="hover:text-brand-gold transition-colors duration-300">Terms of Service</Link>
-            <Link href="/#contact" onClick={(e) => handleScrollTo(e, "/#contact", true)} className="hover:text-brand-gold transition-colors duration-300">Regulatory Disclosures</Link>
+            <Link
+              href="/#contact"
+              onClick={(e) => handleScrollTo(e, "/#contact", true)}
+              className="hover:text-brand-gold transition-colors duration-300"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/#contact"
+              onClick={(e) => handleScrollTo(e, "/#contact", true)}
+              className="hover:text-brand-gold transition-colors duration-300"
+            >
+              Terms of Service
+            </Link>
+            <Link
+              href="/#contact"
+              onClick={(e) => handleScrollTo(e, "/#contact", true)}
+              className="hover:text-brand-gold transition-colors duration-300"
+            >
+              Regulatory Disclosures
+            </Link>
           </div>
         </div>
       </div>
-
     </footer>
   );
 }
-
